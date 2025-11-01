@@ -116,3 +116,6 @@ SGJNOV2025/Library
 
 # Log files can be ignored.
 fmod_editor.log
+
+# Ignore FMOD Mac binaries only
+Assets/Plugins/FMOD/platforms/mac/lib/
