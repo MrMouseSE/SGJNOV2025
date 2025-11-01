@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
+using DisolveEffectScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneHandler
 {
-    private static Dictionary<string, AbstractSceneHandler> _sceneHandlers = new Dictionary<string, AbstractSceneHandler>();
+    private Dictionary<string, AbstractSceneHandler> _sceneHandlers = new Dictionary<string, AbstractSceneHandler>();
     private GameContext _gameContext;
+
+    private string _previousSceneName;
+    private string _nextSceneName;
     
     public SceneHandler(GameContext context)
     {
@@ -21,6 +25,7 @@ public class SceneHandler
             await LoadScene("MenuScene");
             await LoadScene("SettingsScene");
             await LoadScene("GameScene");
+            _previousSceneName = "MenuScene";
         }
         catch (Exception e)
         {
@@ -46,12 +51,25 @@ public class SceneHandler
         _sceneHandlers.Add(scene.name,sceneHandler);
     }
     
-    public static void ActivateSceneByName(string sceneName)
+    public void ActivateSceneByName(string sceneName)
     {
+        _nextSceneName = sceneName;
+        var disolveSystem = _gameContext.GetGameSystemByType(typeof(DisolveEffectSystem)) as DisolveEffectSystem;
+        disolveSystem.OnAnimationHalf += SwitchScene;
+        disolveSystem.SetToCurrentCamera(_sceneHandlers[_previousSceneName].SceneCamera);
+        disolveSystem.StartDisolveEffect();
+    }
+
+    private void SwitchScene()
+    {
+        var disolveSystem = _gameContext.GetGameSystemByType(typeof(DisolveEffectSystem)) as DisolveEffectSystem;
+        disolveSystem.OnAnimationHalf -= SwitchScene;
         foreach (var handler in _sceneHandlers)
         {
             handler.Value.SetSceneActivity(false);
         }
-        _sceneHandlers[sceneName].SetSceneActivity(true);
+        _sceneHandlers[_nextSceneName].SetSceneActivity(true);
+        disolveSystem.SetToCurrentCamera(_sceneHandlers[_nextSceneName].SceneCamera);
+        _previousSceneName = _nextSceneName;
     }
 }

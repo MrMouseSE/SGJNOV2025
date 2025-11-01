@@ -18,12 +18,12 @@ namespace MainMenuScripts.MainMenuButtons
 
         private void OnStartGameButtonClicked()
         {
-            SceneHandler.ActivateSceneByName("GameScene");
+            _context.SceneHandler.ActivateSceneByName("GameScene");
         }
 
         private void OnSettingsButtonClicked()
         {
-            SceneHandler.ActivateSceneByName("SettingsScene");
+            _context.SceneHandler.ActivateSceneByName("SettingsScene");
         }
 
         private void OnExitGameButtonClicked()
