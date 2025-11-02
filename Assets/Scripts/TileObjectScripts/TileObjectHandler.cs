@@ -9,6 +9,6 @@ namespace TileObjectScripts
     {
         public Vector3 TilePosition;
         public TilesTypes TileType;
-        public AbstractTileContainer AbstractTilePrefab;
+        public AbstractTileContainer TilePrefab;
     }
 }

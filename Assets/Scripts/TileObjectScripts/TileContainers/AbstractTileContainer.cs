@@ -8,6 +8,9 @@ namespace TileObjectScripts.TileContainers
         public GameObject TileGameObject;
         public Transform TileTransform;
         public TilesTypes TileType;
+        public MeshRenderer TileMeshRenderer;
+        public MeshRenderer GlowMeshRenderer;
+        public MeshRenderer AdditionalMeshRenderer;
         
         [Space]
         public List<Collider> Colliders;

@@ -6,6 +6,7 @@ namespace BallScripts
     [RequireComponent(typeof(Collider))]
     public class BallContainer : MonoBehaviour
     {
+        public GameObject BallGameObject;
         public Transform Transform;
         public Vector3 Position;
         public float Velocity;
