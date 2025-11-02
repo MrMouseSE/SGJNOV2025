@@ -1,7 +1,7 @@
 using BallScripts;
 using UnityEngine;
 
-namespace GameSceneScripts.TileObjectScripts
+namespace TileObjectScripts
 {
     public interface ITileModel
     {

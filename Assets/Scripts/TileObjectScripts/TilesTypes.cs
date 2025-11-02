@@ -1,4 +1,4 @@
-namespace GameSceneScripts.TileObjectScripts
+namespace TileObjectScripts
 {
     public enum TilesTypes
     {

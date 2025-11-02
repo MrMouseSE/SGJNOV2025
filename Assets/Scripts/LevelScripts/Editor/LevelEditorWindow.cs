@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GameSceneScripts.TileObjectScripts;
-using GameSceneScripts.TileObjectScripts.TileContainers;
+using TileObjectScripts;
+using TileObjectScripts.TileContainers;
 using UnityEditor;
 using UnityEngine;
 

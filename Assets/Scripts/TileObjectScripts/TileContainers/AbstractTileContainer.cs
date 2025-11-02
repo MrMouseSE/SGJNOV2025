@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameSceneScripts.TileObjectScripts.TileContainers
+namespace TileObjectScripts.TileContainers
 {
     public class AbstractTileContainer : MonoBehaviour
     {
