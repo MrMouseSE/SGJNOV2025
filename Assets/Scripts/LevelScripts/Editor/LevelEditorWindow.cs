@@ -140,6 +140,8 @@ namespace LevelScripts.Editor
                     AssetDatabase.LoadAssetAtPath<LevelData>(
                         AssetDatabase.GetAssetPath(_levelDescription.LevelData[levelIndex]));
                 levelData.SaveLevelHandlerToLevelData(_currentLevelHander);
+                EditorUtility.SetDirty(levelData);
+                EditorUtility.SetDirty(_levelDescription);
             }
             DestroyCurrentLevel();
             AssetDatabase.SaveAssets();
