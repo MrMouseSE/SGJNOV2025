@@ -7,6 +7,6 @@ namespace LevelScripts
     {
         public string LevelName;
         public int LevelDifficulty;
-        public List<TileObjectHandler> LevelTiles;
+        public List<TileObjectHandler> LevelTilesObjectHandler;
     }
 }

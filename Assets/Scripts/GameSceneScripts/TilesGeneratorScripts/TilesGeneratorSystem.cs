@@ -17,6 +17,7 @@ namespace GameSceneScripts.TilesGeneratorScripts
             TilesDescription = tilesDescription;
             LevelDescription = levelDescription;
             Model = new TilesGeneratorModel();
+            
         }
         
         public void InitGameSystem()

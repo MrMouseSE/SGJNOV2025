@@ -17,7 +17,7 @@ namespace LevelScripts
         {
             LevelName = levelHandler.LevelName;
             LevelDifficulty = levelHandler.LevelDifficulty;
-            LevelTilesHandlers = levelHandler.LevelTiles;
+            LevelTilesHandlers = levelHandler.LevelTilesObjectHandler;
         }
     }
 }
