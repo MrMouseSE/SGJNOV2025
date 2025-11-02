@@ -237,12 +237,19 @@ namespace LevelScripts.Editor
                 Enum.GetNames(typeof(TilesTypes)));
             if (EditorGUI.EndChangeCheck())
             {
-                ChangeTilePrefab();
+                ChangeTilePrefab(selectedHandler);
             }
         }
 
-        private void ChangeTilePrefab()
+        private void ChangeTilePrefab(TileObjectHandler selectedHandler)
         {
+            Vector3 position = selectedHandler.TilePosition;
+            DestroyImmediate(selectedHandler.TilePrefab.TileGameObject);
+            var tilePrefab = Instantiate(_tilesDescription.TileContainers.Find(x=> x.TileType == selectedHandler.TileType), Vector3.back, Quaternion.identity);
+            tilePrefab.TileTransform.position = position;
+            Selection.activeObject = tilePrefab;
+            _currentSelectedAbstractTileContainer = tilePrefab;
+            selectedHandler.TilePrefab = tilePrefab;
         }
     }
 }
