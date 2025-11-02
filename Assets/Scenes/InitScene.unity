@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisolveContainer: {fileID: 1924844859}
-  BallContainer: {fileID: 0}
-  TileContainer:
-  - {fileID: 0}
+  TilesDescription: {fileID: 11400000, guid: a1c92cc316059594696e1ac639a00ead, type: 2}
+  LevelDescription: {fileID: 11400000, guid: 9a61b1de4678e3e4a83a894e51cacef2, type: 2}
+  TileObjectHandlers: []
 --- !u!4 &1445191260
 Transform:
   m_ObjectHideFlags: 0

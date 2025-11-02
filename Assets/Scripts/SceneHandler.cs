@@ -11,21 +11,33 @@ public class SceneHandler
 
     private string _previousSceneName;
     private string _nextSceneName;
+
+    
+    public readonly string GameSceneName = "GameScene";
+    public readonly string MenuSceneName = "MenuScene";
+    public readonly string SettingsSceneName = "SettingsScene";
     
     public SceneHandler(GameContext context)
     {
         _gameContext = context;
         LoadAllScenes();
     }
+
+    public AbstractSceneHandler GetSceneHandlerByName(string sceneName)
+    {
+        if (!_sceneHandlers.ContainsKey(sceneName)) return null;
+        
+        return _sceneHandlers[sceneName];
+    }
     
     private async void LoadAllScenes()
     {
         try
         {
-            await LoadScene("MenuScene");
-            await LoadScene("SettingsScene");
-            await LoadScene("GameScene");
-            _previousSceneName = "MenuScene";
+            await LoadScene(MenuSceneName);
+            await LoadScene(SettingsSceneName);
+            await LoadScene(GameSceneName);
+            _previousSceneName = MenuSceneName;
         }
         catch (Exception e)
         {
@@ -47,8 +59,8 @@ public class SceneHandler
         var rootObjects = scene.GetRootGameObjects()[0];
         var sceneHandler = rootObjects.GetComponent<AbstractSceneHandler>();
         sceneHandler.InitSceneHandler(_gameContext);
-        sceneHandler.SetSceneActivity(sceneName == "MenuScene");
-        _sceneHandlers.Add(scene.name,sceneHandler);
+        sceneHandler.SetSceneActivity(sceneName == MenuSceneName);
+        _sceneHandlers.Add(sceneName,sceneHandler);
     }
     
     public void ActivateSceneByName(string sceneName)
@@ -62,6 +74,7 @@ public class SceneHandler
 
     private void SwitchScene()
     {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(_nextSceneName));
         var disolveSystem = _gameContext.GetGameSystemByType(typeof(DisolveEffectSystem)) as DisolveEffectSystem;
         disolveSystem.OnAnimationHalf -= SwitchScene;
         foreach (var handler in _sceneHandlers)

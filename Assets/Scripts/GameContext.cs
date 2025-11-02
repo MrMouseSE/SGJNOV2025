@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BallScripts;
 using DisolveEffectScripts;
+using GameSceneScripts.TilesGeneratorScripts;
 using LevelScripts;
 using TileObjectScripts;
 using TileObjectScripts.TileContainers;
@@ -11,26 +12,31 @@ public class GameContext : MonoBehaviour
 {
     public SceneHandler SceneHandler;
     public DisolveEffectContainer DisolveContainer;
-    public BallContainer BallContainer;
     public TilesDescription TilesDescription;
     public LevelDescription LevelDescription;
-
-    private int _currentDifficulty;
-    private readonly List<IGameSystem> GameSystems = new();
-    private bool _isGamePaused = true;
     
-    private List<TileObjectHandler> _tileObjectHandlers;
+    private readonly List<IGameSystem> GameSystems = new();
+    private bool _isGamePaused;
+    
+    [HideInInspector]
+    public int CurrentDifficulty;
+    [HideInInspector]
+    public bool RegenerateLevel;
+    [HideInInspector]
+    public List<TileObjectHandler> TileObjectHandlers;
     
     public void Start()
     {
         InitGame();
+        RegenerateLevel = true;
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
-        GameSystems.Add(new BallSystem(BallContainer));
+        GameSystems.Add(new BallSystem(TilesDescription.BallContainer));
+        GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription));
         
-        foreach (var handler in _tileObjectHandlers)
+        foreach (var handler in TileObjectHandlers)
         {
-            GameSystems.Add(new TileSystem(handler.AbstractTilePrefab));
+            GameSystems.Add(new TileSystem(handler.TilePrefab));
         }
     }
 
