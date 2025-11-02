@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
 using DisolveEffectScripts;
+using RecipeScripts;
 using UnityEngine;
 
 public class GameContext : MonoBehaviour
 {
     public SceneHandler SceneHandler;
     public DisolveEffectContainer DisolveContainer;
+    
+    [Space]
+    public RecipesDescription RecipesDescription;
+    public int CurrentDifficulty;
     
     private readonly List<IGameSystem> GameSystems = new();
     private bool _isGamePaused = true;
