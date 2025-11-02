@@ -109,6 +109,7 @@ namespace LevelScripts.Editor
             _levelDescription.LevelData[_currentLevelIndex].LevelTilesHandlers ??= new List<TileObjectHandler>();
             _levelDescription.LevelData[_currentLevelIndex].LevelTilesHandlers.RemoveAll(x=>x == null);
             
+            _currentLevelHander.LevelDifficulty = _levelDescription.LevelData[_currentLevelIndex].LevelDifficulty;
             _currentLevelHander.LevelTiles = TilesGeneratorStaticFactory.GenerateTilesToWorld(_levelDescription.LevelData[_currentLevelIndex].LevelTilesHandlers,
                 _tilesDescription);
             _currentSelectedAbstractTileContainer = _currentLevelHander.LevelTiles.Count == 0 ? null : _currentLevelHander.LevelTiles[^1].TilePrefab;
