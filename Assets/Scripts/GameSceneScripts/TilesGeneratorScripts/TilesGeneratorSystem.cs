@@ -29,6 +29,7 @@ namespace GameSceneScripts.TilesGeneratorScripts
             GameSceneHandler sceneHandler = (GameSceneHandler)gameContext.SceneHandler.GetSceneHandlerByName(gameContext.SceneHandler.GameSceneName);
             if (sceneHandler == null) return;
             if (!gameContext.RegenerateLevel) return;
+            DestroyTiles(gameContext);
             gameContext.TileObjectHandlers = GenerateTiles(gameContext.CurrentDifficulty, sceneHandler.TilesHolder);
             gameContext.RegenerateLevel = false;
         }
@@ -36,6 +37,11 @@ namespace GameSceneScripts.TilesGeneratorScripts
         private List<TileObjectHandler> GenerateTiles(int currentDifficulty, Transform parentTransform)
         {
             return Model.GenerateTiles(LevelDescription, TilesDescription, currentDifficulty, parentTransform);
+        }
+
+        private void DestroyTiles(GameContext gameContext)
+        {
+            Model.DestroyTiles(gameContext);
         }
     }
 }
