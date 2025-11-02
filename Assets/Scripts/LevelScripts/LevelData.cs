@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using GameSceneScripts.TileObjectScripts;
+using TileObjectScripts;
 using UnityEngine;
 
 namespace LevelScripts
