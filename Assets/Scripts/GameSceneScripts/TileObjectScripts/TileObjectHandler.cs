@@ -1,4 +1,5 @@
 using System;
+using GameSceneScripts.TileObjectScripts.TileContainers;
 using UnityEngine;
 
 namespace GameSceneScripts.TileObjectScripts
@@ -8,6 +9,6 @@ namespace GameSceneScripts.TileObjectScripts
     {
         public Vector3 TilePosition;
         public TilesTypes TileType;
-        public TileDummyContainer TilePrefab;
+        public AbstractTileContainer AbstractTilePrefab;
     }
 }
