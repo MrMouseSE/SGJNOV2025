@@ -1,11 +1,13 @@
-namespace TileScript
+using GameSceneScripts.TileObjectScripts.TileContainers;
+
+namespace GameSceneScripts.TileObjectScripts
 {
     public class TileSystem : IGameSystem
     {
-        private TileContainer _container;
+        private AbstractTileContainer _container;
         private ITileModel _model;
 
-        public TileSystem(TileContainer container)
+        public TileSystem(AbstractTileContainer container)
         {
             _container = container;
             _model = TileModelFactory.Create(container);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameSceneScripts.TileObjectScripts;
+using GameSceneScripts.TileObjectScripts.TileContainers;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace LevelScripts.Editor
     public class LevelEditorWindow : EditorWindow
     {
         private static LevelDescription _levelDescription;
-        private static TileDummyContainer _tileDummyContainer;
+        private static AbstractTileContainer abstractTileContainer;
         private int _currentLevelIndex;
         private List<string> _allLevels = new List<string>();
 
@@ -18,7 +19,7 @@ namespace LevelScripts.Editor
 
         private string _newLevelName;
 
-        private TileDummyContainer _currentSelectedTileContainer;
+        private AbstractTileContainer currentSelectedAbstractTileContainer;
         
         [MenuItem("LevelEditor/Level Editor Window")]
         public static void ShowWindow()
@@ -27,7 +28,7 @@ namespace LevelScripts.Editor
             window.Show();
             _levelDescription = AssetDatabase.LoadAssetAtPath<LevelDescription>("Assets/Content/GameContent/Descriptions/LevelDescriptions.asset");
             GameObject container = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Content/GameContent/Prefabs/TileContainer.prefab");
-            _tileDummyContainer = container.GetComponent<TileDummyContainer>();
+            abstractTileContainer = container.GetComponent<AbstractTileContainer>();
         }
 
         public void OnGUI()
@@ -108,22 +109,22 @@ namespace LevelScripts.Editor
             
             foreach (var tileDescriptionHandler in _levelDescription.LevelData[_currentLevelIndex].LevelTilesHandlers)
             {
-                TileDummyContainer tile = Instantiate(_tileDummyContainer, tileDescriptionHandler.TilePosition, Quaternion.identity);
+                AbstractTileContainer abstractTile = Instantiate(abstractTileContainer, tileDescriptionHandler.TilePosition, Quaternion.identity);
                 var tileEditableHandler = new TileObjectHandler();
                 tileEditableHandler.TilePosition = tileDescriptionHandler.TilePosition;
-                tileEditableHandler.TilePrefab = tile;
+                tileEditableHandler.AbstractTilePrefab = abstractTile;
                 _currentLevelHander.LevelTiles.Add(tileEditableHandler);
-                _currentSelectedTileContainer = tile;
+                currentSelectedAbstractTileContainer = abstractTile;
             }
         }
 
         private void DestroyCurrentLevel()
         {
             if (_currentLevelHander == null) return;
-            foreach (var tile in _currentLevelHander.LevelTiles.Where(tile => tile.TilePrefab != null))
+            foreach (var tile in _currentLevelHander.LevelTiles.Where(tile => tile.AbstractTilePrefab != null))
             {
-                DestroyImmediate(tile.TilePrefab.TileGameObject);
-                tile.TilePrefab = null;
+                DestroyImmediate(tile.AbstractTilePrefab.TileGameObject);
+                tile.AbstractTilePrefab = null;
             }
 
             _currentLevelHander = null;
@@ -165,12 +166,12 @@ namespace LevelScripts.Editor
 
         private void Update()
         {
-            TileDummyContainer testDummyContainer = null;
+            AbstractTileContainer testContainer = null;
             if (Selection.activeGameObject == null) return;
             
-            if (!Selection.activeGameObject.TryGetComponent(out testDummyContainer))
+            if (!Selection.activeGameObject.TryGetComponent(out testContainer))
             {
-                var c = Selection.activeGameObject.GetComponentInParent<TileDummyContainer>();
+                var c = Selection.activeGameObject.GetComponentInParent<AbstractTileContainer>();
                 if (c != null)
                 {
                     Selection.activeGameObject = c.gameObject;
@@ -186,11 +187,11 @@ namespace LevelScripts.Editor
             if (GUILayout.Button("Add tile"))
             {
                 TileObjectHandler newTileObjectHandler = new TileObjectHandler();
-                var tilePrefab = Instantiate(_tileDummyContainer, Vector3.back, Quaternion.identity);
+                var tilePrefab = Instantiate(abstractTileContainer, Vector3.back, Quaternion.identity);
                 tilePrefab.TileObjectHandler = newTileObjectHandler;
-                newTileObjectHandler.TilePrefab = tilePrefab;
+                newTileObjectHandler.AbstractTilePrefab = tilePrefab;
                 Selection.activeObject = tilePrefab;
-                _currentSelectedTileContainer = tilePrefab;
+                currentSelectedAbstractTileContainer = tilePrefab;
                 if (_currentLevelHander.LevelTiles == null) _currentLevelHander.LevelTiles = new List<TileObjectHandler>();
                 _currentLevelHander.LevelTiles.Add(newTileObjectHandler);
             }
@@ -198,38 +199,38 @@ namespace LevelScripts.Editor
             EditorGUILayout.Space();
             TileObjectHandler selectedHandler = null;
             
-            if (_currentSelectedTileContainer != null)
+            if (currentSelectedAbstractTileContainer != null)
             {
-                foreach (var levelTile in _currentLevelHander.LevelTiles.Where(levelTile => levelTile.TilePrefab == _currentSelectedTileContainer))
+                foreach (var levelTile in _currentLevelHander.LevelTiles.Where(levelTile => levelTile.AbstractTilePrefab == currentSelectedAbstractTileContainer))
                 {
                     selectedHandler = levelTile;
                 }
             }
             
-            if (Selection.activeGameObject != null && _currentSelectedTileContainer != null && Selection.activeGameObject != _currentSelectedTileContainer.TileGameObject)
+            if (Selection.activeGameObject != null && currentSelectedAbstractTileContainer != null && Selection.activeGameObject != currentSelectedAbstractTileContainer.TileGameObject)
             {
                 foreach (var levelTile in _currentLevelHander.LevelTiles)
                 {
-                    if (levelTile.TilePrefab.TileGameObject == Selection.activeGameObject)
+                    if (levelTile.AbstractTilePrefab.TileGameObject == Selection.activeGameObject)
                     {
                         selectedHandler = levelTile;
-                        _currentSelectedTileContainer = Selection.activeGameObject.GetComponent<TileDummyContainer>();
+                        currentSelectedAbstractTileContainer = Selection.activeGameObject.GetComponent<AbstractTileContainer>();
                     }
                 }
             }
 
             if (selectedHandler == null) return;
-            Vector3 position = _currentSelectedTileContainer.TileTransform.position;
+            Vector3 position = currentSelectedAbstractTileContainer.TileTransform.position;
             position = new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), Mathf.Round(position.z));
             foreach (var levelTile in _currentLevelHander.LevelTiles)
             {
-                if (levelTile.TilePrefab == _currentSelectedTileContainer) continue;
+                if (levelTile.AbstractTilePrefab == currentSelectedAbstractTileContainer) continue;
                 if ((levelTile.TilePosition - position).magnitude < 0.1f)
                 {
                     position = Vector3.back;
                 }
             }
-            selectedHandler.TilePrefab.transform.position = position;
+            selectedHandler.AbstractTilePrefab.transform.position = position;
             selectedHandler.TilePosition = position;
             selectedHandler.TileType = (TilesTypes)EditorGUILayout.Popup((int)selectedHandler.TileType, 
                 Enum.GetNames(typeof(TilesTypes)));

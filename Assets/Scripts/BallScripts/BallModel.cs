@@ -1,5 +1,5 @@
 using System;
-using TileScript;
+using GameSceneScripts.TileObjectScripts.TileContainers;
 using UnityEngine;
 
 namespace BallScripts
@@ -27,9 +27,9 @@ namespace BallScripts
 
         private void OnECollisionEntered(Collider other)
         {
-            if (other.gameObject.TryGetComponent(out TileContainer tileContainer))
+            if (other.gameObject.TryGetComponent(out SimpleTileContainer tileContainer))
             {
-                Vector3 newDirection = new Vector3(tileContainer.TileModel.GetDirection(_container).x, 0, tileContainer.TileModel.GetDirection(_container).z);
+                Vector3 newDirection = new Vector3(tileContainer.TileModel.GetDirection(_container, other).x, 0, tileContainer.TileModel.GetDirection(_container, other).z);
                 _container.Direction = newDirection.normalized;
             }
         }
