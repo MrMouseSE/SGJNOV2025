@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using BallScripts;
 using DisolveEffectScripts;
-using GameSceneScripts;
 using GameSceneScripts.TilesGeneratorScripts;
 using LevelScripts;
 using TileObjectScripts;

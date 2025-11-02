@@ -14,5 +14,14 @@ namespace GameSceneScripts.TilesGeneratorScripts
                 levelDescription.LevelData.Find(x => x.LevelDifficulty == currentDifficulty).LevelTilesHandlers;
             return TilesGeneratorStaticFactory.GenerateTilesToWorld(levelTilesHandlers, tilesDescription, tilesHolder);
         }
+
+        public void DestroyTiles(GameContext gameContext)
+        {
+            foreach (var tileObjectHandler in gameContext.TileObjectHandlers)
+            {
+                Object.Destroy(tileObjectHandler.TilePrefab.TileGameObject);
+            }
+            gameContext.TileObjectHandlers.Clear();
+        }
     }
 }
