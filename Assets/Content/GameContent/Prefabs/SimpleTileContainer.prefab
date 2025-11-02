@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileGameObject: {fileID: 1374819814100106417}
   TileTransform: {fileID: 2706324662091999774}
+  TileType: 0
+  Colliders: []
   TileObjectHandler:
     TilePosition: {x: 0, y: 0, z: 0}
     TileType: 0

@@ -7,6 +7,8 @@ namespace BallScripts
     public class BallModel : IDisposable
     {
         private readonly BallContainer _container;
+        
+        public float Velocity;
 
         public BallModel(BallContainer container)
         {
@@ -21,7 +23,7 @@ namespace BallScripts
 
         public void Move(float deltaTime)
         {
-            _container.Position += _container.Direction * (deltaTime * _container.Velocity);
+            _container.Position += _container.Direction * (deltaTime * Velocity);
             _container.Transform.position = _container.Position;
         }
 

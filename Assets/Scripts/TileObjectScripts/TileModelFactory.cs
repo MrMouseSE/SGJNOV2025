@@ -1,3 +1,4 @@
+using System;
 using TileObjectScripts.TileContainers;
 
 namespace TileObjectScripts
@@ -8,7 +9,8 @@ namespace TileObjectScripts
         {
             return container.TileType switch
             {
-                TilesTypes.Normal => new TileNormalModel(container)
+                TilesTypes.Normal => new TileNormalModel(container),
+                _ => throw new ArgumentOutOfRangeException()
             };
         }
     }

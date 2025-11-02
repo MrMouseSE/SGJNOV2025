@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BallScripts;
 using DisolveEffectScripts;
 using LevelScripts;
+using PlayerScripts;
 using TileObjectScripts;
 using TileObjectScripts.TileContainers;
 using UnityEngine;
@@ -12,21 +13,27 @@ public class GameContext : MonoBehaviour
     public SceneHandler SceneHandler;
     public DisolveEffectContainer DisolveContainer;
     public BallContainer BallContainer;
+    public PlayerContainer PlayerContainer;
     public TilesDescription TilesDescription;
     public LevelDescription LevelDescription;
+    public Transform LeftEndPoint;
 
     private int _currentDifficulty;
     private readonly List<IGameSystem> GameSystems = new();
     private bool _isGamePaused = true;
+    private InputSystemActions _inputSystem;
     
     private List<TileObjectHandler> _tileObjectHandlers;
     
     public void Start()
     {
         InitGame();
+        _inputSystem = new InputSystemActions();
+        _inputSystem.Enable();
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
         GameSystems.Add(new BallSystem(BallContainer));
+        GameSystems.Add(new PlayerSystem(_inputSystem, PlayerContainer, this));
         
         foreach (var handler in _tileObjectHandlers)
         {

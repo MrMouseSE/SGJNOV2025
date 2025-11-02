@@ -149,9 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisolveContainer: {fileID: 1924844859}
-  BallContainer: {fileID: 0}
-  TileContainer:
-  - {fileID: 0}
+  BallContainer: {fileID: 5195219985990244110, guid: e21f887a2be73fb4799fe4540c5cee43, type: 3}
+  PlayerContainer: {fileID: 0}
+  TilesDescription: {fileID: 0}
+  LevelDescription: {fileID: 0}
+  LeftEndPoint: {fileID: 0}
 --- !u!4 &1445191260
 Transform:
   m_ObjectHideFlags: 0
