@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using BallScripts;
 using DisolveEffectScripts;
-using GameSceneScripts.TileObjectScripts;
-using GameSceneScripts.TileObjectScripts.TileContainers;
 using LevelScripts;
+using TileObjectScripts;
+using TileObjectScripts.TileContainers;
 using UnityEngine;
 
 public class GameContext : MonoBehaviour

@@ -1,5 +1,5 @@
 using System;
-using GameSceneScripts.TileObjectScripts.TileContainers;
+using TileObjectScripts.TileContainers;
 using UnityEngine;
 
 namespace BallScripts

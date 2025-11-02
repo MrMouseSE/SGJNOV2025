@@ -1,6 +1,6 @@
-using GameSceneScripts.TileObjectScripts.TileContainers;
+using TileObjectScripts.TileContainers;
 
-namespace GameSceneScripts.TileObjectScripts
+namespace TileObjectScripts
 {
     public static class TileModelFactory
     {
