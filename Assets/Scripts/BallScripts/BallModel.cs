@@ -57,6 +57,8 @@ namespace BallScripts
         {
             if (_currentBounce >= Bounces)
             {
+                _container.BallDestroyParticlesTransform.parent = null;
+                _container.BallDestroyParticleSystem.Play();
                 DestroyBall();
                 return;
             }
