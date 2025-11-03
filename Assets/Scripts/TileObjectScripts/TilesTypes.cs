@@ -9,5 +9,7 @@ namespace TileObjectScripts
         Destroyeble = 4,
         Door = 5,
         Doubler = 6,
+        Cross = 7,
+        MoveTo = 8
     }
 }

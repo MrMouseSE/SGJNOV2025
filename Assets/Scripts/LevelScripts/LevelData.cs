@@ -4,13 +4,11 @@ using UnityEngine;
 
 namespace LevelScripts
 {
-    [PreferBinarySerialization]
     public class LevelData : ScriptableObject
     {
         public string LevelName;
         public int LevelDifficulty;
-        
-        [SerializeField]
+        [HideInInspector]
         public List<TileObjectHandler> LevelTilesHandlers;
 
         public void SaveLevelHandlerToLevelData(LevelHandler levelHandler)

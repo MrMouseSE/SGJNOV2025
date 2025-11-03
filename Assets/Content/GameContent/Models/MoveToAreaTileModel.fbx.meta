@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 13efe98ac54d1a148b325a78f6040cdc
+guid: 2fde8819f2c2191468b15a7d9ecf003d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -33,16 +33,16 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.40816328
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -88,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.40816328
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
