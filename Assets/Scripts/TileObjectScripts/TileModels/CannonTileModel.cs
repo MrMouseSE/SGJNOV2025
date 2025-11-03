@@ -2,23 +2,40 @@ using BallScripts;
 using TileObjectScripts.TileContainers;
 using UnityEngine;
 
-namespace TileObjectScripts
+namespace TileObjectScripts.TileModels
 {
-    public class DefaultTileModel : ITileModel
+    public class CannonTileModel : ITileModel
     {
         private readonly AbstractTileContainer _container;
 
-        public DefaultTileModel(AbstractTileContainer container)
+        public CannonTileModel(AbstractTileContainer container)
         {
             _container = container;
         }
 
-        public Vector3 GetDirection(BallContainer ball, Collider touchingCollider)
+        private bool _isCanBeMoved;
+
+        public bool CheckMoveAvailability()
         {
-            return ReflectBall(ball, touchingCollider);
+            return _isCanBeMoved;
         }
 
-        private Vector3 ReflectBall(BallContainer ball, Collider touchingCollider)
+        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
+        {
+            _isCanBeMoved = isCanBeMoved;
+        }
+
+        public void UpdateModel(float deltaTime, GameContext gameContext)
+        {
+        }
+
+        public Vector3 GetDirection(BallContainer ball, Collider touchingCollider)
+        {
+            //TODO ballModel.RestoreBallBounds;
+            return ShootTheBall(ball, touchingCollider);
+        }
+
+        private Vector3 ShootTheBall(BallContainer ball, Collider touchingCollider)
         {
             if (!_container.Colliders.Contains(touchingCollider)) return ball.Direction;
     
@@ -28,8 +45,7 @@ namespace TileObjectScripts
     
             if (collisionNormal == Vector3.zero)
                 collisionNormal = (ball.Position - _container.transform.position).normalized;
-    
-            return Vector3.Reflect(ball.Direction, collisionNormal);
+            return collisionNormal;
         }
     }
 }

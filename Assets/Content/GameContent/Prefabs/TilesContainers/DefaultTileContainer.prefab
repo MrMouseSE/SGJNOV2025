@@ -49,9 +49,37 @@ MonoBehaviour:
   TileGameObject: {fileID: 1374819814100106417}
   TileTransform: {fileID: 2706324662091999774}
   TileType: 0
+  AnimationDirection: {x: 0, y: -0.95, z: 0}
+  AnimationRootTransform: {fileID: 1249144856940124130}
+  UniversalAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.45
+      value: 1
+      inSlope: 4.5942206
+      outSlope: 4.5942206
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.063341595
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   TileMeshRenderer: {fileID: 2835243255546366213}
   GlowMeshRenderer: {fileID: 5139051527933362731}
   AdditionalMeshRenderer: {fileID: 0}
+  AvailableToMoveColor: {r: 1.946891, g: 1.911947, b: 0.008782884, a: 1}
+  NotAvailableToMoveColor: {r: 0.21892343, g: 1.8773718, b: 1.946891, a: 1}
   GlowUpAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -132,6 +160,8 @@ MonoBehaviour:
   TileObjectHandler:
     TilePosition: {x: 0, y: 0, z: 0}
     TileType: 0
+    IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
 --- !u!65 &3630581942527750879
 BoxCollider:
