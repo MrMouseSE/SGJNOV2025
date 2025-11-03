@@ -287,6 +287,14 @@ MonoBehaviour:
   TileGameObject: {fileID: 2679809229779044788}
   TileTransform: {fileID: 1416950448405782299}
   TileType: 9
+  AnimationDirection: {x: 0, y: 0, z: 0}
+  AnimationRootTransform: {fileID: 2842076740832846567}
+  UniversalAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   TileMeshRenderer: {fileID: 2666036060150345982}
   GlowMeshRenderer: {fileID: 8422901079063002452}
   AdditionalMeshRenderer: {fileID: 0}
@@ -393,6 +401,11 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!4 &2842076740832846567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1249144856940124130, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+  m_PrefabInstance: {fileID: 3901470904685819141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6579329715749680816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7884314867660719029, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}

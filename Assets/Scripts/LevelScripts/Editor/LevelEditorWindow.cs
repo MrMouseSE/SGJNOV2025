@@ -186,6 +186,7 @@ namespace LevelScripts.Editor
         {
             _currentLevelHander.LevelName = levelData.LevelName;
             _currentLevelHander.LevelDifficulty = EditorGUILayout.IntField("Level difficulty", _currentLevelHander.LevelDifficulty);
+            _currentLevelHander.WallHitCount = EditorGUILayout.IntField("Level difficulty", _currentLevelHander.WallHitCount);
 
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("Add tile"))

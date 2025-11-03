@@ -13,7 +13,7 @@ namespace TileObjectScripts
         
         public void InitGameSystem()
         {
-            Model.InitializeModel(_gameContext.TileObjectHandlers);
+            Model.InitializeModel(_gameContext);
         }
 
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)

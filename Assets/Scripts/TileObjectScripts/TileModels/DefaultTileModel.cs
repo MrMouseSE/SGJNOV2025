@@ -13,7 +13,11 @@ namespace TileObjectScripts
             _container = container;
         }
 
-        public Vector3 GetDirection(BallContainer ball, Collider touchingCollider)
+        public virtual void UpdateModel(float deltaTime, GameContext gameContext)
+        {
+        }
+
+        public virtual Vector3 GetDirection(BallContainer ball, Collider touchingCollider)
         {
             return ReflectBall(ball, touchingCollider);
         }
