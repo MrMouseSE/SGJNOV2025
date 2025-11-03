@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BallScripts;
+using ClearSightScripts;
 using DisolveEffectScripts;
 using GameSceneScripts.TilesGeneratorScripts;
 using LevelScripts;
@@ -16,14 +17,17 @@ public class GameContext : MonoBehaviour
     public LevelDescription LevelDescription;
     
     private readonly List<IGameSystem> GameSystems = new();
-    private bool _isGamePaused;
     
+    [HideInInspector]
+    public bool IsGamePaused;
     [HideInInspector]
     public int CurrentDifficulty;
     [HideInInspector]
     public bool RegenerateLevel;
     [HideInInspector]
     public List<TileObjectHandler> TileObjectHandlers;
+    [HideInInspector]
+    public int ClearSightLootedCount;
     
     public void Start()
     {
@@ -33,11 +37,14 @@ public class GameContext : MonoBehaviour
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
         GameSystems.Add(new BallSystem(TilesDescription.BallContainer));
         GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription));
+        GameSystems.Add(new ClearSightSystem(LevelDescription, CurrentDifficulty));
+        GameSystems.Add(new TileSystemsSystem(this));
+    }
 
-        foreach (var handler in TileObjectHandlers)
-        {
-            GameSystems.Add(new TileSystem(handler.TilePrefab));
-        }
+    public void InitializeTilesSystems(List<TileObjectHandler> handlers)
+    {
+        TileObjectHandlers = handlers;
+        ((TileSystemsSystem)GetGameSystemByType(typeof(TileSystemsSystem))).InitGameSystem();
     }
 
     public void AddGameSystem(IGameSystem gameSystem)
@@ -53,14 +60,17 @@ public class GameContext : MonoBehaviour
         }
     }
 
-    public void PauseGameProcess(bool paused)
-    {
-        _isGamePaused = paused;
-    }
-
     public IGameSystem GetGameSystemByType(Type type)
     {
         return GameSystems.Find(x => x.GetType() == type);
+    }
+
+    public void ResetGameValues()
+    {
+        IsGamePaused = false;
+        ClearSightLootedCount = 0;
+        RegenerateLevel = true;
+        CurrentDifficulty ++;
     }
     
     private void InitGame()

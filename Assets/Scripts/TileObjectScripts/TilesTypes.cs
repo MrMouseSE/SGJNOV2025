@@ -10,6 +10,7 @@ namespace TileObjectScripts
         Door = 5,
         Doubler = 6,
         Cross = 7,
-        MoveTo = 8
+        MoveTo = 8,
+        ClearSight = 9,
     }
 }

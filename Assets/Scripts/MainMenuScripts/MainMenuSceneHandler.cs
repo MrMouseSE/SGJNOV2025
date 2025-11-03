@@ -19,7 +19,7 @@ namespace MainMenuScripts
 
         public override void SetSceneActivity(bool isActive)
         {
-            _gameContext.PauseGameProcess(isActive);
+            _gameContext.IsGamePaused = isActive;
             base.SetSceneActivity(isActive);
         }
 
