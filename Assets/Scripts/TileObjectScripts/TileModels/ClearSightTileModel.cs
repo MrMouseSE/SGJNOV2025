@@ -34,14 +34,14 @@ namespace TileObjectScripts.TileModels
             gameContext.ClearSightLootedCount++;
         }
 
-        public Vector3 GetDirection(BallContainer ball, Collider touchedCollider)
+        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
         {
             StartLootAnimation();
             foreach (var collider in _container.Colliders)
             {
                 collider.enabled = false;
             }
-            return ball.Direction;
+            return ballModel.Direction;
         }
         
         private void StartLootAnimation()
