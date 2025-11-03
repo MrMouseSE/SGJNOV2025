@@ -10,7 +10,8 @@ namespace GameSceneScripts
         
         public override void InitSceneHandler(GameContext gameContext)
         {
-            gameContext.AddPlayerSystem(PlayerContainer);
+            gameContext.PlayerContainer = PlayerContainer;
+            gameContext.InitializePlayerSystem();
         }
 
         public override void SetSceneActivity(bool isActive)

@@ -33,10 +33,13 @@ public class GameContext : MonoBehaviour
     public List<TileObjectHandler> TileObjectHandlers;
     [HideInInspector]
     public int ClearSightLootedCount;
-
+    [HideInInspector]
+    public PlayerContainer PlayerContainer;
+    
     private int _currentButtonsPressed;
     public Action AllButtonsPressed;
     
+
     public void Start()
     {
         CurrentDifficulty = 1;
@@ -49,13 +52,14 @@ public class GameContext : MonoBehaviour
         GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription));
         GameSystems.Add(new ClearSightSystem(LevelDescription, CurrentDifficulty));
         GameSystems.Add(new TileSystemsSystem(this));
+        GameSystems.Add(new PlayerSystem(this));
         
         BallFactory = new BallFactory(BallContainer);
     }
 
-    public void AddPlayerSystem(PlayerContainer playerContainer)
+    public void InitializePlayerSystem()
     {
-        GameSystems.Add(new PlayerSystem(playerContainer, this));
+        ((PlayerSystem)GetGameSystemByType(typeof(PlayerSystem))).InitGameSystem();
     }
 
     public void InitializeTilesSystems(List<TileObjectHandler> handlers)

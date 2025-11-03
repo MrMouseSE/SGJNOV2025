@@ -4,20 +4,27 @@ namespace PlayerScripts
 {
     public class PlayerSystem : IGameSystem, IDisposable
     {
-        private readonly PlayerModel _model;
-        private readonly PlayerContainer _playerContainer;
+        private PlayerModel _model;
+        private PlayerContainer _playerContainer;
+        private GameContext _gameContext;
         
-        public PlayerSystem(PlayerContainer playerContainer, GameContext gameContext)
+        private bool _isInitialized;
+        
+        public PlayerSystem(GameContext gameContext)
         {
-            _playerContainer = playerContainer;
-            _model = new PlayerModel(_playerContainer, gameContext);
+            _gameContext = gameContext;
         }
 
         public void InitGameSystem()
-        { }
+        {
+            _isInitialized = true;
+            _playerContainer = _gameContext.PlayerContainer;
+            _model = new PlayerModel(_playerContainer, _gameContext);
+        }
 
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
+            if (!_isInitialized) return;
             _model.PlayerMover.Move();
             _model.ShowTrajectory();
         }

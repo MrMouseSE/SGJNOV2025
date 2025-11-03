@@ -13,9 +13,8 @@ namespace BallScripts
 
         public BallSystem CreateBall(Transform parent)
         {
-            BallContainer newBall = GameObject.Instantiate(_ballContainer);
-            
-            newBall.Transform.SetParent(parent);
+            BallContainer newBall = Object.Instantiate(_ballContainer, parent, true);
+
             newBall.Transform.localPosition = Vector3.zero;
             
             return new BallSystem(newBall);
