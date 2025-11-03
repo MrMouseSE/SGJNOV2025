@@ -48,6 +48,8 @@ namespace BallScripts
 
         public void DestroyBall()
         {
+            _container.BallDestroyParticlesTransform.parent = null;
+            _container.BallDestroyParticleSystem.Play();
             UnityEngine.Object.Destroy(_container.BallGameObject);
             ((BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems))).Model.RemoveBallSystem(BallSystem);
             Dispose();
@@ -57,8 +59,6 @@ namespace BallScripts
         {
             if (_currentBounce >= Bounces)
             {
-                _container.BallDestroyParticlesTransform.parent = null;
-                _container.BallDestroyParticleSystem.Play();
                 DestroyBall();
                 return;
             }
