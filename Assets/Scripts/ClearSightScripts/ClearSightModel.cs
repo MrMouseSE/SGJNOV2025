@@ -27,6 +27,8 @@ namespace ClearSightScripts
             if (Input.GetMouseButtonDown(1))
             {
                 gameContext.ClearSightLootedCount++;
+                if (gameContext.ClearSightLootedCount > _currentClearSightCount)
+                    gameContext.ClearSightLootedCount = _currentClearSightCount;
             }
             if (gameContext.ClearSightLootedCount != _currentClearSightCount) return;
             _currentAnimationTime += deltaTime;
