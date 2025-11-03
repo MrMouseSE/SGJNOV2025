@@ -156,3 +156,11 @@ MonoBehaviour:
     TileType: 0
     IsTileGlowAtStart: 1
     TilePrefab: {fileID: 0}
+  - TilePosition: {x: 7, y: 0, z: -1}
+    TileType: 0
+    IsTileGlowAtStart: 1
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: -1}
+    TileType: 0
+    IsTileGlowAtStart: 1
+    TilePrefab: {fileID: 0}
