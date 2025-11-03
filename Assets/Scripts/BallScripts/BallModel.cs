@@ -27,7 +27,7 @@ namespace BallScripts
 
         private void OnECollisionEntered(Collider other)
         {
-            if (other.gameObject.TryGetComponent(out SimpleTileContainer tileContainer))
+            if (other.gameObject.TryGetComponent(out AbstractTileContainer tileContainer))
             {
                 Vector3 newDirection = new Vector3(tileContainer.TileModel.GetDirection(_container, other).x, 0, tileContainer.TileModel.GetDirection(_container, other).z);
                 _container.Direction = newDirection.normalized;

@@ -26,11 +26,13 @@ namespace GameSceneScripts.TilesGeneratorScripts
 
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
+            if (gameContext.IsGamePaused) return;
             GameSceneHandler sceneHandler = (GameSceneHandler)gameContext.SceneHandler.GetSceneHandlerByName(gameContext.SceneHandler.GameSceneName);
             if (sceneHandler == null) return;
             if (!gameContext.RegenerateLevel) return;
             DestroyTiles(gameContext);
-            gameContext.TileObjectHandlers = GenerateTiles(gameContext.CurrentDifficulty, sceneHandler.TilesHolder);
+            var handlers = GenerateTiles(gameContext.CurrentDifficulty, sceneHandler.TilesHolder);
+            gameContext.InitializeTilesSystems(handlers);
             gameContext.RegenerateLevel = false;
         }
         

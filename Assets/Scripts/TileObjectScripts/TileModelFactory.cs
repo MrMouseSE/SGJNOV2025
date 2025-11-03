@@ -11,25 +11,28 @@ namespace TileObjectScripts
             switch (container.TileType)
             {
                 case TilesTypes.Angle:
-                    tileContainer = new TileDefaultModel(container);
+                    tileContainer = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Button:
-                    tileContainer = new TileDefaultModel(container);
+                    tileContainer = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Cannon:
-                    tileContainer = new TileDefaultModel(container);
+                    tileContainer = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Destroyeble:
-                    tileContainer = new TileDefaultModel(container);
+                    tileContainer = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Door:
-                    tileContainer = new TileDefaultModel(container);
+                    tileContainer = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Doubler:
-                    tileContainer = new TileDefaultModel(container);
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.ClearSight:
+                    tileContainer = new ClearSightTileModel(container as ClearSightTileContainer);
                     break;
                 default:
-                    tileContainer = new TileDefaultModel(container);
+                    tileContainer = new DefaultTileModel(container);
                     break;
             }
 

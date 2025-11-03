@@ -15,9 +15,13 @@ namespace TileObjectScripts
         }
 
         public void InitGameSystem()
-        { }
+        {
+            
+        }
 
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
-        { }
+        {
+            if (gameContext.IsGamePaused) return;
+        }
     }
 }

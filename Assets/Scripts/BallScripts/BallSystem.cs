@@ -13,6 +13,7 @@ namespace BallScripts
 
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
+            if (gameContext.IsGamePaused) return;
             _model.Move(deltaTime);
         }
 

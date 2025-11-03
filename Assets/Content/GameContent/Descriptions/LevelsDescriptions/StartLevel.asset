@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: StartLevel
   LevelDifficulty: 0
+  ClearSightCount: 1
   LevelTilesHandlers:
   - TilePosition: {x: -0, y: 0, z: 1}
     TileType: 0
@@ -47,4 +48,7 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 1}
     TileType: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 3, y: 0, z: 3}
+    TileType: 9
     TilePrefab: {fileID: 0}
