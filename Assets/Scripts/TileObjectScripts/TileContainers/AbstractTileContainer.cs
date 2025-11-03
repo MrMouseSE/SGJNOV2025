@@ -64,13 +64,11 @@ namespace TileObjectScripts.TileContainers
 
         private IEnumerator GlowUpAnimation()
         {
-            IsGlowing = true;
-            
             var currentTime = 0f;
             while (currentTime < GlowUpAnimationCurve.keys[^1].time)
             {
                 currentTime += Time.deltaTime;
-                ProcessGlowAnimation(currentTime, true);
+                ProcessGlowAnimation(GlowUpAnimationCurve, currentTime, true);
                 yield return _waitForEndOfFrame;
             }
         }
@@ -83,9 +81,9 @@ namespace TileObjectScripts.TileContainers
             }
         }
 
-        public void ProcessGlowAnimation(float animationTime, bool forceBlack = false)
+        public void ProcessGlowAnimation(AnimationCurve curve, float animationTime, bool forceBlack = false)
         {
-            float evaluatedValue = FinalAnimationCurve.Evaluate(animationTime);
+            float evaluatedValue = curve.Evaluate(animationTime);
             foreach (var meshRendererColor in _meshRendererColors)
             {
                 Color fromColor = forceBlack? Color.black : _meshRendererCurrentColors[meshRendererColor.Key];
