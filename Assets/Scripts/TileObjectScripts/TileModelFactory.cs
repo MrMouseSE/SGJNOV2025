@@ -1,42 +1,46 @@
 using TileObjectScripts.TileContainers;
+using TileObjectScripts.TileModels;
 
 namespace TileObjectScripts
 {
     public static class TileModelFactory
     {
-        public static ITileModel Create(AbstractTileContainer container)
+        public static ITileModel Create(AbstractTileContainer container, GameContext gameContext)
         {
-            ITileModel tileContainer;
+            ITileModel tileModel;
 
             switch (container.TileType)
             {
                 case TilesTypes.Angle:
-                    tileContainer = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Button:
-                    tileContainer = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Cannon:
-                    tileContainer = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Destroyeble:
-                    tileContainer = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Door:
-                    tileContainer = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Doubler:
-                    tileContainer = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.Cross:
+                    tileModel = new CrossTileModel((CrossTileContainer)container, gameContext);
                     break;
                 case TilesTypes.ClearSight:
-                    tileContainer = new ClearSightTileModel(container as ClearSightTileContainer);
+                    tileModel = new ClearSightTileModel((ClearSightTileContainer)container);
                     break;
                 default:
-                    tileContainer = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(container);
                     break;
             }
 
-            return tileContainer;
+            return tileModel;
         }
     }
 }

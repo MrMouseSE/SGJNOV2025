@@ -72,6 +72,11 @@ public class GameContext : MonoBehaviour
         RegenerateLevel = true;
         CurrentDifficulty ++;
     }
+
+    public void DestroyBall(BallContainer ballContainer)
+    {
+        
+    }
     
     private void InitGame()
     {

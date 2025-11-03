@@ -7,10 +7,10 @@ namespace TileObjectScripts
         private AbstractTileContainer _container;
         private ITileModel _model;
 
-        public TileSystem(TileObjectHandler handler)
+        public TileSystem(TileObjectHandler handler, GameContext gameContext)
         {
             _container = handler.TilePrefab;
-            _model = TileModelFactory.Create(handler.TilePrefab);
+            _model = TileModelFactory.Create(handler.TilePrefab, gameContext);
             _container.Initialize(_model, handler.IsTileGlowAtStart);
         }
 
