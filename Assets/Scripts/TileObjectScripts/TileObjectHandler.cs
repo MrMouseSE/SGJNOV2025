@@ -9,6 +9,7 @@ namespace TileObjectScripts
     {
         public Vector3 TilePosition;
         public TilesTypes TileType;
+        public bool IsTileGlowAtStart;
         public AbstractTileContainer TilePrefab;
     }
 }

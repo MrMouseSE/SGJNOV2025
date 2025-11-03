@@ -34,13 +34,14 @@ namespace TileObjectScripts.TileContainers
         
         private WaitForEndOfFrame _waitForEndOfFrame = new WaitForEndOfFrame();
         
-        public void Initialize(ITileModel tileModel)
+        public void Initialize(ITileModel tileModel, bool isGlowAtStart)
         {
             if (TileMeshRenderer != null) _meshRendererColors.Add(TileMeshRenderer, TileMeshRenderer.material.GetColor(EmissionColor));
             if (GlowMeshRenderer != null) _meshRendererColors.Add(GlowMeshRenderer, GlowMeshRenderer.material.GetColor(EmissionColor));
             if (AdditionalMeshRenderer != null) _meshRendererColors.Add(AdditionalMeshRenderer, AdditionalMeshRenderer.material.GetColor(EmissionColor));
             
             TileModel = tileModel;
+            if (isGlowAtStart) return;
             foreach (var meshRendererColor in _meshRendererColors)
             {
                 meshRendererColor.Key.material.SetColor(EmissionColor, Color.black);

@@ -97,6 +97,7 @@ namespace LevelScripts.Editor
             if (GUILayout.Button("Save Level"))
             {
                 SaveAsset(_currentLevelIndex);
+                return;
             }
                 
             DrawLevelOperating(_levelDescription.LevelData[_currentLevelIndex]);
@@ -244,6 +245,9 @@ namespace LevelScripts.Editor
             }
             selectedHandler.TilePrefab.transform.position = position;
             selectedHandler.TilePosition = position;
+            
+            selectedHandler.IsTileGlowAtStart = EditorGUILayout.Toggle("Tile glow at start", selectedHandler.IsTileGlowAtStart);
+            
             EditorGUI.BeginChangeCheck();
             selectedHandler.TileType = (TilesTypes)EditorGUILayout.Popup((int)selectedHandler.TileType, 
                 Enum.GetNames(typeof(TilesTypes)));
