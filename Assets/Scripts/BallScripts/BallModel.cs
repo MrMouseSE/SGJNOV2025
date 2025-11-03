@@ -10,6 +10,7 @@ namespace BallScripts
         public Vector3 Direction { get; private set; }
         public Vector3 Position { get; private set; }
         public int Bounces { get; }
+        public Collider Collider => _container.Collider;
 
         private readonly BallContainer _container;
         public BallSystem BallSystem;
@@ -63,15 +64,15 @@ namespace BallScripts
             
             if (other.TryGetComponent(out AbstractTileContainer tileContainer))
             {
-                Direction = tileContainer.TileModel.GetDirection(this, other).normalized;
+                Vector3 hitPoint = other.ClosestPoint(_container.Transform.position);
+                Direction = tileContainer.TileModel.GetDirection(Direction, hitPoint, other).normalized;
+
                 tileContainer.TileModel.InteractByBall(this, other);
 
-                if (tileContainer.IsGlowing == false)
-                {
+                if (!tileContainer.IsGlowing)
                     tileContainer.StartGlowUpTileAnimation();
-                }
             }
-            else if (other.TryGetComponent(out Collider collider))
+            else
             {
                 Vector3 normal = (other.ClosestPoint(_container.Transform.position) - _container.Transform.position).normalized;
                 Direction = Vector3.Reflect(Direction, normal).normalized;
