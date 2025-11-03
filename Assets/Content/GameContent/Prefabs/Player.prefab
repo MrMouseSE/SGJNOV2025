@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6d59333bcc0c3b43ac8d23260327cf1, type: 2}
+  - {fileID: 2100000, guid: 063e72ea19ece7d47a495ce12240b3f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -331,8 +331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 2049970686418467660}
-  _length: 100
-  _pointsCount: 2
+  _maxLength: 10
+  _mousePoint: 0
+  _maxPoints: 20
 --- !u!1 &8426005114456945741
 GameObject:
   m_ObjectHideFlags: 0

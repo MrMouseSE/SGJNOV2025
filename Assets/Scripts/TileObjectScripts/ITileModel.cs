@@ -8,7 +8,6 @@ namespace TileObjectScripts
         public bool CheckMoveAvailability();
         public void SetMoveByPlayerAvailability(bool isCanBeMoved);
         public void UpdateModel(float deltaTime, GameContext gameContext);
-        public Vector3 GetDirection(BallContainer ball, Collider touchedCollider);
         public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider);
     }
 }

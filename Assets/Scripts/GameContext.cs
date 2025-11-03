@@ -97,9 +97,9 @@ public class GameContext : MonoBehaviour
         return LevelDescription.LevelData.Find(x => x.LevelDifficulty == CurrentDifficulty);
     }
 
-    public void DestroyBall(BallContainer ballContainer)
+    public void DestroyBall(BallModel ballContainer)
     {
-        
+        //TODO: destroyBallLogic
     }
     
     private void InitGame()

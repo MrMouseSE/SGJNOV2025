@@ -29,7 +29,7 @@ namespace TileObjectScripts
         {
         }
 
-        public Vector3 GetDirection(BallModel ballModel, Collider touchingCollider)
+        public virtual Vector3 GetDirection(BallModel ballModel, Collider touchingCollider)
         {
             return ReflectBall(ballModel, touchingCollider);
         }

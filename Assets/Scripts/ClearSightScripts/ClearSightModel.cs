@@ -1,5 +1,6 @@
 using LevelScripts;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace ClearSightScripts
 {
@@ -24,7 +25,7 @@ namespace ClearSightScripts
 
         public void UpdateModel(float deltaTime, GameContext gameContext)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Mouse.current.rightButton.wasPressedThisFrame)
             {
                 gameContext.ClearSightLootedCount++;
                 if (gameContext.ClearSightLootedCount > _currentClearSightCount)
