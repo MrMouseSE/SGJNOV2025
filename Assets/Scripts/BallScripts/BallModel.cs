@@ -25,8 +25,7 @@ namespace BallScripts
 
         public void Move(float deltaTime)
         {
-            Position += Direction * (deltaTime * Velocity);
-            _container.Transform.position = Position;
+            _container.Transform.position += Direction * (deltaTime * Velocity);
         }
 
         public void SetDirection(Vector3 direction)

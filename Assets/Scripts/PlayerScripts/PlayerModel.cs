@@ -15,6 +15,7 @@ namespace PlayerScripts
         private readonly InputSystemActions _inputSystem;
 
         private BallSystem _currentBallSystem;
+        private Camera _camera;
         
         public PlayerModel(InputSystemActions inputSystem, PlayerContainer container, GameContext gameContext)
         {
@@ -26,7 +27,7 @@ namespace PlayerScripts
             
             _gameContext = gameContext;
 
-            PlayerMover = new PlayerMover(inputSystem, container.Transform, container.MovementSpeed, gameContext.LeftEndPoint.position.x);
+            PlayerMover = new PlayerMover(inputSystem, container.Transform, container.MovementSpeed, gameContext.LeftEndPoint.x);
         }
 
         public void Dispose()
@@ -46,7 +47,12 @@ namespace PlayerScripts
             if (_currentBallSystem == null)
                 return;
 
-            Vector2 mouseScreenPosition = _inputSystem.Player.Look.ReadValue<Vector2>();
+            if (_camera == null)
+            {
+                _camera = _gameContext.SceneHandler.GetSceneHandlerByName("GameScene").SceneCamera;
+            }
+            
+            Vector2 mouseScreenPosition = Input.mousePosition;
     
             Vector3 mouseWorldPosition = ScreenToWorldPosition(mouseScreenPosition);
     
@@ -57,13 +63,14 @@ namespace PlayerScripts
             _currentBallSystem.SetDirection(direction);
             _currentBallSystem.SetVelocity(_container.BallSpeed);
             _gameContext.AddGameSystem(_currentBallSystem);
+            _currentBallSystem = null;
         }
         
         private Vector3 ScreenToWorldPosition(Vector2 screenPosition)
         {
             if (Camera.main != null)
             {
-                Ray ray = Camera.main.ScreenPointToRay(new Vector3(screenPosition.x, screenPosition.y, 0));
+                Ray ray = _camera.ScreenPointToRay(new Vector3(screenPosition.x, screenPosition.y, 0));
                 Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         
                 if (groundPlane.Raycast(ray, out float distance))

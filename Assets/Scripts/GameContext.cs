@@ -18,7 +18,7 @@ public class GameContext : MonoBehaviour
     public LevelDescription LevelDescription;
     public BallContainer BallContainer;
     public PlayerContainer PlayerContainer;
-    public Transform LeftEndPoint;
+    public Vector3 LeftEndPoint = new Vector3(-4, 0, 0);
     public BallFactory BallFactory;
     private InputSystemActions _inputSystem;
     
@@ -46,10 +46,11 @@ public class GameContext : MonoBehaviour
         GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription));
         GameSystems.Add(new ClearSightSystem(LevelDescription, CurrentDifficulty));
         GameSystems.Add(new TileSystemsSystem(this));
-        GameSystems.Add(new BallSystem(BallContainer));
-        GameSystems.Add(new PlayerSystem(_inputSystem, PlayerContainer, this));
         
         BallFactory = new BallFactory(BallContainer);
+        
+        PlayerContainer = Instantiate(PlayerContainer);
+        GameSystems.Add(new PlayerSystem(_inputSystem, PlayerContainer, this));
     }
 
     public void InitializeTilesSystems(List<TileObjectHandler> handlers)
