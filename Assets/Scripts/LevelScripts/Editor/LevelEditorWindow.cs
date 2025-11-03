@@ -191,7 +191,7 @@ namespace LevelScripts.Editor
             if (GUILayout.Button("Add tile"))
             {
                 TileObjectHandler newTileObjectHandler = new TileObjectHandler();
-                var tilePrefab = Instantiate(_tilesDescription.TileContainers.Find(x=> x.TileType == TilesTypes.Default), Vector3.back, Quaternion.identity);
+                var tilePrefab = Instantiate(_tilesDescription.TileContainers.Find(x=> x.TileType == TilesTypes.Default), Vector3.back * 5, Quaternion.identity);
                 tilePrefab.TileObjectHandler = newTileObjectHandler;
                 newTileObjectHandler.TilePrefab = tilePrefab;
                 Selection.activeObject = tilePrefab;
