@@ -14858,6 +14858,8 @@ MonoBehaviour:
   TileMeshRenderer: {fileID: 6564012343293331635}
   GlowMeshRenderer: {fileID: 4415173393945624120}
   AdditionalMeshRenderer: {fileID: 0}
+  AvailableToMoveColor: {r: 1.946891, g: 1.911947, b: 0.008782884, a: 1}
+  NotAvailableToMoveColor: {r: 0.21892343, g: 1.8773718, b: 1.946891, a: 1}
   GlowUpAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -14939,6 +14941,7 @@ MonoBehaviour:
     TilePosition: {x: 0, y: 0, z: 0}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   DestroyBallParticlesTransform: {fileID: 5095419719159432579}
   DestroyBallParticles: {fileID: 1357217075631277351}

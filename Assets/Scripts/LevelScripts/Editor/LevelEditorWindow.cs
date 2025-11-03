@@ -113,6 +113,11 @@ namespace LevelScripts.Editor
             _currentLevelHander.LevelDifficulty = _levelDescription.LevelData[_currentLevelIndex].LevelDifficulty;
             _currentLevelHander.LevelTilesObjectHandler = TilesGeneratorStaticFactory.GenerateTilesToWorld(_levelDescription.LevelData[_currentLevelIndex].LevelTilesHandlers,
                 _tilesDescription);
+            foreach (var objectHandler in _currentLevelHander.LevelTilesObjectHandler)
+            {
+                Color additionalColor = objectHandler.IsAvailableToMoveByPlayer ? _levelDescription.AvailableToMoveColor : _levelDescription.NotAvailableToMoveColor;
+                ChangeMovableObjectColor(objectHandler.TilePrefab, additionalColor);
+            }
             _currentSelectedAbstractTileContainer = _currentLevelHander.LevelTilesObjectHandler.Count == 0 ? null : _currentLevelHander.LevelTilesObjectHandler[^1].TilePrefab;
         }
 
@@ -186,7 +191,7 @@ namespace LevelScripts.Editor
         {
             _currentLevelHander.LevelName = levelData.LevelName;
             _currentLevelHander.LevelDifficulty = EditorGUILayout.IntField("Level difficulty", _currentLevelHander.LevelDifficulty);
-            _currentLevelHander.WallHitCount = EditorGUILayout.IntField("Level difficulty", _currentLevelHander.WallHitCount);
+            _currentLevelHander.WallHitCount = EditorGUILayout.IntField("Level wall hits", _currentLevelHander.WallHitCount);
 
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("Add tile"))
@@ -197,6 +202,7 @@ namespace LevelScripts.Editor
                 newTileObjectHandler.TilePrefab = tilePrefab;
                 Selection.activeObject = tilePrefab;
                 _currentSelectedAbstractTileContainer = tilePrefab;
+                ChangeMovableObjectColor(tilePrefab, _levelDescription.NotAvailableToMoveColor);
                 if (_currentLevelHander.LevelTilesObjectHandler == null) _currentLevelHander.LevelTilesObjectHandler = new List<TileObjectHandler>();
                 _currentLevelHander.LevelTilesObjectHandler.Add(newTileObjectHandler);
             }
@@ -248,6 +254,9 @@ namespace LevelScripts.Editor
             selectedHandler.TilePosition = position;
             
             selectedHandler.IsTileGlowAtStart = EditorGUILayout.Toggle("Tile glow at start", selectedHandler.IsTileGlowAtStart);
+            selectedHandler.IsAvailableToMoveByPlayer = EditorGUILayout.Toggle("Movable", selectedHandler.IsAvailableToMoveByPlayer);
+            ChangeMovableObjectColor(selectedHandler.TilePrefab, 
+                selectedHandler.IsAvailableToMoveByPlayer ? _levelDescription.AvailableToMoveColor : _levelDescription.NotAvailableToMoveColor);
             
             EditorGUI.BeginChangeCheck();
             selectedHandler.TileType = (TilesTypes)EditorGUILayout.Popup((int)selectedHandler.TileType, 
@@ -256,6 +265,15 @@ namespace LevelScripts.Editor
             {
                 ChangeTilePrefab(selectedHandler);
             }
+        }
+
+        private void ChangeMovableObjectColor(AbstractTileContainer prefab, Color color)
+        {
+            if (prefab.AdditionalMeshRenderer == null) return;
+            MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
+            prefab.AdditionalMeshRenderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetColor(prefab.EmissionColor, color);
+            prefab.AdditionalMeshRenderer.SetPropertyBlock(propertyBlock);
         }
 
         private void ChangeTilePrefab(TileObjectHandler selectedHandler)

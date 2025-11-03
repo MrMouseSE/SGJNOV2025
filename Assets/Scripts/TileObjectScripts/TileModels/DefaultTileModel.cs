@@ -12,6 +12,18 @@ namespace TileObjectScripts
         {
             _container = container;
         }
+        
+        private bool _isCanBeMoved;
+
+        public bool CheckMoveAvailability()
+        {
+            return _isCanBeMoved;
+        }
+
+        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
+        {
+            _isCanBeMoved = isCanBeMoved;
+        }
 
         public virtual void UpdateModel(float deltaTime, GameContext gameContext)
         {

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SimpleTileGlowTeaMaterial
+  m_Name: SimpleTileAdditionalGlowMaterial
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -116,9 +116,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.36862746, g: 0.89019614, b: 0.94117653, a: 1}
-    - _Color: {r: 0.36862743, g: 0.89019614, b: 0.94117653, a: 1}
-    - _EmissionColor: {r: 0.21892343, g: 1.8773718, b: 1.946891, a: 1}
+    - _BaseColor: {r: 0.98823535, g: 0.9803922, b: 0.054901965, a: 1}
+    - _Color: {r: 0.9882353, g: 0.98039216, b: 0.054901943, a: 1}
+    - _EmissionColor: {r: 1.946891, g: 1.911947, b: 0.008782884, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
