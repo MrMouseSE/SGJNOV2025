@@ -31,14 +31,18 @@ namespace TileObjectScripts.TileModels
         {
         }
 
+        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        {
+            DestroyBallEffectPlay(ballModel.Direction, ballModel.Position);
+            ballModel.DestroyBall();
+        }
+
         public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
         {
-            DestroyBall(ballModel.Direction, ballModel.Position);
-            _gameContext.DestroyBall(ballModel);
             return ballModel.Direction;
         }
 
-        private void DestroyBall(Vector3 ballDirection, Vector3 ballPosition)
+        private void DestroyBallEffectPlay(Vector3 ballDirection, Vector3 ballPosition)
         {
             _container.DestroyBallParticlesTransform.position = ballPosition;
             _container.DestroyBallParticlesTransform.forward = ballDirection;

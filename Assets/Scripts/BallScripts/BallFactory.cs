@@ -4,21 +4,22 @@ namespace BallScripts
 {
     public class BallFactory
     {
+        private GameContext _gameContext;
         private BallContainer _ballContainer;
         
-        public BallFactory(BallContainer ballContainer)
+        public BallFactory(BallContainer ballContainer, GameContext gameContext)
         {
+            _gameContext = gameContext;
             _ballContainer = ballContainer;
         }
 
         public BallSystem CreateBall(Transform parent)
         {
-            BallContainer newBall = GameObject.Instantiate(_ballContainer);
-            
-            newBall.Transform.SetParent(parent);
+            BallContainer newBall = Object.Instantiate(_ballContainer, parent, true);
+
             newBall.Transform.localPosition = Vector3.zero;
             
-            return new BallSystem(newBall);
+            return new BallSystem(newBall, _gameContext);
         }
     }
 }

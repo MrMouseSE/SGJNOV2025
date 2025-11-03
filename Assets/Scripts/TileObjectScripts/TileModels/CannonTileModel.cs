@@ -29,9 +29,13 @@ namespace TileObjectScripts.TileModels
         {
         }
 
+        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        {
+            ballModel.RestoreCurrentBounce();
+        }
+
         public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
         {
-            //TODO ballModel.RestoreBallBounds;
             return ShootTheBall(ballModel, touchedCollider);
         }
 

@@ -11,17 +11,32 @@ namespace GameSceneScripts.TilesGeneratorScripts
         public LevelDescription LevelDescription;
         public TilesDescription TilesDescription;
         public TilesGeneratorModel Model;
+        public GameContext GameContext;
 
-        public TilesGeneratorSystem(LevelDescription levelDescription, TilesDescription tilesDescription)
+        public TilesGeneratorSystem(LevelDescription levelDescription, TilesDescription tilesDescription, GameContext gameContext)
         {
             TilesDescription = tilesDescription;
             LevelDescription = levelDescription;
             Model = new TilesGeneratorModel();
-            
+            GameContext = gameContext;
         }
         
         public void InitGameSystem()
         {
+            List<TileObjectHandler> staticTileObjectHandlers = new List<TileObjectHandler>();
+            GameSceneHandler sceneHandler = (GameSceneHandler)GameContext.SceneHandler.GetSceneHandlerByName(GameContext.SceneHandler.GameSceneName);
+            foreach (var staticTilesContainer in sceneHandler.StaticTilesHandler.StaticTilesContainers)
+            {
+                TileObjectHandler tileObjectHandler = new TileObjectHandler();
+                tileObjectHandler.TilePrefab = staticTilesContainer;
+                tileObjectHandler.TilePosition = staticTilesContainer.TileTransform.position;
+                tileObjectHandler.IsTileGlowAtStart = true;
+                tileObjectHandler.IsAvailableToMoveByPlayer = false;
+                staticTileObjectHandlers.Add(tileObjectHandler); 
+            }
+
+            GameContext.StaticTileObjectHandlers = staticTileObjectHandlers;
+            GameContext.InitializeSystemByType(typeof(TileSystemsSystem));
         }
 
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
@@ -32,7 +47,10 @@ namespace GameSceneScripts.TilesGeneratorScripts
             if (!gameContext.RegenerateLevel) return;
             DestroyTiles(gameContext);
             var handlers = GenerateTiles(gameContext.CurrentDifficulty, sceneHandler.TilesHolder);
-            gameContext.InitializeTilesSystems(handlers);
+            gameContext.TileObjectHandlers = handlers;
+            var tileSystem = (TileSystemsSystem)gameContext.GetGameSystemByType(typeof(TileSystemsSystem));
+            tileSystem.Model.IsDinamycInitialized = false;
+            gameContext.InitializeSystemByType(typeof(TileSystemsSystem));
             gameContext.RegenerateLevel = false;
         }
         

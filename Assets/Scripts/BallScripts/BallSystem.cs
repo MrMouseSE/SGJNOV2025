@@ -7,11 +7,14 @@ namespace BallScripts
     {
         public BallContainer Container;
         public BallModel Model;
+        
+        private GameContext _gameContext;
 
-        public BallSystem(BallContainer container)
+        public BallSystem(BallContainer container, GameContext gameContext)
         {
-            Model = new BallModel(container);
+            Model = new BallModel(this, container, gameContext);
             Container = container;
+            _gameContext = gameContext;
         }
 
         public void InitGameSystem() { }
