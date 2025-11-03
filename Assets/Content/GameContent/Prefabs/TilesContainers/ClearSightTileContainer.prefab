@@ -257,6 +257,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8529397220085294452}
   m_SourcePrefab: {fileID: 100100000, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+--- !u!65 &308114045007923162 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3630581942527750879, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+  m_PrefabInstance: {fileID: 3901470904685819141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1416950448405782299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2706324662091999774, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
@@ -360,10 +365,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Colliders: []
+  Colliders:
+  - {fileID: 308114045007923162}
   TileObjectHandler:
     TilePosition: {x: 0, y: 0, z: 0}
     TileType: 0
+    IsTileGlowAtStart: 0
     TilePrefab: {fileID: 0}
   ClearSightTileAnimation: {fileID: 8529397220085294452}
   IdleAnimationName: ClearSightTileIdle
