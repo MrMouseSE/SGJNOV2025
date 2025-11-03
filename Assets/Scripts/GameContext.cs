@@ -30,6 +30,8 @@ public class GameContext : MonoBehaviour
     [HideInInspector]
     public bool RegenerateLevel;
     [HideInInspector]
+    public List<TileObjectHandler> StaticTileObjectHandlers;
+    [HideInInspector]
     public List<TileObjectHandler> TileObjectHandlers;
     [HideInInspector]
     public int ClearSightLootedCount;
@@ -45,32 +47,23 @@ public class GameContext : MonoBehaviour
         CurrentDifficulty = 1;
         InitGame();
         RegenerateLevel = true;
+        BallFactory = new BallFactory(BallContainer, this);
         InputSystem = new InputSystemActions();
         InputSystem.Enable();
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
-        GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription));
+        GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription, this));
         GameSystems.Add(new ClearSightSystem(LevelDescription, CurrentDifficulty));
         GameSystems.Add(new TileSystemsSystem(this));
         GameSystems.Add(new PlayerSystem(this));
+        GameSystems.Add(new BallsSystems());
         
-        BallFactory = new BallFactory(BallContainer);
+        
     }
 
-    public void InitializePlayerSystem()
+    public void InitializeSystemByType(Type systemType)
     {
-        ((PlayerSystem)GetGameSystemByType(typeof(PlayerSystem))).InitGameSystem();
-    }
-
-    public void InitializeTilesSystems(List<TileObjectHandler> handlers)
-    {
-        TileObjectHandlers = handlers;
-        ((TileSystemsSystem)GetGameSystemByType(typeof(TileSystemsSystem))).InitGameSystem();
-    }
-
-    public void AddGameSystem(IGameSystem gameSystem)
-    {
-        GameSystems.Add(gameSystem);
+        GetGameSystemByType(systemType).InitGameSystem();
     }
 
     public void Update()
@@ -104,11 +97,6 @@ public class GameContext : MonoBehaviour
     public LevelData GetCurrentLevelData()
     {
         return LevelDescription.LevelData.Find(x => x.LevelDifficulty == CurrentDifficulty);
-    }
-
-    public void DestroyBall(BallModel ballContainer)
-    {
-        //TODO: destroyBallLogic
     }
     
     private void InitGame()

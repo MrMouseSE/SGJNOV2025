@@ -1,4 +1,5 @@
 using System;
+using GameSceneScripts.TilesGeneratorScripts;
 
 namespace PlayerScripts
 {
@@ -25,6 +26,7 @@ namespace PlayerScripts
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
             if (!_isInitialized) return;
+            gameContext.GetGameSystemByType(typeof(TilesGeneratorSystem)).InitGameSystem();
             _model.PlayerMover.Move();
             _model.ShowTrajectory();
         }

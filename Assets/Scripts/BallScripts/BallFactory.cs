@@ -4,10 +4,12 @@ namespace BallScripts
 {
     public class BallFactory
     {
+        private GameContext _gameContext;
         private BallContainer _ballContainer;
         
-        public BallFactory(BallContainer ballContainer)
+        public BallFactory(BallContainer ballContainer, GameContext gameContext)
         {
+            _gameContext = gameContext;
             _ballContainer = ballContainer;
         }
 
@@ -17,7 +19,7 @@ namespace BallScripts
 
             newBall.Transform.localPosition = Vector3.zero;
             
-            return new BallSystem(newBall);
+            return new BallSystem(newBall, _gameContext);
         }
     }
 }

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallGameObject: {fileID: 789770909119852594}
   Transform: {fileID: 914834226145728621}
+  Bounces: 20
 --- !u!135 &1206695891087508027
 SphereCollider:
   m_ObjectHideFlags: 0

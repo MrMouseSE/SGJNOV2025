@@ -731,6 +731,7 @@ MonoBehaviour:
   - {fileID: 1654360801}
   - {fileID: 1136883472}
   - {fileID: 491334941}
+  StaticTilesHandler: {fileID: 3103703298253975898}
   TilesHolder: {fileID: 925259354}
   PlayerContainer: {fileID: 588098164}
 --- !u!1 &1817814021
@@ -1197,6 +1198,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9152844478956857606, guid: 8e9360e050588394e9621ccff54f5654, type: 3}
   m_PrefabInstance: {fileID: 3103703298253975896}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3103703298253975898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8424006092046872581, guid: 8e9360e050588394e9621ccff54f5654, type: 3}
+  m_PrefabInstance: {fileID: 3103703298253975896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efe469b442444f09472f5a0d49149c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

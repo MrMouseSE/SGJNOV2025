@@ -1,7 +1,6 @@
 using System;
 using TileObjectScripts.TileContainers;
 using UnityEngine;
-using UnityEngine.Android;
 
 namespace BallScripts
 {
@@ -13,13 +12,22 @@ namespace BallScripts
         public int Bounces { get; }
 
         private readonly BallContainer _container;
+        public BallSystem BallSystem;
+        private GameContext _gameContext;
         private int _currentBounce;
 
-        public BallModel(BallContainer container)
+        public BallModel(BallSystem ballSystem,BallContainer container, GameContext gameContext)
         {
+            BallSystem = ballSystem;
+            _gameContext = gameContext;
             _container = container;
             _container.E_collisionEntered += TryRebound;
             Bounces = container.Bounces;
+        }
+
+        public void RestoreCurrentBounce()
+        {
+            _currentBounce = 0;
         }
 
         public void Dispose()
@@ -38,22 +46,29 @@ namespace BallScripts
             Direction = direction.normalized;
         }
 
+        public void DestroyBall()
+        {
+            UnityEngine.Object.Destroy(_container.BallGameObject);
+            ((BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems))).Model.RemoveBallSystem(BallSystem);
+            Dispose();
+        }
+
         private void TryRebound(Collider other)
         {
             if (_currentBounce >= Bounces)
             {
-                //TODO : Destroy ball
+                DestroyBall();
                 return;
             }
-
             
-            if (other.TryGetComponent(out AbstractTileContainer tileModel))
+            if (other.TryGetComponent(out AbstractTileContainer tileContainer))
             {
-                Direction = tileModel.TileModel.GetDirection(this, other).normalized;
+                Direction = tileContainer.TileModel.GetDirection(this, other).normalized;
+                tileContainer.TileModel.InteractByBall(this, other);
 
-                if (tileModel.IsGlowing == false)
+                if (tileContainer.IsGlowing == false)
                 {
-                    tileModel.StartGlowUpTileAnimation();
+                    tileContainer.StartGlowUpTileAnimation();
                 }
             }
             else if (other.TryGetComponent(out Collider collider))
