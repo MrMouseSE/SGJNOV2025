@@ -1,3 +1,4 @@
+using BallScripts;
 using LevelScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,6 +33,8 @@ namespace ClearSightScripts
                     gameContext.ClearSightLootedCount = _currentClearSightCount;
             }
             if (gameContext.ClearSightLootedCount != _currentClearSightCount) return;
+            var ballsSystem = (BallsSystems)gameContext.GetGameSystemByType(typeof(BallsSystems));
+            ballsSystem.Model.DestroyAllBalls();
             _currentAnimationTime += deltaTime;
             gameContext.IsGamePaused = true;
             if (!_isAnimating) 

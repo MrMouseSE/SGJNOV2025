@@ -57,8 +57,9 @@ namespace PlayerScripts
 
         private void SpawnBall(InputAction.CallbackContext obj)
         {
-            if (_currentBallSystem == null)
-                _currentBallSystem = _gameContext.BallFactory.CreateBall(_container.BallHoldPoint);
+            var ballsSystem = (BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems));
+            ballsSystem.Model.DestroyAllBalls();
+            _currentBallSystem = _gameContext.BallFactory.CreateBall(_container.BallHoldPoint);
         }
 
         private void Shoot(InputAction.CallbackContext obj)
@@ -85,7 +86,9 @@ namespace PlayerScripts
             _currentBallSystem.SetDirection(direction);
             _currentBallSystem.SetVelocity(_container.BallSpeed);
     
-            _gameContext.AddGameSystem(_currentBallSystem);
+            var ballsSystems = (BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems));
+            ballsSystems.Model.AddBallSystem(_currentBallSystem);
+            
             _currentBallSystem.Container.Transform.SetParent(null);
             _currentBallSystem = null;
     

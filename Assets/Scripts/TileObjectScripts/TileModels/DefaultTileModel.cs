@@ -29,6 +29,10 @@ namespace TileObjectScripts
         {
         }
 
+        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        {
+        }
+
         public virtual Vector3 GetDirection(BallModel ballModel, Collider touchingCollider)
         {
             return ReflectBall(ballModel, touchingCollider);

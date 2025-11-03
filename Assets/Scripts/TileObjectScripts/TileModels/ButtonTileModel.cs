@@ -48,11 +48,15 @@ namespace TileObjectScripts.TileModels
             }
         }
 
-        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
-            if (_isAnimatingFinished || _isAnimating) return ballModel.Direction;
+            if (_isAnimatingFinished || _isAnimating) return;
             _startGlowColor = _container.GlowMeshRenderer.material.GetColor(_container.EmissionColor);
             _endGlowColor = Color.green;
+        }
+
+        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        {
             return ballModel.Direction;
         }
     }
