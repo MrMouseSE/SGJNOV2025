@@ -5,6 +5,7 @@ using ClearSightScripts;
 using DisolveEffectScripts;
 using GameSceneScripts.TilesGeneratorScripts;
 using LevelScripts;
+using PlayerScripts;
 using TileObjectScripts;
 using TileObjectScripts.TileContainers;
 using UnityEngine;
@@ -15,6 +16,10 @@ public class GameContext : MonoBehaviour
     public DisolveEffectContainer DisolveContainer;
     public TilesDescription TilesDescription;
     public LevelDescription LevelDescription;
+    public BallContainer BallContainer;
+    public Vector3 LeftEndPoint = new Vector3(-4, 0, 0);
+    public BallFactory BallFactory;
+    public InputSystemActions InputSystem;
     
     private readonly List<IGameSystem> GameSystems = new();
     
@@ -37,12 +42,20 @@ public class GameContext : MonoBehaviour
         CurrentDifficulty = 1;
         InitGame();
         RegenerateLevel = true;
+        InputSystem = new InputSystemActions();
+        InputSystem.Enable();
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
-        GameSystems.Add(new BallSystem(TilesDescription.BallContainer));
         GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription));
         GameSystems.Add(new ClearSightSystem(LevelDescription, CurrentDifficulty));
         GameSystems.Add(new TileSystemsSystem(this));
+        
+        BallFactory = new BallFactory(BallContainer);
+    }
+
+    public void AddPlayerSystem(PlayerContainer playerContainer)
+    {
+        GameSystems.Add(new PlayerSystem(playerContainer, this));
     }
 
     public void InitializeTilesSystems(List<TileObjectHandler> handlers)
@@ -89,9 +102,9 @@ public class GameContext : MonoBehaviour
         return LevelDescription.LevelData.Find(x => x.LevelDifficulty == CurrentDifficulty);
     }
 
-    public void DestroyBall(BallContainer ballContainer)
+    public void DestroyBall(BallModel ballContainer)
     {
-        
+        //TODO: destroyBallLogic
     }
     
     private void InitGame()

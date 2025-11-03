@@ -29,22 +29,22 @@ namespace TileObjectScripts.TileModels
         {
         }
 
-        public Vector3 GetDirection(BallContainer ball, Collider touchingCollider)
+        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
         {
             //TODO ballModel.RestoreBallBounds;
-            return ShootTheBall(ball, touchingCollider);
+            return ShootTheBall(ballModel, touchedCollider);
         }
 
-        private Vector3 ShootTheBall(BallContainer ball, Collider touchingCollider)
+        private Vector3 ShootTheBall(BallModel ballModel, Collider touchedCollider)
         {
-            if (!_container.Colliders.Contains(touchingCollider)) return ball.Direction;
+            if (!_container.Colliders.Contains(touchedCollider)) return ballModel.Direction;
     
-            Vector3 closestPoint = touchingCollider.ClosestPoint(ball.Position);
+            Vector3 closestPoint = touchedCollider.ClosestPoint(ballModel.Position);
     
-            Vector3 collisionNormal = (ball.Position - closestPoint).normalized;
+            Vector3 collisionNormal = (ballModel.Position - closestPoint).normalized;
     
             if (collisionNormal == Vector3.zero)
-                collisionNormal = (ball.Position - _container.transform.position).normalized;
+                collisionNormal = (ballModel.Position - _container.transform.position).normalized;
             return collisionNormal;
         }
     }

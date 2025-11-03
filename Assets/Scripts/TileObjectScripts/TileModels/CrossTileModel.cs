@@ -31,11 +31,11 @@ namespace TileObjectScripts.TileModels
         {
         }
 
-        public Vector3 GetDirection(BallContainer ball, Collider touchedCollider)
+        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
         {
-            DestroyBall(ball.Direction, ball.Position);
-            _gameContext.DestroyBall(ball);
-            return ball.Direction;
+            DestroyBall(ballModel.Direction, ballModel.Position);
+            _gameContext.DestroyBall(ballModel);
+            return ballModel.Direction;
         }
 
         private void DestroyBall(Vector3 ballDirection, Vector3 ballPosition)

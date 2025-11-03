@@ -40,14 +40,14 @@ namespace TileObjectScripts.TileModels
             _container.AnimationRootTransform.position = _container.AnimationDirection * positionValue;
         }
 
-        public override Vector3 GetDirection(BallContainer ball, Collider touchingCollider)
+        public override Vector3 GetDirection(BallModel ballModel, Collider touchingCollider)
         {
             _hitCount--;
             if (_hitCount == 0)
             {
                 _isAnimating = true;
             }
-            return base.GetDirection(ball, touchingCollider);
+            return base.GetDirection(ballModel, touchingCollider);
         }
     }
 }

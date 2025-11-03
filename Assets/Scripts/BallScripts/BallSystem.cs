@@ -1,12 +1,17 @@
+
+using UnityEngine;
+
 namespace BallScripts
 {
     public class BallSystem : IGameSystem
     {
-        private readonly BallModel _model;
+        public BallContainer Container;
+        public BallModel Model;
 
         public BallSystem(BallContainer container)
         {
-            _model = new BallModel(container);
+            Model = new BallModel(container);
+            Container = container;
         }
 
         public void InitGameSystem() { }
@@ -14,12 +19,22 @@ namespace BallScripts
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
             if (gameContext.IsGamePaused) return;
-            _model.Move(deltaTime);
+            Model.Move(deltaTime);
+        }
+
+        public void SetDirection(Vector3 direction)
+        {
+            Model.SetDirection(direction);
+        }
+
+        public void SetVelocity(float velocity)
+        {
+            Model.Velocity = velocity;
         }
 
         public void Dispose()
         {
-            _model.Dispose();
+            Model.Dispose();
         }
     }
 }
