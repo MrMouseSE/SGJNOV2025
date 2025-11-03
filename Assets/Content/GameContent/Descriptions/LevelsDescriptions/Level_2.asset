@@ -15,236 +15,296 @@ MonoBehaviour:
   LevelName: Level_2
   LevelDifficulty: 2
   ClearSightCount: 2
+  ButtonsCount: 0
+  WallHitCount: 0
   LevelTilesHandlers:
   - TilePosition: {x: -4, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 6, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -5, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -6, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 8, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 0}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -2, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 0}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 2, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 3, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 5, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 7, y: 0, z: 7}
     TileType: 9
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 2}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 2}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 3}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 4}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 6}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 6}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 7}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 8}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 9}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 7}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 7, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -8, y: 0, z: -1}
     TileType: 0
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 2, y: 0, z: 7}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 3, y: 0, z: 7}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: 7}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: 6}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 5, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 6, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 7, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 8, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -2, y: 0, z: 2}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: 2}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -2, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -4, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -5, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: 1}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: -0}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 0}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 1}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 2}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 3}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 4}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -6, y: 0, z: 5}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -5, y: 0, z: 1}
     TileType: 9
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
