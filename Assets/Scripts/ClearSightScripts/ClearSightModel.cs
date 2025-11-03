@@ -12,6 +12,8 @@ namespace ClearSightScripts
         private float _currentAnimationTime;
         private float _currentAnimationStartDelay;
         private int _currentTileToStartAnimation;
+        private bool _isDarkAnimationWaiting;
+        private bool _isDarkAnimationStart;
         private bool _isAnimating;
         
         public ClearSightModel(LevelDescription levelDescription)
@@ -40,7 +42,7 @@ namespace ClearSightScripts
                     handler.TilePrefab.CollectCurrentColors();
                 }
             }
-            if (_currentTileToStartAnimation < gameContext.TileObjectHandlers.Count)
+            if (!_isDarkAnimationWaiting && !_isDarkAnimationStart)
             {
                 ProcessTileFinalAnimation(gameContext);
                 _currentAnimationStartDelay += deltaTime;
@@ -49,20 +51,34 @@ namespace ClearSightScripts
                     _currentTileToStartAnimation++;
                     _currentAnimationStartDelay = 0f;
                     if (_currentTileToStartAnimation >= gameContext.TileObjectHandlers.Count)
-                        _currentAnimationTime = -_levelDescription.ToDartAnimationTime;
+                    {
+                        _currentAnimationTime = 0;
+                        _isDarkAnimationWaiting = true;
+                    }
                 }
             }
-            else if(_currentAnimationTime < 0f)
+
+            if (_isDarkAnimationWaiting && _currentAnimationTime < _levelDescription.BeforDartAnimationDelay)
             {
-                PlayFinalAnimation(gameContext, -_currentAnimationTime/_levelDescription.ToDartAnimationTime);
+                _isDarkAnimationWaiting = false;
+                _currentAnimationTime = 0f;
+                _isDarkAnimationStart = true;
+            }
+
+            if (!_isDarkAnimationStart) return;
+            if (_currentAnimationTime < _levelDescription.ToDartAnimationTime)
+            {
+                PlayFinalAnimation(gameContext, 1-_currentAnimationTime/_levelDescription.ToDartAnimationTime);
             }
             else
             {
+                _isDarkAnimationStart = false;
                 _currentTileToStartAnimation = 0;
                 gameContext.ResetGameValues();
                 _isAnimating = false;
                 _currentAnimationTime = 0f;
             }
+
         }
 
         private void ProcessTileFinalAnimation(GameContext gameContext)

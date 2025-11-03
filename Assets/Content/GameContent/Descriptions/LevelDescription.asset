@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee27e95f3fbdf4380ca6b313de2f78, type: 3}
   m_Name: LevelDescription
   m_EditorClassIdentifier: 
-  ToDartAnimationTime: 2
-  FinalAnimationNextTileDelay: 0.03
+  ToDartAnimationTime: 0.45
+  BeforDartAnimationDelay: 0.7
+  FinalAnimationNextTileDelay: 0.05
   AvailableToMoveColor: {r: 1.7735848, g: 0.96421695, b: 0, a: 0}
   NotAvailableToMoveColor: {r: 0, g: 1.3424042, b: 1.509434, a: 0}
   LevelData:
