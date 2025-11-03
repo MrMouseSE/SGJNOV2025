@@ -385,5 +385,5 @@ MonoBehaviour:
   Transform: {fileID: 8143637888059323165}
   BallHoldPoint: {fileID: 8616525305550466392}
   MovementSpeed: 0.05
-  BallSpeed: 2
+  BallSpeed: 10
   TrajectoryPredictor: {fileID: 7089597453233873461}

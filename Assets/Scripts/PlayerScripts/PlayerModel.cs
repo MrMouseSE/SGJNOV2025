@@ -17,17 +17,17 @@ namespace PlayerScripts
         private BallSystem _currentBallSystem;
         private Camera _camera;
         
-        public PlayerModel(InputSystemActions inputSystem, PlayerContainer container, GameContext gameContext)
+        public PlayerModel(PlayerContainer container, GameContext gameContext)
         {
             _container = container;
-            _inputSystem =  inputSystem;
+            _inputSystem = gameContext.InputSystem;
             
             _inputSystem.Player.Attack.started += Shoot;
             _inputSystem.Player.Jump.started += SpawnBall;
             
             _gameContext = gameContext;
 
-            PlayerMover = new PlayerMover(inputSystem, container.Transform, container.MovementSpeed, gameContext.LeftEndPoint.x);
+            PlayerMover = new PlayerMover(gameContext.InputSystem, container.Transform, container.MovementSpeed, gameContext.LeftEndPoint.x);
         }
 
         public void Dispose()

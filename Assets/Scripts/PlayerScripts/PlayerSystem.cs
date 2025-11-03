@@ -7,10 +7,10 @@ namespace PlayerScripts
         private readonly PlayerModel _model;
         private readonly PlayerContainer _playerContainer;
         
-        public PlayerSystem(InputSystemActions inputSystem, PlayerContainer playerContainer, GameContext gameContext)
+        public PlayerSystem(PlayerContainer playerContainer, GameContext gameContext)
         {
             _playerContainer = playerContainer;
-            _model = new PlayerModel(inputSystem, _playerContainer, gameContext);
+            _model = new PlayerModel(_playerContainer, gameContext);
         }
 
         public void InitGameSystem()

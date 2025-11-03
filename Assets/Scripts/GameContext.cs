@@ -53,6 +53,11 @@ public class GameContext : MonoBehaviour
         BallFactory = new BallFactory(BallContainer);
     }
 
+    public void AddPlayerSystem(PlayerContainer playerContainer)
+    {
+        GameSystems.Add(new PlayerSystem(playerContainer, this));
+    }
+
     public void InitializeTilesSystems(List<TileObjectHandler> handlers)
     {
         TileObjectHandlers = handlers;
