@@ -6,6 +6,7 @@ namespace BallScripts
     [RequireComponent(typeof(Collider))]
     public class BallContainer : MonoBehaviour
     {
+        public GameObject BallGameObject;
         public Transform Transform;
         
         public event Action<Collider> E_collisionEntered;

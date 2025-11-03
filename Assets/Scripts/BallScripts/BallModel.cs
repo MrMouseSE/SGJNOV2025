@@ -36,7 +36,7 @@ namespace BallScripts
 
         private void TryRebound(Collider other)
         {
-            if (other.gameObject.TryGetComponent(out SimpleTileContainer tileContainer))
+            if (other.gameObject.TryGetComponent(out AbstractTileContainer tileContainer))
             {
                 Vector3 newDirection = new Vector3(tileContainer.TileModel.GetDirection(this, other).x, 0, tileContainer.TileModel.GetDirection(this, other).z);
                 Direction = newDirection.normalized;

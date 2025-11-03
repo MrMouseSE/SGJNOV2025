@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace TileObjectScripts
 {
-    public class TileNormalModel : ITileModel
+    public class DefaultTileModel : ITileModel
     {
         private readonly AbstractTileContainer _container;
 
-        public TileNormalModel(AbstractTileContainer container)
+        public DefaultTileModel(AbstractTileContainer container)
         {
             _container = container;
         }

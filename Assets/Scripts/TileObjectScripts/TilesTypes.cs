@@ -2,15 +2,15 @@ namespace TileObjectScripts
 {
     public enum TilesTypes
     {
-        Normal = 0,
-        Movable = 1,
-        Epiphany = 2,
-        Fragile = 3,
-        Gun = 4,
-        Duplicator = 5,
-        Door = 6,
-        Corner = 7,
-        Button = 8,
-        Trap = 9
+        Default = 0,
+        Angle = 1,
+        Button = 2,
+        Cannon = 3,
+        Destroyeble = 4,
+        Door = 5,
+        Doubler = 6,
+        Cross = 7,
+        MoveTo = 8,
+        ClearSight = 9,
     }
 }

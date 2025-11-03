@@ -1,17 +1,42 @@
-using System;
 using TileObjectScripts.TileContainers;
 
 namespace TileObjectScripts
 {
     public static class TileModelFactory
     {
-        public static TileNormalModel Create(AbstractTileContainer container)
+        public static ITileModel Create(AbstractTileContainer container)
         {
-            return container.TileType switch
+            ITileModel tileContainer;
+
+            switch (container.TileType)
             {
-                TilesTypes.Normal => new TileNormalModel(container),
-                TilesTypes.Movable => throw new ArgumentOutOfRangeException()
-            };
+                case TilesTypes.Angle:
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.Button:
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.Cannon:
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.Destroyeble:
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.Door:
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.Doubler:
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+                case TilesTypes.ClearSight:
+                    tileContainer = new ClearSightTileModel(container as ClearSightTileContainer);
+                    break;
+                default:
+                    tileContainer = new DefaultTileModel(container);
+                    break;
+            }
+
+            return tileContainer;
         }
     }
 }
