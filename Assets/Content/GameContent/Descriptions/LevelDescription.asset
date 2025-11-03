@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee27e95f3fbdf4380ca6b313de2f78, type: 3}
   m_Name: LevelDescription
   m_EditorClassIdentifier: 
-  ToDartAnimationTime: 0.3
+  ToDartAnimationTime: 0.34
   FinalAnimationNextTileDelay: 0.03
   AvailableToMoveColor: {r: 1.7735848, g: 0.96421695, b: 0, a: 0}
   NotAvailableToMoveColor: {r: 0, g: 1.3424042, b: 1.509434, a: 0}
   LevelData:
-  - {fileID: 11400000, guid: af52268bcb5b0a148a5010dd1ea2fea2, type: 2}
+  - {fileID: 11400000, guid: 6a18e93c2c817854a968b29771a96cda, type: 2}
   - {fileID: 11400000, guid: ccc547bdbf4ffa642bd5113322b9cc39, type: 2}
   - {fileID: 11400000, guid: d507463a7ca65414a81873c34ca94aca, type: 2}
   - {fileID: 11400000, guid: 9a41b350a1bdc6149aee89ee32b60784, type: 2}
