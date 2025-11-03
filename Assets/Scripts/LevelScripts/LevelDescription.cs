@@ -7,6 +7,7 @@ namespace LevelScripts
     public class LevelDescription : ScriptableObject
     {
         public float ToDartAnimationTime;
+        public float BeforDartAnimationDelay;
         public float FinalAnimationNextTileDelay;
         [ColorUsage(true, true)] public Color AvailableToMoveColor;
         [ColorUsage(true, true)] public Color NotAvailableToMoveColor;

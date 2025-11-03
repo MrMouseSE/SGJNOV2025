@@ -68,7 +68,12 @@ namespace TileObjectScripts.TileContainers
             while (currentTime < GlowUpAnimationCurve.keys[^1].time)
             {
                 currentTime += Time.deltaTime;
-                ProcessGlowAnimation(GlowUpAnimationCurve, currentTime, true);
+                float evaluatedValue =GlowUpAnimationCurve.Evaluate(currentTime / GlowUpAnimationCurve.keys[^1].time);
+                foreach (var meshRendererColor in _meshRendererColors)
+                {
+                    var currentColor = Color.LerpUnclamped(Color.black, _meshRendererColors[meshRendererColor.Key], evaluatedValue);
+                    meshRendererColor.Key.material.SetColor(EmissionColor, currentColor);
+                }
                 yield return _waitForEndOfFrame;
             }
         }
