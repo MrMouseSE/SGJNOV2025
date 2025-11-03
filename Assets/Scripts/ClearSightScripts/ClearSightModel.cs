@@ -69,7 +69,7 @@ namespace ClearSightScripts
             for (var index = 0; index < gameContext.TileObjectHandlers.Count; index++)
             {
                 var handler = gameContext.TileObjectHandlers[index];
-                handler.TilePrefab.ProcessFinalAnimation(
+                handler.TilePrefab.ProcessGlowAnimation(
                     Mathf.Clamp01(_currentAnimationTime - index * _levelDescription.FinalAnimationNextTileDelay));
             }
         }
@@ -78,7 +78,7 @@ namespace ClearSightScripts
         {
             foreach (var handler in gameContext.TileObjectHandlers)
             {
-                handler.TilePrefab.ProcessFinalAnimation(animationTime, true);
+                handler.TilePrefab.ProcessGlowAnimation(animationTime, true);
             }
         }
     }

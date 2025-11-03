@@ -285,6 +285,57 @@ MonoBehaviour:
   TileMeshRenderer: {fileID: 2666036060150345982}
   GlowMeshRenderer: {fileID: 8422901079063002452}
   AdditionalMeshRenderer: {fileID: 0}
+  GlowUpAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.034656864
+      value: 0.35917982
+      inSlope: 1.0361265
+      outSlope: 1.0361265
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.59739506
+    - serializedVersion: 3
+      time: 0.11599106
+      value: 0.1649689
+      inSlope: 2.368974
+      outSlope: 2.368974
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.29917893
+    - serializedVersion: 3
+      time: 0.24604306
+      value: 0.7314796
+      inSlope: 8.495688
+      outSlope: 8.495688
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.31258142
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 1.0054075
+      outSlope: 1.0054075
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.7597171
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   FinalAnimationCurve:
     serializedVersion: 2
     m_Curve:
