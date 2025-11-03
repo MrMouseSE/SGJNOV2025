@@ -65,11 +65,7 @@ namespace BallScripts
             {
                 Direction = tileContainer.TileModel.GetDirection(this, other).normalized;
                 tileContainer.TileModel.InteractByBall(this, other);
-
-                if (tileContainer.IsGlowing == false)
-                {
-                    tileContainer.StartGlowUpTileAnimation();
-                }
+                tileContainer.StartGlowUpTileAnimation();
             }
             else if (other.TryGetComponent(out Collider collider))
             {
