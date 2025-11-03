@@ -283,3 +283,8 @@ MonoBehaviour:
     IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
+  - TilePosition: {x: -0, y: 0, z: 2}
+    TileType: 6
+    IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
+    TilePrefab: {fileID: 0}

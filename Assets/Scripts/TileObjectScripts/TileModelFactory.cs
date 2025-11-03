@@ -27,7 +27,7 @@ namespace TileObjectScripts
                     tileModel = new DoorTileModel(container,gameContext);
                     break;
                 case TilesTypes.Doubler:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new DoublerTileModel(container, gameContext);
                     break;
                 case TilesTypes.Cross:
                     tileModel = new CrossTileModel((CrossTileContainer)container, gameContext);

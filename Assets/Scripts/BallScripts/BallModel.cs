@@ -15,6 +15,7 @@ namespace BallScripts
         public BallSystem BallSystem;
         private GameContext _gameContext;
         private int _currentBounce;
+        public bool IsDupThisBounce;
 
         public BallModel(BallSystem ballSystem,BallContainer container, GameContext gameContext)
         {
@@ -41,6 +42,10 @@ namespace BallScripts
             Position = _container.Transform.position;
         }
 
+        public void SetPosition(Vector3 position)
+        {
+            Position = position;
+        }
         public void SetDirection(Vector3 direction)
         {
             Direction = direction.normalized;
@@ -76,6 +81,7 @@ namespace BallScripts
             }
 
             _currentBounce++;
+            IsDupThisBounce = false;
         }
     }
 }
