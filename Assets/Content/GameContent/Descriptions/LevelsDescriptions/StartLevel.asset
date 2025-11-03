@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StartLevel
   m_EditorClassIdentifier: 
   LevelName: StartLevel
-  LevelDifficulty: 3
+  LevelDifficulty: 98899
   ClearSightCount: 1
   LevelTilesHandlers:
   - TilePosition: {x: -0, y: 0, z: 1}
