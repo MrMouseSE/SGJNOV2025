@@ -5027,6 +5027,14 @@ MonoBehaviour:
   TileGameObject: {fileID: 2679809229779044788}
   TileTransform: {fileID: 1416950448405782299}
   TileType: 7
+  AnimationDirection: {x: 0, y: 0, z: 0}
+  AnimationRootTransform: {fileID: 2842076740832846567}
+  UniversalAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   TileMeshRenderer: {fileID: 6564012343293331635}
   GlowMeshRenderer: {fileID: 4415173393945624120}
   AdditionalMeshRenderer: {fileID: 0}
@@ -5114,6 +5122,11 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   DestroyBallParticlesTransform: {fileID: 5095419719159432579}
   DestroyBallParticles: {fileID: 1357217075631277351}
+--- !u!4 &2842076740832846567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1249144856940124130, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+  m_PrefabInstance: {fileID: 3901470904685819141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6579329715749680816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7884314867660719029, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}

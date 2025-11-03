@@ -15,16 +15,16 @@ namespace TileObjectScripts
                     tileModel = new DefaultTileModel(container);
                     break;
                 case TilesTypes.Button:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new ButtonTileModel(container);
                     break;
                 case TilesTypes.Cannon:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new CannonTileModel(container);
                     break;
                 case TilesTypes.Destroyeble:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new DestroeybleTileModel(container,gameContext);
                     break;
                 case TilesTypes.Door:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new DoorTileModel(container,gameContext);
                     break;
                 case TilesTypes.Doubler:
                     tileModel = new DefaultTileModel(container);

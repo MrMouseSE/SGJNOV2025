@@ -14,6 +14,11 @@ namespace TileObjectScripts.TileModels
             _container = container;
             _gameContext = gameContext;
         }
+
+        public void UpdateModel(float deltaTime, GameContext gameContext)
+        {
+        }
+
         public Vector3 GetDirection(BallContainer ball, Collider touchedCollider)
         {
             DestroyBall(ball.Direction, ball.Position);

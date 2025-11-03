@@ -22,6 +22,7 @@ namespace TileObjectScripts
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
             if (gameContext.IsGamePaused) return;
+            _model.UpdateModel(deltaTime, gameContext);
         }
     }
 }

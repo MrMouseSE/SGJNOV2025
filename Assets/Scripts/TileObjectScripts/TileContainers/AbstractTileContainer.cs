@@ -7,10 +7,13 @@ namespace TileObjectScripts.TileContainers
     [RequireComponent(typeof(Collider))]
     public class AbstractTileContainer : MonoBehaviour
     {
-        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
+        public readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
         public GameObject TileGameObject;
         public Transform TileTransform;
         public TilesTypes TileType;
+        public Vector3 AnimationDirection;
+        public Transform AnimationRootTransform;
+        public AnimationCurve UniversalAnimationCurve;
         public MeshRenderer TileMeshRenderer;
         public MeshRenderer GlowMeshRenderer;
         public MeshRenderer AdditionalMeshRenderer;
