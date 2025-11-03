@@ -247,7 +247,7 @@ namespace LevelScripts.Editor
                 if (levelTile.TilePrefab == _currentSelectedAbstractTileContainer) continue;
                 if ((levelTile.TilePosition - position).magnitude < 0.1f)
                 {
-                    position = Vector3.back;
+                    position = Vector3.back  * 5;
                 }
             }
             selectedHandler.TilePrefab.transform.position = position;
@@ -280,7 +280,7 @@ namespace LevelScripts.Editor
         {
             Vector3 position = selectedHandler.TilePosition;
             DestroyImmediate(selectedHandler.TilePrefab.TileGameObject);
-            var tilePrefab = Instantiate(_tilesDescription.TileContainers.Find(x=> x.TileType == selectedHandler.TileType), Vector3.back, Quaternion.identity);
+            var tilePrefab = Instantiate(_tilesDescription.TileContainers.Find(x=> x.TileType == selectedHandler.TileType), Vector3.back  * 5, Quaternion.identity);
             tilePrefab.TileTransform.position = position;
             Selection.activeObject = tilePrefab;
             _currentSelectedAbstractTileContainer = tilePrefab;
