@@ -5,13 +5,14 @@ namespace BallScripts
 {
     public class BallSystem : IGameSystem
     {
+        public BallContainer Container;
+        
         private readonly BallModel _model;
-        private readonly BallContainer _container;
 
         public BallSystem(BallContainer container)
         {
             _model = new BallModel(container);
-            _container = container;
+            Container = container;
         }
 
         public void InitGameSystem() { }
@@ -21,9 +22,9 @@ namespace BallScripts
             _model.Move(deltaTime);
         }
 
-        public void SetDirection(Vector3  direction)
+        public void SetDirection(Vector3 direction)
         {
-            _container.Direction = direction.normalized;
+            _model.SetDirection(direction);
         }
 
         public void SetVelocity(float velocity)

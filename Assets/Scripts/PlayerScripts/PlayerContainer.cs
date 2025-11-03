@@ -4,8 +4,9 @@ namespace PlayerScripts
 {
     public class PlayerContainer : MonoBehaviour
     {
-        [SerializeField] public Transform Transform;
-        [SerializeField] public Transform BallHoldPoint;
-        [SerializeField] public float Speed;
+        public Transform Transform;
+        public Transform BallHoldPoint;
+        public float MovementSpeed;
+        public float BallSpeed;
     }
 }

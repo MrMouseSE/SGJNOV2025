@@ -13,23 +13,23 @@ namespace TileObjectScripts
             _container = container;
         }
 
-        public Vector3 GetDirection(BallContainer ball, Collider touchingCollider)
+        public Vector3 GetDirection(BallModel ballModel, Collider touchingCollider)
         {
-            return ReflectBall(ball, touchingCollider);
+            return ReflectBall(ballModel, touchingCollider);
         }
 
-        private Vector3 ReflectBall(BallContainer ball, Collider touchingCollider)
+        private Vector3 ReflectBall(BallModel ballModel, Collider touchingCollider)
         {
-            if (!_container.Colliders.Contains(touchingCollider)) return ball.Direction;
+            if (!_container.Colliders.Contains(touchingCollider)) return ballModel.Direction;
     
-            Vector3 closestPoint = touchingCollider.ClosestPoint(ball.Position);
+            Vector3 closestPoint = touchingCollider.ClosestPoint(ballModel.Position);
     
-            Vector3 collisionNormal = (ball.Position - closestPoint).normalized;
+            Vector3 collisionNormal = (ballModel.Position - closestPoint).normalized;
     
             if (collisionNormal == Vector3.zero)
-                collisionNormal = (ball.Position - _container.transform.position).normalized;
+                collisionNormal = (ballModel.Position - _container.transform.position).normalized;
     
-            return Vector3.Reflect(ball.Direction, collisionNormal);
+            return Vector3.Reflect(ballModel.Direction, collisionNormal);
         }
     }
 }

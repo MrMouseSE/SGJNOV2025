@@ -17,6 +17,7 @@ public class GameContext : MonoBehaviour
     public TilesDescription TilesDescription;
     public LevelDescription LevelDescription;
     public Transform LeftEndPoint;
+    public BallFactory BallFactory;
 
     private int _currentDifficulty;
     private readonly List<IGameSystem> GameSystems = new();
@@ -28,12 +29,15 @@ public class GameContext : MonoBehaviour
     public void Start()
     {
         InitGame();
+        
         _inputSystem = new InputSystemActions();
         _inputSystem.Enable();
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
         GameSystems.Add(new BallSystem(BallContainer));
         GameSystems.Add(new PlayerSystem(_inputSystem, PlayerContainer, this));
+        
+        BallFactory = new BallFactory(BallContainer);
         
         foreach (var handler in _tileObjectHandlers)
         {

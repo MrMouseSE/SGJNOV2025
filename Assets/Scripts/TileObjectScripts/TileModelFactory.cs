@@ -10,7 +10,7 @@ namespace TileObjectScripts
             return container.TileType switch
             {
                 TilesTypes.Normal => new TileNormalModel(container),
-                _ => throw new ArgumentOutOfRangeException()
+                TilesTypes.Movable => throw new ArgumentOutOfRangeException()
             };
         }
     }

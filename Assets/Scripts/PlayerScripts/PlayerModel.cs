@@ -1,4 +1,6 @@
 using System;
+using BallScripts;
+using PlayerScripts.MoverLogic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,59 +8,70 @@ namespace PlayerScripts
 {
     public class PlayerModel : IDisposable
     {
-        private readonly InputSystemActions _inputSystem;
-        private readonly PlayerContainer _playerContainer;
+        public PlayerMover PlayerMover;
+        
+        private readonly PlayerContainer _container;
         private readonly GameContext _gameContext;
-        private readonly float _leftBound;
-        private readonly float _rightBound;
+        private readonly InputSystemActions _inputSystem;
+
+        private BallSystem _currentBallSystem;
         
-        private Vector2 _direction;
-        private bool _isMoving;
-        
-        public PlayerModel(InputSystemActions inputSystem, PlayerContainer playerContainer, GameContext gameContext)
+        public PlayerModel(InputSystemActions inputSystem, PlayerContainer container, GameContext gameContext)
         {
-            _inputSystem = inputSystem;
-            _inputSystem.Player.Move.started += GetDirectionToMove;
-            _inputSystem.Player.Move.canceled += ResetDirection;
+            _container = container;
+            _inputSystem =  inputSystem;
             
-            _playerContainer = playerContainer;
+            _inputSystem.Player.Attack.started += Shoot;
+            _inputSystem.Player.Jump.started += SpawnBall;
             
             _gameContext = gameContext;
-            
-            _leftBound = _gameContext.LeftEndPoint.position.x;
-            _rightBound = -_leftBound;
+
+            PlayerMover = new PlayerMover(inputSystem, container.Transform, container.MovementSpeed, gameContext.LeftEndPoint.position.x);
         }
 
         public void Dispose()
         {
-            _inputSystem.Player.Move.started -= GetDirectionToMove;
-            _inputSystem.Player.Move.canceled -= ResetDirection;
+            _inputSystem.Player.Attack.started -= Shoot;
+            _inputSystem.Player.Jump.started -= SpawnBall;
+            PlayerMover.Dispose();
+        }
+        
+        private void SpawnBall(InputAction.CallbackContext obj)
+        {
+            _currentBallSystem = _gameContext.BallFactory.CreateBall(_container.BallHoldPoint);
         }
 
-        public void Move()
+        private void Shoot(InputAction.CallbackContext obj)
         {
-            if (_isMoving == false)
+            if (_currentBallSystem == null)
                 return;
-            
-            float newPosition = _playerContainer.Transform.position.x + _direction.x * _playerContainer.Speed;
+
+            Vector2 mouseScreenPosition = _inputSystem.Player.Look.ReadValue<Vector2>();
     
-            if (newPosition < _leftBound || newPosition > _rightBound)
-                return;
-            
-            _playerContainer.Transform.position = 
-                new Vector3(newPosition, _playerContainer.Transform.position.y, _playerContainer.Transform.position.z);
+            Vector3 mouseWorldPosition = ScreenToWorldPosition(mouseScreenPosition);
+    
+            Vector3 direction = (mouseWorldPosition - _container.BallHoldPoint.position);
+            direction.y = 0;
+            direction = direction.normalized;
+    
+            _currentBallSystem.SetDirection(direction);
+            _currentBallSystem.SetVelocity(_container.BallSpeed);
+            _gameContext.AddGameSystem(_currentBallSystem);
         }
-
-        private void GetDirectionToMove(InputAction.CallbackContext obj)
+        
+        private Vector3 ScreenToWorldPosition(Vector2 screenPosition)
         {
-            _isMoving = true;
-            _direction = new Vector2(obj.ReadValue<Vector2>().x, 0);
-        }
-
-        private void ResetDirection(InputAction.CallbackContext obj)
-        {
-            _direction = Vector2.zero;
-            _isMoving = false;
+            if (Camera.main != null)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(new Vector3(screenPosition.x, screenPosition.y, 0)));
+                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        
+                if (groundPlane.Raycast(ray, out float distance))
+                {
+                    return ray.GetPoint(distance);
+                }
+            }
+            return Vector3.zero;
         }
     }
 }
