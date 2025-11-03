@@ -18,7 +18,19 @@ namespace TileObjectScripts.TileModels
         private bool _isAnimatingFinished;
         private Color _startGlowColor;
         private Color _endGlowColor;
-        
+
+        private bool _isCanBeMoved;
+
+        public bool CheckMoveAvailability()
+        {
+            return _isCanBeMoved;
+        }
+
+        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
+        {
+            _isCanBeMoved = isCanBeMoved;
+        }
+
         public void UpdateModel(float deltaTime, GameContext gameContext)
         {
             if (!_isAnimating || _isAnimatingFinished) return;

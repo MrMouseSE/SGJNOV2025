@@ -8,12 +8,23 @@ namespace TileObjectScripts.TileModels
     {
         private readonly ClearSightTileContainer _container;
 
-        private bool _isClearSightLooted;
-
         public ClearSightTileModel(ClearSightTileContainer container)
         {
             _container = container;
             _container.ClearSightTileAnimation.Play(_container.IdleAnimationName);
+        }
+        
+        private bool _isClearSightLooted;
+        private bool _isCanBeMoved;
+
+        public bool CheckMoveAvailability()
+        {
+            return _isCanBeMoved;
+        }
+
+        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
+        {
+            _isCanBeMoved = isCanBeMoved;
         }
 
         public void UpdateModel(float deltaTime, GameContext gameContext)

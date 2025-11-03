@@ -11,7 +11,8 @@ namespace TileObjectScripts
         {
             _container = handler.TilePrefab;
             _model = TileModelFactory.Create(handler.TilePrefab, gameContext);
-            _container.Initialize(_model, handler.IsTileGlowAtStart);
+            _container.Initialize(_model, handler.IsTileGlowAtStart, handler.IsAvailableToMoveByPlayer, 
+                gameContext.LevelDescription.AvailableToMoveColor, gameContext.LevelDescription.NotAvailableToMoveColor);
         }
 
         public void InitGameSystem()

@@ -13,54 +13,68 @@ MonoBehaviour:
   m_Name: StartLevel
   m_EditorClassIdentifier: 
   LevelName: StartLevel
-  LevelDifficulty: 3
+  LevelDifficulty: 0
   ClearSightCount: 1
+  ButtonsCount: 1
+  WallHitCount: 0
   LevelTilesHandlers:
   - TilePosition: {x: -0, y: 0, z: 1}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 2, y: 0, z: 1}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 0, y: 0, z: 3}
     TileType: 8
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 3}
     TileType: 7
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 2, y: 0, z: 3}
     TileType: 2
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 3, y: 0, z: 1}
     TileType: 1
-    IsTileGlowAtStart: 0
+    IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 1
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: 1}
     TileType: 3
-    IsTileGlowAtStart: 0
+    IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: 3}
     TileType: 4
-    IsTileGlowAtStart: 0
+    IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 1
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: 4}
     TileType: 5
-    IsTileGlowAtStart: 0
+    IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 3, y: 0, z: 4}
     TileType: 6
-    IsTileGlowAtStart: 0
+    IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 1}
     TileType: 0
     IsTileGlowAtStart: 0
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 3, y: 0, z: 3}
     TileType: 9
     IsTileGlowAtStart: 1
+    IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}

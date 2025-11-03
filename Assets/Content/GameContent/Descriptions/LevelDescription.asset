@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToDartAnimationTime: 1
   FinalAnimationNextTileDelay: 0.03
+  AvailableToMoveColor: {r: 1.7735848, g: 0.96421695, b: 0, a: 0}
+  NotAvailableToMoveColor: {r: 0, g: 1.3424042, b: 1.509434, a: 0}
   LevelData:
   - {fileID: 11400000, guid: 51bcf96102ed08742aab5b597181f5e3, type: 2}
   - {fileID: 11400000, guid: f0112f910db636446a5d9d07fc9fa706, type: 2}
