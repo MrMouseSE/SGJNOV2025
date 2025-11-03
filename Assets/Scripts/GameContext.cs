@@ -33,9 +33,13 @@ public class GameContext : MonoBehaviour
     public List<TileObjectHandler> TileObjectHandlers;
     [HideInInspector]
     public int ClearSightLootedCount;
+
+    private int _currentButtonsPressed;
+    public Action AllButtonsPressed;
     
     public void Start()
     {
+        CurrentDifficulty = 1;
         InitGame();
         RegenerateLevel = true;
         InputSystem = new InputSystemActions();
@@ -79,6 +83,23 @@ public class GameContext : MonoBehaviour
         ClearSightLootedCount = 0;
         RegenerateLevel = true;
         CurrentDifficulty ++;
+    }
+
+    public void ButtonPressed()
+    {
+        _currentButtonsPressed++;
+        if (_currentButtonsPressed != GetCurrentLevelData().ButtonsCount) return;
+        AllButtonsPressed?.Invoke();
+    }
+
+    public LevelData GetCurrentLevelData()
+    {
+        return LevelDescription.LevelData.Find(x => x.LevelDifficulty == CurrentDifficulty);
+    }
+
+    public void DestroyBall(BallContainer ballContainer)
+    {
+        
     }
     
     private void InitGame()

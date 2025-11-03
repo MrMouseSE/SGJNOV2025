@@ -8,6 +8,8 @@ namespace LevelScripts
     {
         public float ToDartAnimationTime;
         public float FinalAnimationNextTileDelay;
+        [ColorUsage(true, true)] public Color AvailableToMoveColor;
+        [ColorUsage(true, true)] public Color NotAvailableToMoveColor;
         public List<LevelData> LevelData;
     }
 }

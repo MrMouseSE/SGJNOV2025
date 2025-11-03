@@ -10,7 +10,8 @@ namespace LevelScripts
         public string LevelName;
         public int LevelDifficulty;
         public int ClearSightCount;
-        
+        public int ButtonsCount;
+        public int WallHitCount;
         public List<TileObjectHandler> LevelTilesHandlers;
 
         public void SaveLevelHandlerToLevelData(LevelHandler levelHandler)
@@ -18,8 +19,9 @@ namespace LevelScripts
             LevelName = levelHandler.LevelName;
             LevelDifficulty = levelHandler.LevelDifficulty;
             LevelTilesHandlers = levelHandler.LevelTilesObjectHandler;
-            int count = LevelTilesHandlers.Count(handler => handler.TileType == TilesTypes.ClearSight);
-            ClearSightCount = count;
+            ClearSightCount = LevelTilesHandlers.Count(handler => handler.TileType == TilesTypes.ClearSight);
+            ButtonsCount = LevelTilesHandlers.Count(handler => handler.TileType == TilesTypes.Button);
+            WallHitCount = levelHandler.WallHitCount;
         }
     }
 }

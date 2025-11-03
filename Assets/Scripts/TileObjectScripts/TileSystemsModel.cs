@@ -6,12 +6,12 @@ namespace TileObjectScripts
     {
         private List<TileSystem> _tileSystems = new List<TileSystem>();
 
-        public void InitializeModel(List<TileObjectHandler> tileObjectHandlers)
+        public void InitializeModel(GameContext gameContext)
         {
             _tileSystems.Clear();
-            foreach (var handler in tileObjectHandlers)
+            foreach (var handler in gameContext.TileObjectHandlers)
             {
-                _tileSystems.Add(new TileSystem(handler));
+                _tileSystems.Add(new TileSystem(handler, gameContext));
             }
         }
 

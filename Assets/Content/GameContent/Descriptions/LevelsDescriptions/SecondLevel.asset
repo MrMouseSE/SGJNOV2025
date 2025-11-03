@@ -13,11 +13,146 @@ MonoBehaviour:
   m_Name: SecondLevel
   m_EditorClassIdentifier: 
   LevelName: SecondLevel
-  LevelDifficulty: 1
+  LevelDifficulty: 998
+  ClearSightCount: 0
   LevelTilesHandlers:
-  - TilePosition: {x: -2, y: 0, z: 1}
+  - TilePosition: {x: 9, y: 0, z: 2}
     TileType: 0
+    IsTileGlowAtStart: 0
     TilePrefab: {fileID: 0}
-  - TilePosition: {x: 2, y: 0, z: 2}
+  - TilePosition: {x: 9, y: 0, z: 3}
     TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 9, y: 0, z: 4}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 9, y: 0, z: 5}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 9, y: 0, z: 6}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 9, y: 0, z: 7}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 9, y: 0, z: 8}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 9, y: 0, z: 9}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 9, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 8, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 7, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 6, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 5, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 4, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 3, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 2, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 1, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -0, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -2, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -4, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -6, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -1, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -3, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -5, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 2}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 3}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 4}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 5}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 6}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 7}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 8}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -8, y: 0, z: 9}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: -7, y: 0, z: 10}
+    TileType: 0
+    IsTileGlowAtStart: 0
+    TilePrefab: {fileID: 0}
+  - TilePosition: {x: 6, y: 0, z: 1}
+    TileType: 0
+    IsTileGlowAtStart: 1
     TilePrefab: {fileID: 0}
