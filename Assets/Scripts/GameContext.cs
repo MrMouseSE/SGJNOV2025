@@ -34,6 +34,7 @@ public class GameContext : MonoBehaviour
     
     public void Start()
     {
+        CurrentDifficulty = 1;
         InitGame();
         RegenerateLevel = true;
 
