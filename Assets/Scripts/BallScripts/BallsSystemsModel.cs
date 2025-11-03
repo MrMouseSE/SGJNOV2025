@@ -27,9 +27,10 @@ namespace BallScripts
 
         public void DestroyAllBalls()
         {
-            foreach (var ballSystem in BallSystems)
+            for (var index = 0; index < BallSystems.Count; index++)
             {
-                Object.Destroy(ballSystem.Container.BallGameObject);
+                var ballSystem = BallSystems[index];
+                ballSystem.Model.DestroyBall();
             }
             BallSystems.Clear();
         }

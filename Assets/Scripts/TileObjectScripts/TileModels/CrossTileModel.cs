@@ -33,7 +33,6 @@ namespace TileObjectScripts.TileModels
 
         public void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
-            DestroyBallEffectPlay(ballModel.Direction, ballModel.Position);
             ballModel.DestroyBall();
         }
 
