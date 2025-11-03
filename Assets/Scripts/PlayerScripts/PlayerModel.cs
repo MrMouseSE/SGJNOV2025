@@ -63,7 +63,7 @@ namespace PlayerScripts
         {
             if (Camera.main != null)
             {
-                Ray ray = Camera.main.ScreenPointToRay(new Vector3(screenPosition.x, screenPosition.y, 0)));
+                Ray ray = Camera.main.ScreenPointToRay(new Vector3(screenPosition.x, screenPosition.y, 0));
                 Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         
                 if (groundPlane.Raycast(ray, out float distance))

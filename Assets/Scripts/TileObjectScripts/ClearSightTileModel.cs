@@ -22,10 +22,10 @@ namespace TileObjectScripts
             gameContext.ClearSightLootedCount++;
         }
 
-        public Vector3 GetDirection(BallContainer ball, Collider touchedCollider)
+        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
         {
             StartLootAnimation();
-            return ball.Direction;
+            return ballModel.Direction;
         }
         
         private void StartLootAnimation()
