@@ -10,7 +10,7 @@ namespace LevelScripts
         public string LevelName;
         public int LevelDifficulty;
         public int ClearSightCount;
-        [HideInInspector]
+        
         public List<TileObjectHandler> LevelTilesHandlers;
 
         public void SaveLevelHandlerToLevelData(LevelHandler levelHandler)

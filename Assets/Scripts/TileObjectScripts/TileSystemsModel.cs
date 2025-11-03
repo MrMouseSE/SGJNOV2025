@@ -11,7 +11,7 @@ namespace TileObjectScripts
             _tileSystems.Clear();
             foreach (var handler in tileObjectHandlers)
             {
-                _tileSystems.Add(new TileSystem(handler.TilePrefab));
+                _tileSystems.Add(new TileSystem(handler));
             }
         }
 
