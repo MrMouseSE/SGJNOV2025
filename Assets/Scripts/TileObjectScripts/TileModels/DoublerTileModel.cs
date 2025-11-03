@@ -39,8 +39,8 @@ namespace TileObjectScripts.TileModels
             var ballSystem = _gameContext.BallFactory.CreateBall(handler.TilesHolder);
             
             ballSystem.Model.SetPosition(ballModel.Position);
-            ballSystem.Model.IsDupThisBounce = false;
-            ballSystem.SetDirection(ReflectBall(ballModel, touchedCollider));
+            ballSystem.Model.IsDupThisBounce = true;
+            ballSystem.SetDirection(-ballModel.PreviousDirection);
             ballSystem.SetVelocity(_gameContext.PlayerContainer.BallSpeed);
             var ballsSystems = (BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems));
             ballsSystems.Model.AddBallSystem(ballSystem);

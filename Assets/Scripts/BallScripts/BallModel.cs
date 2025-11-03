@@ -8,6 +8,7 @@ namespace BallScripts
     {
         public float Velocity;
         public Vector3 Direction { get; private set; }
+        public Vector3 PreviousDirection;
         public Vector3 Position { get; private set; }
         public int Bounces { get; }
 
@@ -44,6 +45,7 @@ namespace BallScripts
 
         public void SetPosition(Vector3 position)
         {
+            _container.Transform.position = position;
             Position = position;
         }
         public void SetDirection(Vector3 direction)
@@ -62,11 +64,13 @@ namespace BallScripts
 
         private void TryRebound(Collider other)
         {
+            PreviousDirection = Direction;
             if (_currentBounce >= Bounces)
             {
                 DestroyBall();
                 return;
             }
+            IsDupThisBounce = false;
             
             if (other.TryGetComponent(out AbstractTileContainer tileContainer))
             {
@@ -81,7 +85,7 @@ namespace BallScripts
             }
 
             _currentBounce++;
-            IsDupThisBounce = false;
+            
         }
     }
 }
