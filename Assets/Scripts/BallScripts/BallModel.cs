@@ -78,6 +78,13 @@ namespace BallScripts
                 tileContainer.TileModel.InteractByBall(this, other);
                 tileContainer.StartGlowUpTileAnimation();
             }
+            else if (other.GetComponentInParent<AbstractTileContainer>() != null)
+            {
+                tileContainer = other.GetComponentInParent<AbstractTileContainer>();
+                Direction = tileContainer.TileModel.GetDirection(this, other).normalized;
+                tileContainer.TileModel.InteractByBall(this, other);
+                tileContainer.StartGlowUpTileAnimation();
+            }
             else if (other.TryGetComponent(out Collider collider))
             {
                 Vector3 normal = (other.ClosestPoint(_container.Transform.position) - _container.Transform.position).normalized;
