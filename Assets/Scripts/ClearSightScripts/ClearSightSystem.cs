@@ -6,9 +6,9 @@ namespace ClearSightScripts
     {
         public ClearSightModel Model;
 
-        public ClearSightSystem(LevelDescription levelDescription, int currentDifficulty)
+        public ClearSightSystem(LevelDescription levelDescription)
         {
-            Model = new ClearSightModel(levelDescription, currentDifficulty);
+            Model = new ClearSightModel(levelDescription);
         }
 
         public void InitGameSystem()

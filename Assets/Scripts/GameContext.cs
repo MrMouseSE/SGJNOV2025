@@ -36,6 +36,8 @@ public class GameContext : MonoBehaviour
     [HideInInspector]
     public int ClearSightLootedCount;
     [HideInInspector]
+    public int CurrentLevelClearSightCount;
+    [HideInInspector]
     public PlayerContainer PlayerContainer;
     
     private int _currentButtonsPressed;
@@ -53,12 +55,18 @@ public class GameContext : MonoBehaviour
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
         GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription, this));
-        GameSystems.Add(new ClearSightSystem(LevelDescription, CurrentDifficulty));
+        GameSystems.Add(new ClearSightSystem(LevelDescription));
         GameSystems.Add(new TileSystemsSystem(this));
         GameSystems.Add(new PlayerSystem(this));
         GameSystems.Add(new BallsSystems());
-        
-        
+
+        SetCurrentClearSightCount();
+    }
+
+    private void SetCurrentClearSightCount()
+    {
+        CurrentLevelClearSightCount = LevelDescription.LevelData.Find(x => x.LevelDifficulty == CurrentDifficulty)
+            .ClearSightCount;
     }
 
     public void InitializeSystemByType(Type systemType)
@@ -85,6 +93,7 @@ public class GameContext : MonoBehaviour
         ClearSightLootedCount = 0;
         RegenerateLevel = true;
         CurrentDifficulty ++;
+        SetCurrentClearSightCount();
     }
 
     public void ButtonPressed()
