@@ -17,10 +17,9 @@ public class GameContext : MonoBehaviour
     public TilesDescription TilesDescription;
     public LevelDescription LevelDescription;
     public BallContainer BallContainer;
-    public PlayerContainer PlayerContainer;
     public Vector3 LeftEndPoint = new Vector3(-4, 0, 0);
     public BallFactory BallFactory;
-    private InputSystemActions _inputSystem;
+    public InputSystemActions InputSystem;
     
     private readonly List<IGameSystem> GameSystems = new();
     
@@ -39,8 +38,8 @@ public class GameContext : MonoBehaviour
     {
         InitGame();
         RegenerateLevel = true;
-        _inputSystem = new InputSystemActions();
-        _inputSystem.Enable();
+        InputSystem = new InputSystemActions();
+        InputSystem.Enable();
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
         GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription));
@@ -48,9 +47,6 @@ public class GameContext : MonoBehaviour
         GameSystems.Add(new TileSystemsSystem(this));
         
         BallFactory = new BallFactory(BallContainer);
-        
-        PlayerContainer = Instantiate(PlayerContainer);
-        GameSystems.Add(new PlayerSystem(_inputSystem, PlayerContainer, this));
     }
 
     public void InitializeTilesSystems(List<TileObjectHandler> handlers)

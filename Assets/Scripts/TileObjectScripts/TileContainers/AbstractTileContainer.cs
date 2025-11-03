@@ -14,6 +14,7 @@ namespace TileObjectScripts.TileContainers
         public MeshRenderer TileMeshRenderer;
         public MeshRenderer GlowMeshRenderer;
         public MeshRenderer AdditionalMeshRenderer;
+        public bool IsGlowing;
         
         [Space]
         public AnimationCurve GlowUpAnimationCurve;
@@ -56,6 +57,8 @@ namespace TileObjectScripts.TileContainers
 
         private IEnumerator GlowUpAnimation()
         {
+            IsGlowing = true;
+            
             var currentTime = 0f;
             while (currentTime < GlowUpAnimationCurve.keys[^1].time)
             {

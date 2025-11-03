@@ -6,12 +6,11 @@ namespace BallScripts
     public class BallSystem : IGameSystem
     {
         public BallContainer Container;
-        
-        private readonly BallModel _model;
+        public BallModel Model;
 
         public BallSystem(BallContainer container)
         {
-            _model = new BallModel(container);
+            Model = new BallModel(container);
             Container = container;
         }
 
@@ -20,22 +19,22 @@ namespace BallScripts
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
             if (gameContext.IsGamePaused) return;
-            _model.Move(deltaTime);
+            Model.Move(deltaTime);
         }
 
         public void SetDirection(Vector3 direction)
         {
-            _model.SetDirection(direction);
+            Model.SetDirection(direction);
         }
 
         public void SetVelocity(float velocity)
         {
-            _model.Velocity = velocity;
+            Model.Velocity = velocity;
         }
 
         public void Dispose()
         {
-            _model.Dispose();
+            Model.Dispose();
         }
     }
 }

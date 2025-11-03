@@ -1,21 +1,25 @@
 using System;
 using TileObjectScripts.TileContainers;
 using UnityEngine;
+using UnityEngine.Android;
 
 namespace BallScripts
 {
     public class BallModel : IDisposable
     {
-        private readonly BallContainer _container;
-        
         public float Velocity;
-        public Vector3 Direction { get; private set; } = new Vector3(0,0,0);
+        public Vector3 Direction { get; private set; }
         public Vector3 Position { get; private set; }
+        public int Bounces { get; }
+
+        private readonly BallContainer _container;
+        private int _currentBounce;
 
         public BallModel(BallContainer container)
         {
             _container = container;
             _container.E_collisionEntered += TryRebound;
+            Bounces = container.Bounces;
         }
 
         public void Dispose()
@@ -25,7 +29,8 @@ namespace BallScripts
 
         public void Move(float deltaTime)
         {
-            _container.Transform.position += Direction * (deltaTime * Velocity);
+            _container.Transform.position += Direction * (Velocity * deltaTime);
+            Position = _container.Transform.position;
         }
 
         public void SetDirection(Vector3 direction)
@@ -35,11 +40,29 @@ namespace BallScripts
 
         private void TryRebound(Collider other)
         {
-            if (other.gameObject.TryGetComponent(out AbstractTileContainer tileContainer))
+            if (_currentBounce >= Bounces)
             {
-                Vector3 newDirection = new Vector3(tileContainer.TileModel.GetDirection(this, other).x, 0, tileContainer.TileModel.GetDirection(this, other).z);
-                Direction = newDirection.normalized;
+                //TODO : Destroy ball
+                return;
             }
+
+            
+            if (other.TryGetComponent(out AbstractTileContainer tileModel))
+            {
+                Direction = tileModel.TileModel.GetDirection(this, other).normalized;
+
+                if (tileModel.IsGlowing == false)
+                {
+                    tileModel.StartGlowUpTileAnimation();
+                }
+            }
+            else if (other.TryGetComponent(out Collider collider))
+            {
+                Vector3 normal = (other.ClosestPoint(_container.Transform.position) - _container.Transform.position).normalized;
+                Direction = Vector3.Reflect(Direction, normal).normalized;
+            }
+
+            _currentBounce++;
         }
     }
 }

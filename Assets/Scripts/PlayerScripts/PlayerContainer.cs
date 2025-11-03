@@ -1,3 +1,4 @@
+using PlayerScripts.TrajectoryPredictorScripts;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -8,5 +9,6 @@ namespace PlayerScripts
         public Transform BallHoldPoint;
         public float MovementSpeed;
         public float BallSpeed;
+        public TrajectoryPredictor TrajectoryPredictor;
     }
 }

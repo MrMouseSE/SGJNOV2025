@@ -19,6 +19,7 @@ namespace PlayerScripts
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
             _model.PlayerMover.Move();
+            _model.ShowTrajectory();
         }
 
         public void Dispose()
