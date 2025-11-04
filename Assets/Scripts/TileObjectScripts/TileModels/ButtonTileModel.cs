@@ -43,7 +43,7 @@ namespace TileObjectScripts.TileModels
             _endGlowColor = Color.green;
         }
 
-        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
+        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider, BallModel ballModel)
         {
             return direction;
         }
