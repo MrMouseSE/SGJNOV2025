@@ -191,11 +191,11 @@ MonoBehaviour:
   CollisionTag: Player
   EventReference:
     Guid:
-      Data1: 1500855370
-      Data2: 1205796918
-      Data3: 2094815156
-      Data4: -1405295556
-    Path: event:/3_First_hit
+      Data1: -1801485162
+      Data2: 1172081548
+      Data3: -2104746335
+      Data4: -1936536868
+    Path: event:/6_1_1_Tile_Hit
   Event: 
   EventPlayTrigger: 3
   EventStopTrigger: 0
