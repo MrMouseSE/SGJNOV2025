@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallGameObject: {fileID: 789770909119852594}
   Transform: {fileID: 914834226145728621}
-  Bounces: 20
+  Bounces: 40
   Collider: {fileID: 1206695891087508027}
   MeshRenderer: {fileID: 3049085959658509327}
   BallDestroyParticleSystem: {fileID: 1312481425851584331}
