@@ -20,6 +20,15 @@ namespace TileObjectScripts.TileModels
             _hitCount = gameContext.GetCurrentLevelData().WallHitCount;
         }
 
+        public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        {
+            _hitCount--;
+            if (_hitCount == 0)
+            {
+                _isAnimating = true;
+            }
+        }
+
         public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
             if (!_isAnimating || _isAnimatingFinished) return;
@@ -37,16 +46,11 @@ namespace TileObjectScripts.TileModels
             {
                 _isAnimatingFinished = true;
             }
-            _container.AnimationRootTransform.position = _container.AnimationDirection * positionValue;
+            _container.AnimationRootTransform.localPosition = _container.AnimationDirection * positionValue;
         }
 
         public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchingCollider, BallModel ballModel)
         {
-            _hitCount--;
-            if (_hitCount == 0)
-            {
-                _isAnimating = true;
-            }
             return base.GetDirection(direction, position, touchingCollider, ballModel);
         }
     }
