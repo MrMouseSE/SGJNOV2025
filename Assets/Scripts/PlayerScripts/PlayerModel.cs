@@ -42,7 +42,9 @@ namespace PlayerScripts
             if (_currentBallSystem == null)
                 return;
     
-            Vector2 mouseScreenPosition = Input.mousePosition;
+            Debug.Log($"Mouse.current.position.ReadValue() {Mouse.current.position.ReadValue()}");
+            Debug.Log($"Input.mousePosition {Input.mousePosition}");
+            Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
             Vector3 mouseWorldPosition = ScreenToWorldPosition(mouseScreenPosition);
     
             Vector3 direction = (mouseWorldPosition - _container.BallHoldPoint.position);
@@ -57,6 +59,9 @@ namespace PlayerScripts
 
         private void SpawnBall(InputAction.CallbackContext obj)
         {
+            if (_camera == null)
+                _camera = _gameContext.SceneHandler.GetSceneHandlerByName("GameScene").SceneCamera;
+            
             var ballsSystem = (BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems));
             ballsSystem.Model.DestroyAllBalls();
             _currentBallSystem = _gameContext.BallFactory.CreateBall(_container.BallHoldPoint);
@@ -66,11 +71,6 @@ namespace PlayerScripts
         {
             if (_currentBallSystem == null)
                 return;
-
-            if (_camera == null)
-            {
-                _camera = _gameContext.SceneHandler.GetSceneHandlerByName("GameScene").SceneCamera;
-            }
     
             Vector2 mouseScreenPosition = Input.mousePosition;
     
