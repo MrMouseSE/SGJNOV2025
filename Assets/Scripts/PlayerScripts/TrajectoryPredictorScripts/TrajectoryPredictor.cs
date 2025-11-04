@@ -36,8 +36,10 @@ namespace PlayerScripts.TrajectoryPredictorScripts
             _lineRenderer.positionCount = 1;
             _lineRenderer.SetPosition(0, startPosition);
             int totalPoints = 1;
+            
+            
 
-            for (int i = 0; i < ballModel.Bounces; i++)
+            //for (int i = 0; i < ballModel.Bounces; i++)
             {
                 if (Physics.SphereCast(currentPosition, sphereRadius, currentDirection, out RaycastHit hit, _maxLength))
                 {
@@ -58,7 +60,7 @@ namespace PlayerScripts.TrajectoryPredictorScripts
                         reflectedDir = tile.TileModel.GetDirection(currentDirection, hitPoint, hitCollider).normalized;
 
                         if (!tile.IsGlowing)
-                            break;
+                            return;
                     }
                     else
                     {
@@ -73,7 +75,7 @@ namespace PlayerScripts.TrajectoryPredictorScripts
                     totalPoints++;
                     _lineRenderer.positionCount = totalPoints;
                     _lineRenderer.SetPosition(totalPoints - 1, currentPosition + currentDirection * _maxLength);
-                    break;
+                    return;
                 }
             }
 
