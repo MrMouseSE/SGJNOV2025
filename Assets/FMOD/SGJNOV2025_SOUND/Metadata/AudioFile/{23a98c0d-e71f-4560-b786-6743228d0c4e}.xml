@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{23a98c0d-e71f-4560-b786-6743228d0c4e}">
+		<property name="assetPath">
+			<value>Noodles_SGJ_MASTER.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>222.41414965986394</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fc280779-9892-4e2e-94d3-0a93d66a2df7}</destination>
+		</relationship>
+	</object>
+</objects>
