@@ -24,7 +24,7 @@ namespace TileObjectScripts.TileModels
             ballModel.DestroyBall();
         }
 
-        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
+        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider, BallModel ballModel)
         {
             return direction;
         }

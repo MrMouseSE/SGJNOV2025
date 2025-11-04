@@ -15,19 +15,6 @@ namespace TileObjectScripts.TileModels
             _container = container;
             _gameContext = gameContext;
         }
-        
-        private bool _isCanBeMoved;
-
-        public bool CheckMoveAvailability()
-        {
-            return _isCanBeMoved;
-        }
-
-        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
-        {
-            _isCanBeMoved = isCanBeMoved;
-        }
-
         public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
         }
