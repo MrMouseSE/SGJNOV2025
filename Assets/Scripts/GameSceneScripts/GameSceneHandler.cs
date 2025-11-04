@@ -12,6 +12,8 @@ namespace GameSceneScripts
         public PlayerContainer PlayerContainer;
         private GameContext _gameContext;
         private bool _isPlayerInitialized;
+
+        public MovedContentSupport MovableSupportMessage;
         
         public override void InitSceneHandler(GameContext gameContext)
         {
