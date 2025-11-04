@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee27e95f3fbdf4380ca6b313de2f78, type: 3}
   m_Name: LevelDescription
   m_EditorClassIdentifier: 
+  DifficultyShowHelp: 5
   CloneCount: 1
   LevelPlayebleArea: {x: -10, y: -4, z: 10, w: 12}
   NormalCursor: {fileID: 2800000, guid: c7ab53ec18015a3408a38af929d3a295, type: 3}

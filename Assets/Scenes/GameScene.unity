@@ -1762,7 +1762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8279798641427736328, guid: 70c807d2dbbc29d4eba5392704420d94, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1800,7 +1800,7 @@ Animation:
   m_GameObject: {fileID: 2050233425}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: aef3b6f6a32a40f4cb2908e42302179b, type: 2}
+  m_Animation: {fileID: 7400000, guid: eff3e05662c7ceb4080040cbc70d2432, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: aef3b6f6a32a40f4cb2908e42302179b, type: 2}
   - {fileID: 7400000, guid: eff3e05662c7ceb4080040cbc70d2432, type: 2}
