@@ -271,7 +271,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   TileMeshRenderer: {fileID: 6564012343293331635}
-  GlowMeshRenderer: {fileID: 4415173393945624120}
+  GlowMeshRenderer: {fileID: 0}
   AdditionalMeshRenderer: {fileID: 0}
   IsGlowing: 0
   GlowUpAnimationCurve:

@@ -59,11 +59,19 @@ PrefabInstance:
     - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
       propertyPath: GlowMeshRenderer
       value: 
-      objectReference: {fileID: 8233242719831436540}
+      objectReference: {fileID: 0}
     - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
       propertyPath: TileMeshRenderer
       value: 
       objectReference: {fileID: 6308913855854737499}
+    - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+      propertyPath: SpecialMeshRenderer
+      value: 
+      objectReference: {fileID: 8233242719831436540}
+    - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+      propertyPath: AdditionalMeshRenderer
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
       propertyPath: InitinGlowLightColor.a
       value: 1
