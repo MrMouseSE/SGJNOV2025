@@ -55,9 +55,9 @@ namespace TileObjectScripts.TileModels
             _endGlowColor = Color.green;
         }
 
-        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        public Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
         {
-            return ballModel.Direction;
+            return direction;
         }
     }
 }
