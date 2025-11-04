@@ -43,9 +43,10 @@ namespace TileObjectScripts
         {
         }
 
-        public virtual Vector3 GetDirection(BallModel ballModel, Collider touchingCollider)
+        public virtual Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchingCollider)
         {
-            return ReflectBall(ballModel, touchingCollider);
+            Vector3 hitNormal = (position - touchingCollider.transform.position).normalized;
+            return Vector3.Reflect(direction, hitNormal).normalized;
         }
 
         public virtual void StartHandledAnimation(Vector3 destinationPosition, AnimationCurve animationCurve)

@@ -18,21 +18,21 @@ namespace TileObjectScripts.TileModels
             ballModel.RestoreCurrentBounce();
         }
 
-        public override Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        public Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
         {
-            return ShootTheBall(ballModel, touchedCollider);
+            return ShootTheBall(direction, position, touchedCollider);
         }
 
-        private Vector3 ShootTheBall(BallModel ballModel, Collider touchedCollider)
+        private Vector3 ShootTheBall(Vector3 direction, Vector3 position, Collider touchedCollider)
         {
-            if (!_container.Colliders.Contains(touchedCollider)) return ballModel.Direction;
+            if (!_container.Colliders.Contains(touchedCollider)) return direction;
     
-            Vector3 closestPoint = touchedCollider.ClosestPoint(ballModel.Position);
+            Vector3 closestPoint = touchedCollider.ClosestPoint(position);
     
-            Vector3 collisionNormal = (ballModel.Position - closestPoint).normalized;
+            Vector3 collisionNormal = (position - closestPoint).normalized;
     
             if (collisionNormal == Vector3.zero)
-                collisionNormal = (ballModel.Position - _container.transform.position).normalized;
+                collisionNormal = (position - _container.transform.position).normalized;
             return collisionNormal;
         }
     }
