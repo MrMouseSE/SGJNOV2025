@@ -152,7 +152,7 @@ MonoBehaviour:
   TilesDescription: {fileID: 11400000, guid: a1c92cc316059594696e1ac639a00ead, type: 2}
   LevelDescription: {fileID: 11400000, guid: 9a61b1de4678e3e4a83a894e51cacef2, type: 2}
   BallContainer: {fileID: 5195219985990244110, guid: e21f887a2be73fb4799fe4540c5cee43, type: 3}
-  LeftEndPoint: {x: -4, y: 0, z: 0}
+  LeftEndPoint: {x: -9, y: 0, z: 0}
   IsGamePaused: 0
   CurrentDifficulty: 0
   RegenerateLevel: 0
