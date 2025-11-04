@@ -18,7 +18,7 @@ namespace TileObjectScripts.TileModels
             ballModel.RestoreCurrentBounce();
         }
 
-        public Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
+        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
         {
             return ShootTheBall(direction, position, touchedCollider);
         }
