@@ -34,6 +34,7 @@ namespace ClearSightScripts
             ballsSystem.Model.DestroyAllBalls();
             _currentAnimationTime += deltaTime;
             gameContext.IsGamePaused = true;
+            gameContext.CanSpawnBall = false;
             if (!_isAnimating) 
             {
                 _isAnimating = true;
