@@ -6,6 +6,9 @@ namespace LevelScripts
     [CreateAssetMenu(menuName = "Create LevelDescription", fileName = "LevelDescription", order = 0)]
     public class LevelDescription : ScriptableObject
     {
+        public Vector4 LevelPlayebleArea;
+
+        [Space]
         public Texture2D NormalCursor;
         public Texture2D HandCursor;
         public Texture2D FistCursor;

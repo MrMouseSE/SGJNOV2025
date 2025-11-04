@@ -42,6 +42,7 @@ namespace BallScripts
         {
             _container.Transform.position += Direction * (Velocity * deltaTime);
             Position = _container.Transform.position;
+            if (CheckOutOfGameArea()) DestroyBall();
         }
 
         public void SetPosition(Vector3 position)
@@ -54,13 +55,25 @@ namespace BallScripts
             Direction = direction.normalized;
         }
 
-        public void DestroyBall()
+        public void DestroyGameObject()
         {
             _container.BallDestroyParticlesTransform.parent = null;
             _container.BallDestroyParticleSystem.Play();
             UnityEngine.Object.Destroy(_container.BallGameObject);
+        }
+
+        public void DestroyBall()
+        {
             ((BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems))).Model.RemoveBallSystem(BallSystem);
             Dispose();
+        }
+
+        private bool CheckOutOfGameArea()
+        {
+            return Position.x < _gameContext.LevelDescription.LevelPlayebleArea.x ||
+                   Position.x > _gameContext.LevelDescription.LevelPlayebleArea.z
+                   || Position.z < _gameContext.LevelDescription.LevelPlayebleArea.y ||
+                   Position.x > _gameContext.LevelDescription.LevelPlayebleArea.w;
         }
 
         private void TryRebound(Collider other)
