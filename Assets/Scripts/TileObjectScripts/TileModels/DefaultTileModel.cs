@@ -29,7 +29,7 @@ namespace TileObjectScripts
         {
         }
 
-        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        public virtual void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
         }
 
