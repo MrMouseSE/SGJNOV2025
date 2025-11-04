@@ -42,8 +42,6 @@ namespace PlayerScripts
             if (_currentBallSystem == null)
                 return;
     
-            Debug.Log($"Mouse.current.position.ReadValue() {Mouse.current.position.ReadValue()}");
-            Debug.Log($"Input.mousePosition {Input.mousePosition}");
             Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
             Vector3 mouseWorldPosition = ScreenToWorldPosition(mouseScreenPosition);
     

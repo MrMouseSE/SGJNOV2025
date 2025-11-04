@@ -39,34 +39,42 @@ namespace PlayerScripts.TrajectoryPredictorScripts
 
             for (int i = 0; i < ballModel.Bounces; i++)
             {
-                if (!Physics.SphereCast(currentPosition, sphereRadius, currentDirection, out RaycastHit hit,
-                        _maxLength))
+                if (Physics.SphereCast(currentPosition, sphereRadius, currentDirection, out RaycastHit hit, _maxLength))
                 {
+                    Vector3 ballCenterAtHit = hit.point - currentDirection * sphereRadius;
+
                     totalPoints++;
                     _lineRenderer.positionCount = totalPoints;
-                    _lineRenderer.SetPosition(totalPoints - 1, currentPosition + currentDirection * _mousePoint);
-                    break;
-                }
+                    _lineRenderer.SetPosition(totalPoints - 1, ballCenterAtHit);
 
-                Vector3 reflectedDir;
-                if (hit.collider.TryGetComponent(out AbstractTileContainer tile))
-                {
-                    reflectedDir = tile.TileModel.GetDirection(currentDirection, hit.point, hit.collider).normalized;
+                    Collider hitCollider = hit.collider;
+                    Vector3 hitPoint = hitCollider.ClosestPoint(ballCenterAtHit);
+                    Vector3 normal = (ballCenterAtHit - hitPoint).normalized;
+
+                    Vector3 reflectedDir;
+
+                    if (hitCollider.TryGetComponent(out AbstractTileContainer tile))
+                    {
+                        reflectedDir = tile.TileModel.GetDirection(currentDirection, hitPoint, hitCollider).normalized;
+
+                        if (!tile.IsGlowing)
+                            break;
+                    }
+                    else
+                    {
+                        reflectedDir = Vector3.Reflect(currentDirection, normal).normalized;
+                    }
+
+                    currentPosition = ballCenterAtHit + reflectedDir * (sphereRadius + 0.01f);
+                    currentDirection = reflectedDir;
                 }
                 else
                 {
-                    reflectedDir = Vector3.Reflect(currentDirection, hit.normal).normalized;
-                }
-
-                totalPoints++;
-                _lineRenderer.positionCount = totalPoints;
-                _lineRenderer.SetPosition(totalPoints - 1, hit.point - reflectedDir * sphereRadius);
-
-                currentPosition = hit.point + reflectedDir * 0.01f;
-                currentDirection = reflectedDir;
-
-                if (tile != null && !tile.IsGlowing)
+                    totalPoints++;
+                    _lineRenderer.positionCount = totalPoints;
+                    _lineRenderer.SetPosition(totalPoints - 1, currentPosition + currentDirection * _maxLength);
                     break;
+                }
             }
 
             _lineRenderer.enabled = true;
