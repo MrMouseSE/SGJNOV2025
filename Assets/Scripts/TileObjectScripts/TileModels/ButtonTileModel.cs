@@ -18,6 +18,8 @@ namespace TileObjectScripts.TileModels
         private bool _isAnimatingFinished;
         private Color _startGlowColor;
         private Color _endGlowColor;
+        
+        
 
         public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
@@ -27,7 +29,7 @@ namespace TileObjectScripts.TileModels
             {
                 float value = _container.UniversalAnimationCurve.Evaluate(_curentAnimationTime);
                 Color currentColor = Color.Lerp(_startGlowColor, _endGlowColor, value);
-                _container.GlowMeshRenderer.material.SetColor(_container.EmissionColor, currentColor);
+                _container.SpecialMeshRenderer.material.SetColor(_container.EmissionColor, currentColor);
             }
             else
             {

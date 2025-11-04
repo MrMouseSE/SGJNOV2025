@@ -97,8 +97,8 @@ MonoBehaviour:
   ToDartAnimationTime: 0.45
   BeforDartAnimationDelay: 0.7
   FinalAnimationNextTileDelay: 0.05
-  AvailableToMoveColor: {r: 1.7735848, g: 0.96421695, b: 0, a: 0}
-  NotAvailableToMoveColor: {r: 0, g: 1.3424042, b: 1.509434, a: 0}
+  AvailableToMoveColor: {r: 1.7207952, g: 0.6474702, b: 0.008220158, a: 1}
+  NotAvailableToMoveColor: {r: 0.011092661, g: 0.42923692, b: 1.0593472, a: 1}
   LevelData:
   - {fileID: 11400000, guid: af52268bcb5b0a148a5010dd1ea2fea2, type: 2}
   - {fileID: 11400000, guid: ccc547bdbf4ffa642bd5113322b9cc39, type: 2}
