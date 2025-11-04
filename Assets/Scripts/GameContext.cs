@@ -5,6 +5,8 @@ using ClearSightScripts;
 using DisolveEffectScripts;
 using GameSceneScripts.TilesGeneratorScripts;
 using LevelScripts;
+using MouseCursorScripts;
+using MovableTileScripts;
 using PlayerScripts;
 using TileObjectScripts;
 using TileObjectScripts.TileContainers;
@@ -59,6 +61,8 @@ public class GameContext : MonoBehaviour
         GameSystems.Add(new TileSystemsSystem(this));
         GameSystems.Add(new PlayerSystem(this));
         GameSystems.Add(new BallsSystems());
+        GameSystems.Add(new MouseCursorSystem(this));
+        GameSystems.Add(new MovableTileSystem(this));
 
         SetCurrentClearSightCount();
     }

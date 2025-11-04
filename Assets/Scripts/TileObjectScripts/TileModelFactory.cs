@@ -5,41 +5,44 @@ namespace TileObjectScripts
 {
     public static class TileModelFactory
     {
-        public static ITileModel Create(AbstractTileContainer container, GameContext gameContext)
+        public static ITileModel Create(TileObjectHandler handler, GameContext gameContext)
         {
             ITileModel tileModel;
 
-            switch (container.TileType)
+            switch (handler.TilePrefab.TileType)
             {
                 case TilesTypes.Angle:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(handler.TilePrefab);
                     break;
                 case TilesTypes.Button:
-                    tileModel = new ButtonTileModel(container);
+                    tileModel = new ButtonTileModel(handler.TilePrefab);
                     break;
                 case TilesTypes.Cannon:
-                    tileModel = new CannonTileModel(container);
+                    tileModel = new CannonTileModel(handler.TilePrefab);
                     break;
                 case TilesTypes.Destroyeble:
-                    tileModel = new DestroeybleTileModel(container,gameContext);
+                    tileModel = new DestroeybleTileModel(handler.TilePrefab,gameContext);
                     break;
                 case TilesTypes.Door:
-                    tileModel = new DoorTileModel(container,gameContext);
+                    tileModel = new DoorTileModel(handler.TilePrefab,gameContext);
                     break;
                 case TilesTypes.Doubler:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new DoublerTileModel(handler.TilePrefab, gameContext);
                     break;
                 case TilesTypes.Cross:
-                    tileModel = new CrossTileModel((CrossTileContainer)container, gameContext);
+                    tileModel = new CrossTileModel((CrossTileContainer)handler.TilePrefab, gameContext);
+                    break;
+                case TilesTypes.MoveTo:
+                    tileModel = new MoveToTileModel(handler.TilePrefab);
                     break;
                 case TilesTypes.ClearSight:
-                    tileModel = new ClearSightTileModel((ClearSightTileContainer)container);
+                    tileModel = new ClearSightTileModel((ClearSightTileContainer)handler.TilePrefab, gameContext);
                     break;
                 default:
-                    tileModel = new DefaultTileModel(container);
+                    tileModel = new DefaultTileModel(handler.TilePrefab);
                     break;
             }
-
+            tileModel.SetMoveByPlayerAvailability(handler.IsAvailableToMoveByPlayer);
             return tileModel;
         }
     }

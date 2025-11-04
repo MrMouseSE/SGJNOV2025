@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace TileObjectScripts.TileModels
 {
-    public class ButtonTileModel : ITileModel
+    public class ButtonTileModel : DefaultTileModel
     {
         private AbstractTileContainer _container;
 
-        public ButtonTileModel(AbstractTileContainer container)
+        public ButtonTileModel(AbstractTileContainer container) : base(container)
         {
             _container = container;
         }
@@ -19,19 +19,7 @@ namespace TileObjectScripts.TileModels
         private Color _startGlowColor;
         private Color _endGlowColor;
 
-        private bool _isCanBeMoved;
-
-        public bool CheckMoveAvailability()
-        {
-            return _isCanBeMoved;
-        }
-
-        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
-        {
-            _isCanBeMoved = isCanBeMoved;
-        }
-
-        public void UpdateModel(float deltaTime, GameContext gameContext)
+        public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
             if (!_isAnimating || _isAnimatingFinished) return;
             _curentAnimationTime += deltaTime;
@@ -48,16 +36,17 @@ namespace TileObjectScripts.TileModels
             }
         }
 
-        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
             if (_isAnimatingFinished || _isAnimating) return;
+            _isAnimating = true;
             _startGlowColor = _container.GlowMeshRenderer.material.GetColor(_container.EmissionColor);
             _endGlowColor = Color.green;
         }
 
-        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider, BallModel ballModel)
         {
-            return ballModel.Direction;
+            return direction;
         }
     }
 }

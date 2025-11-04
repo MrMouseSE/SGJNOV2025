@@ -4,38 +4,28 @@ using UnityEngine;
 
 namespace TileObjectScripts.TileModels
 {
-    public class ClearSightTileModel : ITileModel
+    public class ClearSightTileModel : DefaultTileModel
     {
         private readonly ClearSightTileContainer _container;
+        
+        private GameContext _gameContext;
 
-        public ClearSightTileModel(ClearSightTileContainer container)
+        public ClearSightTileModel(ClearSightTileContainer container, GameContext gameContext) : base(container)
         {
+            _gameContext = gameContext;
             _container = container;
             _container.ClearSightTileAnimation.Play(_container.IdleAnimationName);
         }
         
         private bool _isClearSightLooted;
-        private bool _isCanBeMoved;
 
-        public bool CheckMoveAvailability()
+        public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
-            return _isCanBeMoved;
         }
 
-        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
+        public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
-            _isCanBeMoved = isCanBeMoved;
-        }
-
-        public void UpdateModel(float deltaTime, GameContext gameContext)
-        {
-            if (!_isClearSightLooted) return;
-            _isClearSightLooted = false;
-            gameContext.ClearSightLootedCount++;
-        }
-
-        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
-        {
+            if (_isClearSightLooted) return;
             StartLootAnimation();
             foreach (var collider in _container.Colliders)
             {
@@ -43,13 +33,14 @@ namespace TileObjectScripts.TileModels
             }
         }
 
-        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider, BallModel ballModel)
         {
-            return ballModel.Direction;
+            return direction;
         }
         
         private void StartLootAnimation()
         {
+            _gameContext.ClearSightLootedCount++;
             _isClearSightLooted = true;
             _container.ClearSightTileAnimation.Play(_container.LootAnimationName);
         }

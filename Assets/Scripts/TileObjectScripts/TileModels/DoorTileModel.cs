@@ -35,7 +35,7 @@ namespace TileObjectScripts.TileModels
             {
                 _isAnimatingFinished = true;
             }
-            _container.AnimationRootTransform.position = _container.AnimationDirection * positionValue;
+            _container.AnimationRootTransform.localPosition = _container.AnimationDirection * positionValue;
         }
     }
 }

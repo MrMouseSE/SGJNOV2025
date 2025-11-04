@@ -6,15 +6,18 @@ namespace BallScripts
     public class BallsSystemsModel
     {
         public List<BallSystem> BallSystems = new();
+        
+        private List<BallSystem> _ballSystemsToRemove = new();
+        private List<BallSystem> _ballSystemsToAdd = new();
 
         public void AddBallSystem(BallSystem system)
         {
-            BallSystems.Add(system);
+            _ballSystemsToAdd.Add(system);
         }
 
         public void RemoveBallSystem(BallSystem system)
         {
-            BallSystems.Remove(system);
+            _ballSystemsToRemove.Add(system);
         }
 
         public void UpdateModel(float deltaTime, GameContext gameContext)
@@ -23,13 +26,23 @@ namespace BallScripts
             {
                 ballSystem.UpdateGameSystem(deltaTime, gameContext);
             }
+            
+            BallSystems.RemoveAll(ballSystem => _ballSystemsToRemove.Contains(ballSystem));
+            foreach (var ballSystem in _ballSystemsToRemove)
+            {
+                ballSystem.Model.DestroyGameObject();
+            }
+            _ballSystemsToRemove.Clear();
+            BallSystems.AddRange(_ballSystemsToAdd);
+            _ballSystemsToAdd.Clear();
         }
 
         public void DestroyAllBalls()
         {
-            foreach (var ballSystem in BallSystems)
+            for (var index = 0; index < BallSystems.Count; index++)
             {
-                Object.Destroy(ballSystem.Container.BallGameObject);
+                var ballSystem = BallSystems[index];
+                ballSystem.Model.DestroyBall();
             }
             BallSystems.Clear();
         }

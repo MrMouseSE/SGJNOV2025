@@ -156,8 +156,11 @@ MonoBehaviour:
   IsGamePaused: 0
   CurrentDifficulty: 0
   RegenerateLevel: 0
+  StaticTileObjectHandlers: []
   TileObjectHandlers: []
   ClearSightLootedCount: 0
+  CurrentLevelClearSightCount: 0
+  PlayerContainer: {fileID: 0}
 --- !u!4 &1445191260
 Transform:
   m_ObjectHideFlags: 0

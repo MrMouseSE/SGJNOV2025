@@ -1,5 +1,6 @@
 using System;
 using GameSceneScripts.TilesGeneratorScripts;
+using MouseCursorScripts;
 
 namespace PlayerScripts
 {
@@ -21,12 +22,13 @@ namespace PlayerScripts
             _isInitialized = true;
             _playerContainer = _gameContext.PlayerContainer;
             _model = new PlayerModel(_playerContainer, _gameContext);
+            _gameContext.InitializeSystemByType(typeof(MouseCursorSystem));
         }
 
         public void UpdateGameSystem(float deltaTime, GameContext gameContext)
         {
             if (!_isInitialized) return;
-            gameContext.GetGameSystemByType(typeof(TilesGeneratorSystem)).InitGameSystem();
+            _isInitialized = true;
             _model.PlayerMover.Move();
             _model.ShowTrajectory();
         }

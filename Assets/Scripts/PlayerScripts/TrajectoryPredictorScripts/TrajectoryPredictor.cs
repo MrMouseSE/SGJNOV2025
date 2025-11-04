@@ -22,54 +22,58 @@ namespace PlayerScripts.TrajectoryPredictorScripts
         public void ShowTrajectory(Vector3 startPosition, Vector3 direction, BallModel ballModel,
             Transform playerTransform)
         {
-            if (_lineRenderer == null || ballModel == null)
-                return;
-            
-            _mousePoint = direction.magnitude;
-            
-            direction.Normalize();
+            if (_lineRenderer == null || ballModel == null) return;
 
+            direction.Normalize();
+            float sphereRadius = ballModel.Collider.bounds.extents.x;
             float dot = Vector3.Dot(playerTransform.forward, direction);
-            
             if (dot < _minForwardDot)
-            {
                 direction = Vector3.Reflect(direction, -playerTransform.forward);
-            }
 
             Vector3 currentPosition = startPosition;
             Vector3 currentDirection = direction;
+
             _lineRenderer.positionCount = 1;
             _lineRenderer.SetPosition(0, startPosition);
-
             int totalPoints = 1;
 
-            for (int i = 0; i < ballModel.Bounces; i++)
+            //for (int i = 0; i < ballModel.Bounces; i++)
             {
-                if (Physics.Raycast(currentPosition, currentDirection, out RaycastHit hit, _maxLength))
+                if (Physics.SphereCast(currentPosition, sphereRadius, currentDirection, out RaycastHit hit, _maxLength))
                 {
+                    Vector3 ballCenterAtHit = hit.point - currentDirection * sphereRadius;
+
                     totalPoints++;
                     _lineRenderer.positionCount = totalPoints;
-                    _lineRenderer.SetPosition(totalPoints - 1, hit.point);
+                    _lineRenderer.SetPosition(totalPoints - 1, ballCenterAtHit);
 
-                    if (hit.collider.TryGetComponent(out AbstractTileContainer tileModel))
+                    Collider hitCollider = hit.collider;
+                    Vector3 hitPoint = hitCollider.ClosestPoint(ballCenterAtHit);
+                    Vector3 normal = (ballCenterAtHit - hitPoint).normalized;
+
+                    Vector3 reflectedDir;
+
+                    if (hitCollider.TryGetComponent(out AbstractTileContainer tile))
                     {
-                        Debug.Log(tileModel);
-                        currentDirection = tileModel.TileModel.GetDirection(ballModel, hit.collider).normalized;
+                        reflectedDir = tile.TileModel.GetDirection(currentDirection, hitPoint, hitCollider).normalized;
+
+                        if (!tile.IsGlowing)
+                            return;
                     }
                     else
                     {
-                        currentDirection = Vector3.Reflect(currentDirection, hit.normal).normalized;
+                        reflectedDir = Vector3.Reflect(currentDirection, normal).normalized;
                     }
 
-                    currentPosition = hit.point + currentDirection * 0.01f;
+                    currentPosition = ballCenterAtHit + reflectedDir * (sphereRadius + 0.01f);
+                    currentDirection = reflectedDir;
                 }
                 else
                 {
-                    float distanceToCursor = Vector3.Distance(startPosition, startPosition + direction * _mousePoint);
                     totalPoints++;
                     _lineRenderer.positionCount = totalPoints;
-                    _lineRenderer.SetPosition(totalPoints - 1, currentPosition + currentDirection * distanceToCursor);
-                    break;
+                    _lineRenderer.SetPosition(totalPoints - 1, currentPosition + currentDirection * _maxLength);
+                    return;
                 }
             }
 

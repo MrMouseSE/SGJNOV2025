@@ -47,7 +47,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -110,6 +110,10 @@ PrefabInstance:
       value: 0.15289691
       objectReference: {fileID: 0}
     - target: {fileID: 3630581942527750879, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630581942527750879, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
       propertyPath: m_Center.z
       value: 0.42355156
       objectReference: {fileID: 0}
@@ -126,9 +130,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7941849371022197431}
     - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+      propertyPath: Colliders.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
       propertyPath: AdditionalMeshRenderer
       value: 
       objectReference: {fileID: 2885992239472632493}
+    - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+      propertyPath: 'Colliders.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2131177195737276349}
+    - target: {fileID: 3729020023907368521, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+      propertyPath: 'Colliders.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3643819364686541201}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5139219007946585711, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
@@ -169,7 +185,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

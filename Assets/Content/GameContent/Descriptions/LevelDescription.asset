@@ -12,8 +12,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ee27e95f3fbdf4380ca6b313de2f78, type: 3}
   m_Name: LevelDescription
   m_EditorClassIdentifier: 
-  ToDartAnimationTime: 2
-  FinalAnimationNextTileDelay: 0.03
+  CloneCount: 1
+  LevelPlayebleArea: {x: -10, y: -4, z: 10, w: 9}
+  NormalCursor: {fileID: 2800000, guid: c7ab53ec18015a3408a38af929d3a295, type: 3}
+  HandCursor: {fileID: 2800000, guid: 77e6b689d6d2796448eb1c8a9dc57988, type: 3}
+  FistCursor: {fileID: 2800000, guid: 54a61ed2d8b9aff448a00adad3be5e40, type: 3}
+  HandleImpactRadius: 1
+  TilesHandledOffset: {x: 0, y: 1.5, z: 0}
+  HandleDirectAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7959952
+      value: 1.160512
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  HandleArcAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.7172816
+      outSlope: 3.7172816
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06526315
+    - serializedVersion: 3
+      time: 0.50052685
+      value: 1
+      inSlope: -0.50543696
+      outSlope: -0.50543696
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8316622
+      value: 0.0036903895
+      inSlope: -3.0877776
+      outSlope: 2.9540305
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.06339632
+      outWeight: 0.19876073
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ToDartAnimationTime: 0.45
+  BeforDartAnimationDelay: 0.7
+  FinalAnimationNextTileDelay: 0.05
   AvailableToMoveColor: {r: 1.7735848, g: 0.96421695, b: 0, a: 0}
   NotAvailableToMoveColor: {r: 0, g: 1.3424042, b: 1.509434, a: 0}
   LevelData:
