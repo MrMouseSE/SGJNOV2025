@@ -4,41 +4,29 @@ using UnityEngine;
 
 namespace TileObjectScripts.TileModels
 {
-    public class CrossTileModel : ITileModel
+    public class CrossTileModel : DefaultTileModel
     {
         private readonly CrossTileContainer _container;
         private GameContext _gameContext;
         
-        public CrossTileModel(CrossTileContainer container, GameContext gameContext)
+        public CrossTileModel(CrossTileContainer container, GameContext gameContext) : base(container)
         {
             _container = container;
             _gameContext = gameContext;
         }
         
-        private bool _isCanBeMoved;
-
-        public bool CheckMoveAvailability()
-        {
-            return _isCanBeMoved;
-        }
-
-        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
-        {
-            _isCanBeMoved = isCanBeMoved;
-        }
-
-        public void UpdateModel(float deltaTime, GameContext gameContext)
+        public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
         }
 
-        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
             ballModel.DestroyBall();
         }
 
-        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        public Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
         {
-            return ballModel.Direction;
+            return direction;
         }
 
         private void DestroyBallEffectPlay(Vector3 ballDirection, Vector3 ballPosition)

@@ -10,7 +10,7 @@ namespace TileObjectScripts
         public TileSystem(TileObjectHandler handler, GameContext gameContext)
         {
             _container = handler.TilePrefab;
-            _model = TileModelFactory.Create(handler.TilePrefab, gameContext);
+            _model = TileModelFactory.Create(handler, gameContext);
             _container.Initialize(_model, handler.IsTileGlowAtStart, handler.IsAvailableToMoveByPlayer, 
                 gameContext.LevelDescription.AvailableToMoveColor, gameContext.LevelDescription.NotAvailableToMoveColor);
         }

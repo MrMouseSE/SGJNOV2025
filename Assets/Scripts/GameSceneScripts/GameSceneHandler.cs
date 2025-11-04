@@ -1,3 +1,4 @@
+using GameSceneScripts.TilesGeneratorScripts;
 using PlayerScripts;
 using TileObjectScripts;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace GameSceneScripts
         {
             gameContext.PlayerContainer = PlayerContainer;
             gameContext.InitializeSystemByType(typeof(PlayerSystem));
+            gameContext.InitializeSystemByType(typeof(TilesGeneratorSystem));
         }
 
         public override void SetSceneActivity(bool isActive)
