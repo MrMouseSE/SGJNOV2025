@@ -58,9 +58,9 @@ public class SceneHandler
         var scene = SceneManager.GetSceneByName(sceneName);
         var rootObjects = scene.GetRootGameObjects()[0];
         var sceneHandler = rootObjects.GetComponent<AbstractSceneHandler>();
+        _sceneHandlers.Add(sceneName,sceneHandler);
         sceneHandler.InitSceneHandler(_gameContext);
         sceneHandler.SetSceneActivity(sceneName == MenuSceneName);
-        _sceneHandlers.Add(sceneName,sceneHandler);
     }
     
     public void ActivateSceneByName(string sceneName)

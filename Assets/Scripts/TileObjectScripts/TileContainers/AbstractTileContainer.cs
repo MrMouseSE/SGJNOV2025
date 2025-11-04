@@ -12,6 +12,7 @@ namespace TileObjectScripts.TileContainers
         public Transform TileTransform;
         public TilesTypes TileType;
         public Vector3 AnimationDirection;
+        public Transform HanldingAnimationTransform;
         public Transform AnimationRootTransform;
         public AnimationCurve UniversalAnimationCurve;
         public MeshRenderer TileMeshRenderer;
@@ -58,6 +59,7 @@ namespace TileObjectScripts.TileContainers
 
         public void StartGlowUpTileAnimation()
         {
+            IsGlowing = true;
             StopAllCoroutines();
             StartCoroutine(GlowUpAnimation());
         }
