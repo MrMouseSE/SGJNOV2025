@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 9002408778410397259}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -229,6 +229,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 914834226145728621}
     m_Modifications:
+    - target: {fileID: 260543592007954091, guid: b4bf250a29caaa44682d5946b237181c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738746179364582833, guid: b4bf250a29caaa44682d5946b237181c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.82
+      objectReference: {fileID: 0}
     - target: {fileID: 3380662708775764685, guid: b4bf250a29caaa44682d5946b237181c, type: 3}
       propertyPath: m_Name
       value: DestroyBallParticles
