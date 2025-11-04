@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2706324662091999774}
   - component: {fileID: 3729020023907368521}
   - component: {fileID: 3630581942527750879}
+  - component: {fileID: -4981977026976298480}
   m_Layer: 0
   m_Name: DefaultTileContainer
   m_TagString: Untagged
@@ -175,6 +176,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.05, y: 2, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4981977026976298480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374819814100106417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: -1801485162
+      Data2: 1172081548
+      Data3: -2104746335
+      Data4: -1936536868
+    Path: event:/6_1_1_Tile_Hit
+  Event: 
+  EventPlayTrigger: 3
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2013512604527169133
 GameObject:
   m_ObjectHideFlags: 0

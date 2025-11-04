@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using DisolveEffectScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -53,12 +55,43 @@ public class SceneHandler
         return loadSceneAsync;
     }
 
-    private void AddHandlerToDictionary(string sceneName)
+    private async void AddHandlerToDictionary(string sceneName)
     {
-        var scene = SceneManager.GetSceneByName(sceneName);
-        var rootObjects = scene.GetRootGameObjects()[0];
-        var sceneHandler = rootObjects.GetComponent<AbstractSceneHandler>();
-        _sceneHandlers.Add(sceneName,sceneHandler);
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+
+        // Ждём пока сцена реально загрузится
+        int attempts = 0;
+        while (!scene.isLoaded && attempts < 50)
+        {
+            await Task.Delay(100);
+            scene = SceneManager.GetSceneByName(sceneName);
+            attempts++;
+        }
+
+        if (!scene.isLoaded)
+        {
+            Debug.LogError($"Scene '{sceneName}' failed to load properly.");
+            return;
+        }
+
+        var rootObjects = scene.GetRootGameObjects();
+        if (rootObjects == null || rootObjects.Length == 0)
+        {
+            Debug.LogError($"Scene '{sceneName}' has no root objects!");
+            return;
+        }
+
+        var sceneHandler = rootObjects
+            .Select(go => go.GetComponent<AbstractSceneHandler>())
+            .FirstOrDefault(h => h != null);
+
+        if (sceneHandler == null)
+        {
+            Debug.LogError($"Scene '{sceneName}' does not contain an AbstractSceneHandler component!");
+            return;
+        }
+
+        _sceneHandlers[sceneName] = sceneHandler;
         sceneHandler.InitSceneHandler(_gameContext);
         sceneHandler.SetSceneActivity(sceneName == MenuSceneName);
     }

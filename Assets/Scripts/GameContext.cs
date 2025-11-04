@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BallScripts;
 using ClearSightScripts;
 using DisolveEffectScripts;
+using GameSceneScripts;
 using GameSceneScripts.TilesGeneratorScripts;
 using LevelScripts;
 using MouseCursorScripts;
@@ -11,8 +12,9 @@ using PlayerScripts;
 using TileObjectScripts;
 using TileObjectScripts.TileContainers;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class GameContext : MonoBehaviour
+public class GameContext : MonoBehaviour, IDisposable
 {
     public SceneHandler SceneHandler;
     public DisolveEffectContainer DisolveContainer;
@@ -57,6 +59,7 @@ public class GameContext : MonoBehaviour
         BallFactory = new BallFactory(BallContainer, this);
         InputSystem = new InputSystemActions();
         InputSystem.Enable();
+        InputSystem.Player.Exit.started += ExitGame;
 
         GameSystems.Add(new DisolveEffectSystem(DisolveContainer));
         GameSystems.Add(new TilesGeneratorSystem(LevelDescription, TilesDescription, this));
@@ -68,6 +71,11 @@ public class GameContext : MonoBehaviour
         GameSystems.Add(new MovableTileSystem(this));
 
         SetCurrentClearSightCount();
+    }
+
+    private void ExitGame(InputAction.CallbackContext obj)
+    {
+        Application.Quit();
     }
 
     private void SetCurrentClearSightCount()
@@ -89,6 +97,11 @@ public class GameContext : MonoBehaviour
         }
     }
 
+    public void Dispose()
+    {
+        InputSystem.Player.Exit.started -= ExitGame;
+    }
+
     public IGameSystem GetGameSystemByType(Type type)
     {
         return GameSystems.Find(x => x.GetType() == type);
@@ -102,6 +115,15 @@ public class GameContext : MonoBehaviour
         RegenerateLevel = true;
         CurrentDifficulty ++;
         SetCurrentClearSightCount();
+        int difficultyShowHelp = LevelDescription.DifficultyShowHelp;
+        if (CurrentDifficulty != difficultyShowHelp)
+        {
+            ((GameSceneHandler)SceneHandler.GetSceneHandlerByName(SceneHandler.GameSceneName)).MovableSupportMessage.Hide();
+        }
+        if (CurrentDifficulty == difficultyShowHelp)
+        {
+            ((GameSceneHandler)SceneHandler.GetSceneHandlerByName(SceneHandler.GameSceneName)).MovableSupportMessage.Show();
+        }
     }
 
     public void ButtonPressed()
@@ -109,13 +131,14 @@ public class GameContext : MonoBehaviour
         _currentButtonsPressed++;
         if (_currentButtonsPressed != GetCurrentLevelData().ButtonsCount) return;
         AllButtonsPressed?.Invoke();
+        _currentButtonsPressed = 0;
     }
 
     public LevelData GetCurrentLevelData()
     {
         return LevelDescription.LevelData.Find(x => x.LevelDifficulty == CurrentDifficulty);
     }
-    
+
     private void InitGame()
     {
         SceneHandler = new SceneHandler(this);

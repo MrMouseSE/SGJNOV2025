@@ -129,7 +129,7 @@ namespace BallScripts
             return Position.x < _gameContext.LevelDescription.LevelPlayebleArea.x ||
                    Position.x > _gameContext.LevelDescription.LevelPlayebleArea.z
                    || Position.z < _gameContext.LevelDescription.LevelPlayebleArea.y ||
-                   Position.x > _gameContext.LevelDescription.LevelPlayebleArea.w;
+                   Position.z > _gameContext.LevelDescription.LevelPlayebleArea.w;
         }
 
         private void TryRebound(Collider other)

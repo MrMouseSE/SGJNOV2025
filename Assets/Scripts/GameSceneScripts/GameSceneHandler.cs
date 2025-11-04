@@ -1,3 +1,4 @@
+using System;
 using GameSceneScripts.TilesGeneratorScripts;
 using PlayerScripts;
 using TileObjectScripts;
@@ -12,7 +13,14 @@ namespace GameSceneScripts
         public PlayerContainer PlayerContainer;
         private GameContext _gameContext;
         private bool _isPlayerInitialized;
-        
+
+        public MovedContentSupport MovableSupportMessage;
+
+        private void Start()
+        {
+            MovableSupportMessage.Hide();
+        }
+
         public override void InitSceneHandler(GameContext gameContext)
         {
             gameContext.PlayerContainer = PlayerContainer;
