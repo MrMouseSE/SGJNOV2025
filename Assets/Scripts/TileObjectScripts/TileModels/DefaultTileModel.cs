@@ -104,7 +104,8 @@ namespace TileObjectScripts
                 _isHandleAnimating = false;
             }
             float evaluateValue = _tileAnimationCurve.Evaluate(_currentHandleAnimationTime);
-            _container.HanldingAnimationTransform.localPosition = Vector3.Lerp(_sourceHandleAnimationPosition, _targetHandleAnimationPosition, evaluateValue);
+            _container.HanldingAnimationTransform.localPosition = 
+                Vector3.Lerp(_sourceHandleAnimationPosition, _targetHandleAnimationPosition, evaluateValue);
         }
     }
 }

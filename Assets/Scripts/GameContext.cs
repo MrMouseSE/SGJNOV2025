@@ -31,6 +31,8 @@ public class GameContext : MonoBehaviour
     public int CurrentDifficulty;
     [HideInInspector]
     public bool RegenerateLevel;
+    [HideInInspector]    
+    public bool CanSpawnBall;
     [HideInInspector]
     public List<TileObjectHandler> StaticTileObjectHandlers;
     [HideInInspector]
@@ -51,6 +53,7 @@ public class GameContext : MonoBehaviour
         CurrentDifficulty = 1;
         InitGame();
         RegenerateLevel = true;
+        CanSpawnBall = true;
         BallFactory = new BallFactory(BallContainer, this);
         InputSystem = new InputSystemActions();
         InputSystem.Enable();
@@ -94,6 +97,7 @@ public class GameContext : MonoBehaviour
     public void ResetGameValues()
     {
         IsGamePaused = false;
+        CanSpawnBall = true;
         ClearSightLootedCount = 0;
         RegenerateLevel = true;
         CurrentDifficulty ++;

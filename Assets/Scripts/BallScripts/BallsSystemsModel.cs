@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace BallScripts
         private List<BallSystem> _ballSystemsToRemove = new();
         private List<BallSystem> _ballSystemsToAdd = new();
 
+        public event Action E_AllBallsDestroyed;
+        
         public void AddBallSystem(BallSystem system)
         {
             _ballSystemsToAdd.Add(system);
@@ -35,6 +38,11 @@ namespace BallScripts
             _ballSystemsToRemove.Clear();
             BallSystems.AddRange(_ballSystemsToAdd);
             _ballSystemsToAdd.Clear();
+
+            if (BallSystems.Count <= 0)
+            {
+                E_AllBallsDestroyed?.Invoke();
+            }
         }
 
         public void DestroyAllBalls()
