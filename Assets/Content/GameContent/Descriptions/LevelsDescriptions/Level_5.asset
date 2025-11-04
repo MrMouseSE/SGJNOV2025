@@ -50,7 +50,7 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 0}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: -1}
@@ -70,7 +70,7 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 0}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: -1}

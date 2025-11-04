@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: Level_4
   LevelDifficulty: 4
-  ClearSightCount: 3
+  ClearSightCount: 2
   ButtonsCount: 0
   WallHitCount: 0
   LevelTilesHandlers:
@@ -120,12 +120,12 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -5, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -8, y: 0, z: -1}
@@ -135,12 +135,12 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -7, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -5, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -8, y: 0, z: 6}
@@ -230,37 +230,37 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 7, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 5, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 5, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 7, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 3, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 3, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 4, y: 0, z: 2}
@@ -270,32 +270,27 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: 2}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -3, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
-    IsAvailableToMoveByPlayer: 0
-    TilePrefab: {fileID: 0}
-  - TilePosition: {x: -0, y: 0, z: 3}
-    TileType: 9
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 1, y: 0, z: 4}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: 6, y: 0, z: 5}
