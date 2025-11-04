@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4e992985-dfbd-4e37-825d-e9f923a9e38f}">
+		<property name="assetPath">
+			<value>Fire, Whoosh, Flame, Fireball, Fast x4 SND11948 3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.57002083333333331</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fc280779-9892-4e2e-94d3-0a93d66a2df7}</destination>
+		</relationship>
+	</object>
+</objects>
