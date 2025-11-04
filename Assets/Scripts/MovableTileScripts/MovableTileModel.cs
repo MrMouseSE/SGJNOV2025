@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameSceneScripts;
 using MouseCorsourScripts;
 using MouseCursorScripts;
 using TileObjectScripts;
@@ -34,6 +35,8 @@ namespace MovableTileScripts
             _movableTileObjectHandlers = _tileObjectHandlers.FindAll(x=>x.IsAvailableToMoveByPlayer == true);
         }
 
+        private bool _isSupportShowed;
+
         public void UpdateModel()
         {
             if (!_isObjectCatched)
@@ -52,6 +55,10 @@ namespace MovableTileScripts
 
             if (_isObjectCatched)
             {
+                if (!_isSupportShowed)
+                {
+                    ((GameSceneHandler)_gameContext.SceneHandler.GetSceneHandlerByName(_gameContext.SceneHandler.GameSceneName)).MovableSupportMessage.StartHideAnimation();
+                }
                 _catchedTileObjectHandler.TilePrefab.TileModel.SetPrefabPosition(_mouseCursorSystem.Model.GetMousePositionOnGround());
                 _isTileNearest = TryCatchTileObjectHandlerInRadius(out _tileObjectHandlerInRadius);
                 _mouseCursorSystem.Model.UpdateCursorType(CursorTypes.Fist);

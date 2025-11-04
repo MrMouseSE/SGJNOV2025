@@ -6,6 +6,8 @@ namespace LevelScripts
     [CreateAssetMenu(menuName = "Create LevelDescription", fileName = "LevelDescription", order = 0)]
     public class LevelDescription : ScriptableObject
     {
+        public int DifficultyShowHelp;
+        [Space]
         public int CloneCount; 
         
         [Space]
@@ -29,6 +31,7 @@ namespace LevelScripts
         [ColorUsage(true, true)] public Color AvailableToMoveColor;
         [ColorUsage(true, true)] public Color NotAvailableToMoveColor;
         public List<LevelData> LevelData;
+
         
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BallScripts;
 using ClearSightScripts;
 using DisolveEffectScripts;
+using GameSceneScripts;
 using GameSceneScripts.TilesGeneratorScripts;
 using LevelScripts;
 using MouseCursorScripts;
@@ -114,6 +115,15 @@ public class GameContext : MonoBehaviour, IDisposable
         RegenerateLevel = true;
         CurrentDifficulty ++;
         SetCurrentClearSightCount();
+        int difficultyShowHelp = LevelDescription.DifficultyShowHelp;
+        if (CurrentDifficulty != difficultyShowHelp)
+        {
+            ((GameSceneHandler)SceneHandler.GetSceneHandlerByName(SceneHandler.GameSceneName)).MovableSupportMessage.Hide();
+        }
+        if (CurrentDifficulty == difficultyShowHelp)
+        {
+            ((GameSceneHandler)SceneHandler.GetSceneHandlerByName(SceneHandler.GameSceneName)).MovableSupportMessage.Show();
+        }
     }
 
     public void ButtonPressed()
