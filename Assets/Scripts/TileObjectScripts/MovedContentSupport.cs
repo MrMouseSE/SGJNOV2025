@@ -13,19 +13,19 @@ namespace TileObjectScripts
         
         public void Hide()
         {
+            if (_wasInited) return;
+            _wasInited = true;
             SupportGameObject.SetActive(false);
         }
 
         public void Show()
         {
-            _wasInited = true;
-            SupportGameObject.SetActive(false);
+            SupportGameObject.SetActive(true);
             Animation.Play(ShowSupportMessage);
         }
 
         public void StartHideAnimation()
         {
-            if (!_wasInited) return;
             Animation.Play(HideSupportMessage);
         }
 
