@@ -27,7 +27,7 @@ namespace TileObjectScripts.TileModels
             {
                 float value = _container.UniversalAnimationCurve.Evaluate(_curentAnimationTime);
                 Color currentColor = Color.Lerp(_startGlowColor, _endGlowColor, value);
-                _container.GlowMeshRenderer.material.SetColor(_container.EmissionColor, currentColor);
+                _container.SpecialMeshRenderer.material.SetColor(_container.EmissionColor, currentColor);
             }
             else
             {
@@ -40,7 +40,7 @@ namespace TileObjectScripts.TileModels
         {
             if (_isAnimatingFinished || _isAnimating) return;
             _isAnimating = true;
-            _startGlowColor = _container.GlowMeshRenderer.material.GetColor(_container.EmissionColor);
+            _startGlowColor = _container.SpecialMeshRenderer.material.GetColor(_container.EmissionColor);
             _endGlowColor = Color.green;
         }
 

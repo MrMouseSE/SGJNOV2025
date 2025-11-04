@@ -17,6 +17,7 @@ namespace TileObjectScripts.TileContainers
         public AnimationCurve UniversalAnimationCurve;
         public MeshRenderer TileMeshRenderer;
         public MeshRenderer GlowMeshRenderer;
+        public MeshRenderer SpecialMeshRenderer;
         public MeshRenderer AdditionalMeshRenderer;
         public bool IsGlowing;
         
@@ -42,12 +43,18 @@ namespace TileObjectScripts.TileContainers
         public void Initialize(ITileModel tileModel, bool isGlowAtStart, bool isAvailableToMove, Color movableColor, Color unmovableColor)
         {
             if (TileMeshRenderer != null) _meshRendererColors.Add(TileMeshRenderer, TileMeshRenderer.material.GetColor(EmissionColor));
-            if (GlowMeshRenderer != null) _meshRendererColors.Add(GlowMeshRenderer, GlowMeshRenderer.material.GetColor(EmissionColor));
+            if (GlowMeshRenderer != null)
+            {
+                GlowMeshRenderer.material.SetColor(EmissionColor, isAvailableToMove? movableColor : unmovableColor);
+                _meshRendererColors.Add(GlowMeshRenderer, GlowMeshRenderer.material.GetColor(EmissionColor));
+            }
             if (AdditionalMeshRenderer != null)
             {
                 AdditionalMeshRenderer.material.SetColor(EmissionColor, isAvailableToMove? movableColor : unmovableColor);
                 _meshRendererColors.Add(AdditionalMeshRenderer, AdditionalMeshRenderer.material.GetColor(EmissionColor));
             }
+
+            if (SpecialMeshRenderer != null) _meshRendererColors.Add(SpecialMeshRenderer, SpecialMeshRenderer.material.GetColor(EmissionColor));
             
             TileModel = tileModel;
             if (isGlowAtStart) return;
