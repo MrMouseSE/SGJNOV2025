@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ee27e95f3fbdf4380ca6b313de2f78, type: 3}
+  m_Name: LevelDescription
+  m_EditorClassIdentifier: 
+  DifficultyShowHelp: 5
+  CloneCount: 1
+  LevelPlayebleArea: {x: -10, y: -4, z: 10, w: 12}
+  NormalCursor: {fileID: 2800000, guid: c7ab53ec18015a3408a38af929d3a295, type: 3}
+  HandCursor: {fileID: 2800000, guid: 77e6b689d6d2796448eb1c8a9dc57988, type: 3}
+  FistCursor: {fileID: 2800000, guid: 54a61ed2d8b9aff448a00adad3be5e40, type: 3}
+  HandleImpactRadius: 1
+  TilesHandledOffset: {x: 0, y: 1.5, z: 0}
+  HandleDirectAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7959952
+      value: 1.160512
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  HandleArcAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.7172816
+      outSlope: 3.7172816
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06526315
+    - serializedVersion: 3
+      time: 0.50052685
+      value: 1
+      inSlope: -0.50543696
+      outSlope: -0.50543696
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8316622
+      value: 0.0036903895
+      inSlope: -3.0877776
+      outSlope: 2.9540305
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.06339632
+      outWeight: 0.19876073
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ToDartAnimationTime: 0.45
+  BeforDartAnimationDelay: 0.7
+  FinalAnimationNextTileDelay: 0.05
+  AvailableToMoveColor: {r: 1.7207952, g: 0.6474702, b: 0.008220158, a: 1}
+  NotAvailableToMoveColor: {r: 0.011092661, g: 0.42923692, b: 1.0593472, a: 1}
+  LevelData:
+  - {fileID: 11400000, guid: af52268bcb5b0a148a5010dd1ea2fea2, type: 2}
+  - {fileID: 11400000, guid: 8c54bcfebe20d8343b17b19a542a6110, type: 2}
+  - {fileID: 11400000, guid: d507463a7ca65414a81873c34ca94aca, type: 2}
+  - {fileID: 11400000, guid: 19c4d4b4b759e8448b4d92f1ee3dbed2, type: 2}
+  - {fileID: 11400000, guid: 169f2c36a388a9141aa5d4816cd6bef7, type: 2}
+  - {fileID: 11400000, guid: e069a05e97d97fd4b8dabd3f19314095, type: 2}
+  - {fileID: 11400000, guid: b5afabcaad6705d40916fdff1879f9e9, type: 2}
