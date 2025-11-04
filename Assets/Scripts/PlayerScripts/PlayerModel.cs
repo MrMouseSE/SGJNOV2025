@@ -59,6 +59,9 @@ namespace PlayerScripts
         {
             if (_camera == null)
                 _camera = _gameContext.SceneHandler.GetSceneHandlerByName("GameScene").SceneCamera;
+
+            if (_currentBallSystem != null)
+                return;
             
             var ballsSystem = (BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems));
             ballsSystem.Model.DestroyAllBalls();
