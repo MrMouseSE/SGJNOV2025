@@ -86,7 +86,7 @@ namespace BallScripts
             else if (other.GetComponentInParent<AbstractTileContainer>() != null)
             {
                 tileContainer = other.GetComponentInParent<AbstractTileContainer>();
-                Direction = tileContainer.TileModel.GetDirection(this, other).normalized;
+                Direction = tileContainer.TileModel.GetDirection(Position,Direction, other).normalized;
                 tileContainer.TileModel.InteractByBall(this, other);
                 tileContainer.StartGlowUpTileAnimation();
             }
