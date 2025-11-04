@@ -84,7 +84,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -137,8 +137,38 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
   m_FloatCurves:
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
+    classID: 23
+    script: {fileID: 0}
+    flags: 0
   - serializedVersion: 2
     curve:
       serializedVersion: 2
@@ -183,7 +213,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.r
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -231,7 +261,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.g
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -279,7 +309,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.b
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -327,37 +357,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.a
-    path: AnimationRoot/Mesh/ClearSightTile
-    classID: 23
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -462,7 +462,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -537,7 +537,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -612,7 +612,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -669,7 +669,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -726,7 +726,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -783,8 +783,38 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
+    classID: 23
     script: {fileID: 0}
     flags: 0
   - serializedVersion: 2
@@ -831,7 +861,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.r
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -879,7 +909,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.g
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -927,7 +957,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.b
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -975,37 +1005,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.a
-    path: AnimationRoot/Mesh/ClearSightTile
-    classID: 23
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: AnimationRoot/Mesh/ClearSightTile
+    path: HandlingRoot/AnimationRoot/Mesh/ClearSightTile
     classID: 23
     script: {fileID: 0}
     flags: 0

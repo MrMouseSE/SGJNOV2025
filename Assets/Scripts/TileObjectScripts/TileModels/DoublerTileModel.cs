@@ -45,24 +45,5 @@ namespace TileObjectScripts.TileModels
             var ballsSystems = (BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems));
             ballsSystems.Model.AddBallSystem(ballSystem);
         }
-
-        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchingCollider)
-        {
-            return ReflectBall(direction, position, touchingCollider);
-        }
-
-        private Vector3 ReflectBall(Vector3 direction, Vector3 position, Collider touchingCollider)
-        {
-            if (!_container.Colliders.Contains(touchingCollider)) return direction;
-    
-            Vector3 closestPoint = touchingCollider.ClosestPoint(position);
-    
-            Vector3 collisionNormal = (position - closestPoint).normalized;
-    
-            if (collisionNormal == Vector3.zero)
-                collisionNormal = (position - _container.transform.position).normalized;
-    
-            return Vector3.Reflect(direction, collisionNormal);
-        }
     }
 }
