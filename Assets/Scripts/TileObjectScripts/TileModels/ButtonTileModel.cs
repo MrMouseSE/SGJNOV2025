@@ -18,8 +18,6 @@ namespace TileObjectScripts.TileModels
         private bool _isAnimatingFinished;
         private Color _startGlowColor;
         private Color _endGlowColor;
-        
-        
 
         public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
@@ -42,7 +40,7 @@ namespace TileObjectScripts.TileModels
         {
             if (_isAnimatingFinished || _isAnimating) return;
             _isAnimating = true;
-            _startGlowColor = _container.GlowMeshRenderer.material.GetColor(_container.EmissionColor);
+            _startGlowColor = _container.SpecialMeshRenderer.material.GetColor(_container.EmissionColor);
             _endGlowColor = Color.green;
         }
 
