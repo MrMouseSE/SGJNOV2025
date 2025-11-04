@@ -25,6 +25,7 @@ namespace TileObjectScripts.TileModels
 
         public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
+            if (_isClearSightLooted) return;
             StartLootAnimation();
             foreach (var collider in _container.Colliders)
             {
@@ -32,7 +33,7 @@ namespace TileObjectScripts.TileModels
             }
         }
 
-        public Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
+        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
         {
             return direction;
         }
