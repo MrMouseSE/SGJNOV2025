@@ -36,7 +36,7 @@ namespace TileObjectScripts
                     tileModel = new MoveToTileModel(handler.TilePrefab);
                     break;
                 case TilesTypes.ClearSight:
-                    tileModel = new ClearSightTileModel((ClearSightTileContainer)handler.TilePrefab);
+                    tileModel = new ClearSightTileModel((ClearSightTileContainer)handler.TilePrefab, gameContext);
                     break;
                 default:
                     tileModel = new DefaultTileModel(handler.TilePrefab);
