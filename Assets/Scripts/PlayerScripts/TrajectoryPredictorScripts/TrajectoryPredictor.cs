@@ -36,8 +36,6 @@ namespace PlayerScripts.TrajectoryPredictorScripts
             _lineRenderer.positionCount = 1;
             _lineRenderer.SetPosition(0, startPosition);
             int totalPoints = 1;
-            
-            
 
             //for (int i = 0; i < ballModel.Bounces; i++)
             {
