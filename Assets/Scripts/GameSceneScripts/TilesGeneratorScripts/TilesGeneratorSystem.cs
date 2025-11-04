@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LevelScripts;
+using MovableTileScripts;
 using TileObjectScripts;
 using TileObjectScripts.TileContainers;
 using UnityEngine;
@@ -52,6 +53,7 @@ namespace GameSceneScripts.TilesGeneratorScripts
             tileSystem.Model.IsDinamycInitialized = false;
             gameContext.InitializeSystemByType(typeof(TileSystemsSystem));
             gameContext.RegenerateLevel = false;
+            gameContext.InitializeSystemByType(typeof(MovableTileSystem));
         }
         
         private List<TileObjectHandler> GenerateTiles(int currentDifficulty, Transform parentTransform)

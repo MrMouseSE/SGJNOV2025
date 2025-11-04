@@ -262,6 +262,7 @@ MonoBehaviour:
   TileTransform: {fileID: 1416950448405782299}
   TileType: 7
   AnimationDirection: {x: 0, y: 0, z: 0}
+  HanldingAnimationTransform: {fileID: 4080593425063307795}
   AnimationRootTransform: {fileID: 2842076740832846567}
   UniversalAnimationCurve:
     serializedVersion: 2
@@ -352,6 +353,11 @@ MonoBehaviour:
 --- !u!4 &2842076740832846567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1249144856940124130, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
+  m_PrefabInstance: {fileID: 3901470904685819141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4080593425063307795 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1046489896985861910, guid: c5f28edd7d305cc498c397acdf41b6f0, type: 3}
   m_PrefabInstance: {fileID: 3901470904685819141}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6579329715749680816 stripped

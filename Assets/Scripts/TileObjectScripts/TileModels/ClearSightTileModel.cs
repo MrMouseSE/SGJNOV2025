@@ -4,37 +4,26 @@ using UnityEngine;
 
 namespace TileObjectScripts.TileModels
 {
-    public class ClearSightTileModel : ITileModel
+    public class ClearSightTileModel : DefaultTileModel
     {
         private readonly ClearSightTileContainer _container;
 
-        public ClearSightTileModel(ClearSightTileContainer container)
+        public ClearSightTileModel(ClearSightTileContainer container) : base(container)
         {
             _container = container;
             _container.ClearSightTileAnimation.Play(_container.IdleAnimationName);
         }
         
         private bool _isClearSightLooted;
-        private bool _isCanBeMoved;
 
-        public bool CheckMoveAvailability()
-        {
-            return _isCanBeMoved;
-        }
-
-        public void SetMoveByPlayerAvailability(bool isCanBeMoved)
-        {
-            _isCanBeMoved = isCanBeMoved;
-        }
-
-        public void UpdateModel(float deltaTime, GameContext gameContext)
+        public override void UpdateModel(float deltaTime, GameContext gameContext)
         {
             if (!_isClearSightLooted) return;
             _isClearSightLooted = false;
             gameContext.ClearSightLootedCount++;
         }
 
-        public void InteractByBall(BallModel ballModel, Collider touchedCollider)
+        public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
             StartLootAnimation();
             foreach (var collider in _container.Colliders)
@@ -43,7 +32,7 @@ namespace TileObjectScripts.TileModels
             }
         }
 
-        public Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
+        public override Vector3 GetDirection(BallModel ballModel, Collider touchedCollider)
         {
             return ballModel.Direction;
         }
