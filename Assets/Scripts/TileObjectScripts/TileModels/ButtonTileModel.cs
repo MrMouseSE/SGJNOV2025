@@ -39,11 +39,12 @@ namespace TileObjectScripts.TileModels
         public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
             if (_isAnimatingFinished || _isAnimating) return;
+            _isAnimating = true;
             _startGlowColor = _container.GlowMeshRenderer.material.GetColor(_container.EmissionColor);
             _endGlowColor = Color.green;
         }
 
-        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider)
+        public override Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchedCollider, BallModel ballModel)
         {
             return direction;
         }

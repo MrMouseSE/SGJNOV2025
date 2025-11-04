@@ -43,10 +43,42 @@ namespace TileObjectScripts
         {
         }
 
-        public virtual Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchingCollider)
+        public virtual Vector3 GetDirection(Vector3 direction, Vector3 position, Collider touchingCollider, BallModel ballModel = null)
         {
-            Vector3 hitNormal = (position - touchingCollider.transform.position).normalized;
-            return Vector3.Reflect(direction, hitNormal).normalized;
+            if (ballModel != null)
+            {
+                if (touchingCollider.bounds.Intersects(ballModel.Collider.bounds))
+                {
+                    ballModel.SetPreviousPosition();
+                }
+            }
+            
+            Vector3 normal;
+            if (Mathf.Abs(position.z - touchingCollider.bounds.center.z) <
+                Mathf.Abs(position.x - touchingCollider.bounds.center.x))
+            {
+                if (position.x < touchingCollider.bounds.center.x)
+                {
+                    normal = -touchingCollider.transform.right;
+                }
+                else
+                {
+                    normal = touchingCollider.transform.right;
+                }
+            }
+            else
+            {
+                if (position.z < touchingCollider.bounds.center.z)
+                {
+                    normal = -touchingCollider.transform.forward;
+                }
+                else
+                {
+                    normal = touchingCollider.transform.forward;
+                }
+            }
+            
+            return Vector3.Reflect(direction, normal);
         }
 
         public virtual void StartHandledAnimation(Vector3 destinationPosition, AnimationCurve animationCurve)

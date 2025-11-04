@@ -17,6 +17,7 @@ namespace PlayerScripts
         private readonly Camera _camera;
 
         private BallSystem _currentBallSystem;
+        private bool _isTrajectoryEnable;
 
         public PlayerModel(PlayerContainer container, GameContext gameContext)
         {
@@ -48,30 +49,35 @@ namespace PlayerScripts
 
         public void ShowTrajectory()
         {
-            if (_currentBallSystem == null)
-                return;
+            if (_isTrajectoryEnable == false)
+            {
+                _container.TrajectoryPredictor.HideTrajectory();
+            }
+            else
+            {
+                Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+                Vector3 mouseWorldPosition = ScreenToWorldPosition(mouseScreenPosition);
 
-            Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-            Vector3 mouseWorldPosition = ScreenToWorldPosition(mouseScreenPosition);
+                Vector3 direction = (mouseWorldPosition - _container.BallHoldPoint.position);
 
-            Vector3 direction = (mouseWorldPosition - _container.BallHoldPoint.position);
-
-            _container.TrajectoryPredictor.ShowTrajectory(
-                _container.BallHoldPoint.position,
-                direction,
-                _currentBallSystem.Model,
-                _container.Transform
-            );
+                _container.TrajectoryPredictor.ShowTrajectory(
+                    _container.BallHoldPoint.position,
+                    direction,
+                    _currentBallSystem.Model,
+                    _container.Transform
+                );
+            }
         }
 
         private void SpawnBall()
         {
-            if (_currentBallSystem != null)
+            if (_gameContext.CanSpawnBall == false)
                 return;
             
             _ballsSystem.Model.DestroyAllBalls();
             _currentBallSystem = _gameContext.BallFactory.CreateBall(_container.BallHoldPoint);
             _ballsSystem.Model.AddBallSystem(_currentBallSystem);
+            _isTrajectoryEnable = true;
         }
 
         private void HandleSpawnButton(InputAction.CallbackContext obj)
@@ -101,7 +107,7 @@ namespace PlayerScripts
             _currentBallSystem.Container.Transform.SetParent(null);
             _currentBallSystem = null;
 
-            _container.TrajectoryPredictor.HideTrajectory();
+            _isTrajectoryEnable = false;
         }
 
         private Vector3 ScreenToWorldPosition(Vector2 screenPosition)

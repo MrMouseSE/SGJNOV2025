@@ -9,12 +9,13 @@ namespace BallScripts
         public List<BallSystem> BallSystems = new();
         
         private List<BallSystem> _ballSystemsToRemove = new();
+        private List<BallSystem> _ballSystemsToAdd = new();
 
         public event Action E_AllBallsDestroyed;
         
         public void AddBallSystem(BallSystem system)
         {
-            BallSystems.Add(system);
+            _ballSystemsToAdd.Add(system);
         }
 
         public void RemoveBallSystem(BallSystem system)
@@ -35,6 +36,8 @@ namespace BallScripts
                 ballSystem.Model.DestroyGameObject();
             }
             _ballSystemsToRemove.Clear();
+            BallSystems.AddRange(_ballSystemsToAdd);
+            _ballSystemsToAdd.Clear();
 
             if (BallSystems.Count <= 0)
             {
