@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_6
   m_EditorClassIdentifier: 
   LevelName: Level_6
-  LevelDifficulty: 1
+  LevelDifficulty: 6
   ClearSightCount: 2
   ButtonsCount: 2
   WallHitCount: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -1, y: 0, z: 10}
     TileType: 0
-    IsTileGlowAtStart: 1
+    IsTileGlowAtStart: 0
     IsAvailableToMoveByPlayer: 0
     TilePrefab: {fileID: 0}
   - TilePosition: {x: -2, y: 0, z: 5}
