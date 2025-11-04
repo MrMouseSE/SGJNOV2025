@@ -57,6 +57,7 @@ namespace TileObjectScripts.TileContainers
             if (SpecialMeshRenderer != null) _meshRendererColors.Add(SpecialMeshRenderer, SpecialMeshRenderer.material.GetColor(EmissionColor));
             
             TileModel = tileModel;
+            IsGlowing = isGlowAtStart;
             if (isGlowAtStart) return;
             foreach (var meshRendererColor in _meshRendererColors)
             {
