@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 1076518259}
   - component: {fileID: 1076518261}
   - component: {fileID: 1076518260}
+  - component: {fileID: 1076518262}
   m_Layer: 0
   m_Name: ___GameLogic___
   m_TagString: Untagged
@@ -560,6 +561,37 @@ MonoBehaviour:
   - {fileID: 1657264643}
   - {fileID: 1964813473}
   MenuContainer: {fileID: 1076518260}
+--- !u!114 &1076518262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076518258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 880046605
+      Data2: 1254537607
+      Data3: 227837829
+      Data4: 234671708
+    Path: event:/MAIN MENU MUSIC
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1589976298
 GameObject:
   m_ObjectHideFlags: 0
