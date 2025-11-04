@@ -12,7 +12,7 @@ namespace MainMenuScripts.MainMenuButtons
             _context = context;
             MenuContainer = menuContainer;
             MenuContainer.GameStartButton.ButtonActionPressed += OnStartGameButtonClicked;
-            MenuContainer.SettingsButton.ButtonActionPressed += OnSettingsButtonClicked;
+            //MenuContainer.SettingsButton.ButtonActionPressed += OnSettingsButtonClicked;
             MenuContainer.QuitButton.ButtonActionPressed += OnExitGameButtonClicked;
         }
 
@@ -29,7 +29,7 @@ namespace MainMenuScripts.MainMenuButtons
         private void OnExitGameButtonClicked()
         {
             MenuContainer.GameStartButton.ButtonActionPressed -= OnStartGameButtonClicked;
-            MenuContainer.SettingsButton.ButtonActionPressed -= OnSettingsButtonClicked;
+            //MenuContainer.SettingsButton.ButtonActionPressed -= OnSettingsButtonClicked;
             MenuContainer.QuitButton.ButtonActionPressed -= OnExitGameButtonClicked;
             ApplicationHandler.QuitApplication(_context);
         }

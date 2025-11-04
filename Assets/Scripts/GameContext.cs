@@ -109,6 +109,7 @@ public class GameContext : MonoBehaviour
         _currentButtonsPressed++;
         if (_currentButtonsPressed != GetCurrentLevelData().ButtonsCount) return;
         AllButtonsPressed?.Invoke();
+        _currentButtonsPressed = 0;
     }
 
     public LevelData GetCurrentLevelData()
