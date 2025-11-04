@@ -19,7 +19,7 @@ MonoBehaviour:
   HandCursor: {fileID: 2800000, guid: 77e6b689d6d2796448eb1c8a9dc57988, type: 3}
   FistCursor: {fileID: 2800000, guid: 54a61ed2d8b9aff448a00adad3be5e40, type: 3}
   HandleImpactRadius: 1
-  TilesHandledOffset: {x: 0, y: 0, z: 0}
+  TilesHandledOffset: {x: 0, y: 1.5, z: 0}
   HandleDirectAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -102,11 +102,9 @@ MonoBehaviour:
   NotAvailableToMoveColor: {r: 0.011092661, g: 0.42923692, b: 1.0593472, a: 1}
   LevelData:
   - {fileID: 11400000, guid: af52268bcb5b0a148a5010dd1ea2fea2, type: 2}
-  - {fileID: 11400000, guid: ccc547bdbf4ffa642bd5113322b9cc39, type: 2}
+  - {fileID: 11400000, guid: 8c54bcfebe20d8343b17b19a542a6110, type: 2}
   - {fileID: 11400000, guid: d507463a7ca65414a81873c34ca94aca, type: 2}
-  - {fileID: 11400000, guid: 9a41b350a1bdc6149aee89ee32b60784, type: 2}
-  - {fileID: 11400000, guid: 6a18e93c2c817854a968b29771a96cda, type: 2}
+  - {fileID: 11400000, guid: 19c4d4b4b759e8448b4d92f1ee3dbed2, type: 2}
+  - {fileID: 11400000, guid: 169f2c36a388a9141aa5d4816cd6bef7, type: 2}
   - {fileID: 11400000, guid: e069a05e97d97fd4b8dabd3f19314095, type: 2}
   - {fileID: 11400000, guid: b5afabcaad6705d40916fdff1879f9e9, type: 2}
-  - {fileID: 11400000, guid: 78158c6899d961e43abbaf286581799f, type: 2}
-  - {fileID: 11400000, guid: 169f2c36a388a9141aa5d4816cd6bef7, type: 2}
