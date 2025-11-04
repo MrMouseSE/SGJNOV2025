@@ -32,6 +32,11 @@ namespace BallScripts
             Bounces = container.Bounces;
         }
 
+        public bool IsBallMoving()
+        {
+            return Velocity > 0.01f;
+        }
+
         public void RestoreCurrentBounce()
         {
             _currentBounce = 0;

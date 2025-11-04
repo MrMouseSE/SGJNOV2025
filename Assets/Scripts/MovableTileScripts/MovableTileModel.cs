@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BallScripts;
 using MouseCorsourScripts;
 using MouseCursorScripts;
 using TileObjectScripts;
@@ -34,8 +35,14 @@ namespace MovableTileScripts
             _movableTileObjectHandlers = _tileObjectHandlers.FindAll(x=>x.IsAvailableToMoveByPlayer == true);
         }
 
+        public bool IsObjectMovedRightNow()
+        {
+            return _isObjectCatched;
+        }
+
         public void UpdateModel()
         {
+            if (((BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems))).Model.IsAnyBallMoving()) return;
             if (!_isObjectCatched)
             {
                 _isTileNearest = TryCatchTileObjectHandlerInRadius(out _tileObjectHandlerInRadius);

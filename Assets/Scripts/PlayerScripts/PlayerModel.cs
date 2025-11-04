@@ -1,5 +1,6 @@
 using System;
 using BallScripts;
+using MovableTileScripts;
 using PlayerScripts.MoverLogic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -69,6 +70,7 @@ namespace PlayerScripts
         {
             if (_currentBallSystem == null)
                 return;
+            if (((MovableTileSystem)_gameContext.GetGameSystemByType(typeof(MovableTileSystem))).Model.IsObjectMovedRightNow()) return;
     
             Vector2 mouseScreenPosition = Input.mousePosition;
     

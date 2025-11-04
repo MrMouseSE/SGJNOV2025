@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace BallScripts
 {
@@ -9,6 +8,16 @@ namespace BallScripts
         
         private List<BallSystem> _ballSystemsToRemove = new();
         private List<BallSystem> _ballSystemsToAdd = new();
+
+        public bool IsAnyBallMoving()
+        {
+            bool anyBallMoving = false;
+            foreach (var ballSystem in BallSystems)
+            {
+                anyBallMoving |= ballSystem.Model.IsBallMoving();
+            }
+            return anyBallMoving;
+        }
 
         public void AddBallSystem(BallSystem system)
         {
