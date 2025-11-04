@@ -39,6 +39,7 @@ namespace TileObjectScripts.TileModels
         public override void InteractByBall(BallModel ballModel, Collider touchedCollider)
         {
             if (_isAnimatingFinished || _isAnimating) return;
+            _isAnimating = true;
             _startGlowColor = _container.GlowMeshRenderer.material.GetColor(_container.EmissionColor);
             _endGlowColor = Color.green;
         }
