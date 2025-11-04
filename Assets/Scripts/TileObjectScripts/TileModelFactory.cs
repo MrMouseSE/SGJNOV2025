@@ -32,6 +32,9 @@ namespace TileObjectScripts
                 case TilesTypes.Cross:
                     tileModel = new CrossTileModel((CrossTileContainer)handler.TilePrefab, gameContext);
                     break;
+                case TilesTypes.MoveTo:
+                    tileModel = new MoveToTileModel(handler.TilePrefab);
+                    break;
                 case TilesTypes.ClearSight:
                     tileModel = new ClearSightTileModel((ClearSightTileContainer)handler.TilePrefab);
                     break;

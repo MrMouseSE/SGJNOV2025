@@ -22,7 +22,6 @@ namespace PlayerScripts
             _isInitialized = true;
             _playerContainer = _gameContext.PlayerContainer;
             _model = new PlayerModel(_playerContainer, _gameContext);
-            _gameContext.InitializeSystemByType(typeof(TilesGeneratorSystem));
             _gameContext.InitializeSystemByType(typeof(MouseCursorSystem));
         }
 

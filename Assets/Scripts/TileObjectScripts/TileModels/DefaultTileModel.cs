@@ -62,20 +62,6 @@ namespace TileObjectScripts
         {
             _container.TileTransform.position = position;
         }
-
-        private Vector3 ReflectBall(BallModel ballModel, Collider touchingCollider)
-        {
-            if (!_container.Colliders.Contains(touchingCollider)) return ballModel.Direction;
-    
-            Vector3 closestPoint = touchingCollider.ClosestPoint(ballModel.Position);
-    
-            Vector3 collisionNormal = (ballModel.Position - closestPoint).normalized;
-    
-            if (collisionNormal == Vector3.zero)
-                collisionNormal = (ballModel.Position - _container.transform.position).normalized;
-    
-            return Vector3.Reflect(ballModel.Direction, collisionNormal);
-        }
         
         private void HandleAnimate(float deltaTime)
         {
