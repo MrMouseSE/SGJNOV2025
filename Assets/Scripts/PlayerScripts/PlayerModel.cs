@@ -13,10 +13,10 @@ namespace PlayerScripts
         private readonly PlayerContainer _container;
         private readonly GameContext _gameContext;
         private readonly InputSystemActions _inputSystem;
+        private readonly BallsSystems _ballsSystem;
+        private readonly Camera _camera;
 
         private BallSystem _currentBallSystem;
-        private BallsSystems _ballsSystem;
-        private Camera _camera;
 
         public PlayerModel(PlayerContainer container, GameContext gameContext)
         {
@@ -34,8 +34,7 @@ namespace PlayerScripts
             _ballsSystem = (BallsSystems)_gameContext.GetGameSystemByType(typeof(BallsSystems));
             _ballsSystem.Model.E_AllBallsDestroyed += SpawnBall;
             
-            if (_camera == null)
-                _camera = _gameContext.SceneHandler.GetSceneHandlerByName("GameScene").SceneCamera;
+            _camera = _gameContext.SceneHandler.GetSceneHandlerByName("GameScene").SceneCamera;
         }
 
         public void Dispose()
@@ -43,6 +42,7 @@ namespace PlayerScripts
             _inputSystem.Player.Attack.started -= Shoot;
             _inputSystem.Player.Jump.started -= HandleSpawnButton;
             _ballsSystem.Model.E_AllBallsDestroyed -= SpawnBall;
+            
             PlayerMover.Dispose();
         }
 

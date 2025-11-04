@@ -22,7 +22,7 @@ namespace PlayerScripts.TrajectoryPredictorScripts
         public void ShowTrajectory(Vector3 startPosition, Vector3 direction, BallModel ballModel,
             Transform playerTransform)
         {
-            if (_lineRenderer == null || ballModel == null) return;
+            if (_lineRenderer == null || ballModel == null || ballModel.Collider == null) return;
 
             direction.Normalize();
             float sphereRadius = ballModel.Collider.bounds.extents.x;
